@@ -1,0 +1,12 @@
+{
+  "name": "ejangi-website",
+  "authors": [
+    "James Angus <james@ejangi.com>"
+  ],
+  "private": true,
+  "dependencies": {},
+  "devDependencies": {
+    "modernizr": "~2.8.3",
+    "reset-css": "~2.0.20110126"
+  }
+}

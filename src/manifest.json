@@ -1,0 +1,38 @@
+{
+  "dependencies": {
+    "html": {
+        "files": ["index.html"]
+    },
+    "main.js": {
+      "files": [
+        "scripts/faux-console.js",
+        "scripts/portfolio-showcase.js",
+        "scripts/main.js"
+      ],
+      "main": true
+    },
+    "main.css": {
+      "files": [
+        "styles/main.less"
+      ],
+      "main": true
+    },
+    "preload.css": {
+      "files": [
+        "styles/preload.less"
+      ],
+      "main": false
+    },
+    "modernizr.js": {
+      "vendor": "vendor/modernizr/modernizr.js"
+    }
+  },
+  "config": {
+    "devUrl": "ejangi.dev",
+    "devPath": "dist"
+  },
+  "paths": {
+    "source": "src/",
+    "dist": "dist/"
+  }
+}

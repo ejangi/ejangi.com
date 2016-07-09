@@ -1,0 +1,83 @@
+#intro {
+    min-height: 10rem;
+    background-color: @brand-beige;
+    z-index: 2;
+    .container {
+        position: relative;
+        padding-bottom: 0;
+    }
+}
+
+#identity {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    text-align: right;
+    .containment-padding
+}
+
+#brand {
+    display: block;
+    float: right;
+    font-family: @font-family-vanderchalk;
+    font-size: 24pt;
+    line-height: 120%;
+    z-index: 3;
+    a:link,
+    a:visited {
+        display: block;
+        color: @brand-primary;
+        text-decoration: none;
+        &::after {
+            display: none;
+        }
+    }
+}
+
+@media (min-width: @screen-md),
+only screen and (max-width: @screen-md) and (orientation: landscape) {
+    #brand {
+        font-size: 50pt;
+    }
+}
+
+@media (min-width: @screen-lg) {
+    #brand {
+        font-size: 60pt;
+    }
+}
+
+#description {
+    display: block;
+    float: right;
+    clear: right;
+    font-size: 6pt;
+    text-transform: uppercase;
+    letter-spacing: .1rem;
+    line-height: 135%;
+}
+
+@media (min-width: @screen-md),
+only screen and (max-width: @screen-md) and (orientation: landscape) {
+    #description {
+        font-size: 11pt;
+        letter-spacing: .3rem;
+    }
+}
+
+@media (min-width: @screen-lg) {
+    #description {
+        font-size: 13pt;
+    }
+}
+
+#selfie {
+    float: left;
+    max-width: 33%;
+    img {
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+}
