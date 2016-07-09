@@ -265,12 +265,6 @@ gulp.task('build', function(callback) {
 });
 
 
-gulp.task('deploy', function () {
-    return gulp.src('./dist/**/*')
-        .pipe(deploy());
-});
-
-
 // ### Gulp
 // `gulp` - Run a complete build. To compile for production run `gulp --production`.
 gulp.task('default', ['clean'], function() {
