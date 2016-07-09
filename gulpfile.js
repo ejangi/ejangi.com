@@ -1,23 +1,24 @@
 // ## Globals
 /*global $:true*/
-var $           = require('gulp-load-plugins')();
-var argv        = require('yargs').argv;
-var browserSync = require('browser-sync');
-var reload      = browserSync.reload;
-var gulp        = require('gulp');
-var lazypipe    = require('lazypipe');
-var merge       = require('merge-stream');
-var htmlmin     = require('gulp-html-minifier');
-var swig        = require('gulp-swig');
-var data        = require('gulp-data');
-var rev          = require('gulp-rev');
-var revReplace  = require('gulp-rev-replace');
-var runSequence = require('run-sequence');
-var jshint      = require('gulp-jshint');
-var map         = require('map-stream');
-var lessAutoprefix = require('less-plugin-autoprefix');
-var autoprefix = new lessAutoprefix({ browsers: ['last 2 versions', 'ie 8', 'ie 9', 'android 2.3', 'android 4',
-            'opera 12', 'firefox 20'] });
+var $               = require('gulp-load-plugins')();
+var argv            = require('yargs').argv;
+var browserSync     = require('browser-sync');
+var reload          = browserSync.reload;
+var gulp            = require('gulp');
+var lazypipe        = require('lazypipe');
+var merge           = require('merge-stream');
+var htmlmin         = require('gulp-html-minifier');
+var swig            = require('gulp-swig');
+var data            = require('gulp-data');
+var rev             = require('gulp-rev');
+var revReplace      = require('gulp-rev-replace');
+var runSequence     = require('run-sequence');
+var jshint          = require('gulp-jshint');
+var map             = require('map-stream');
+var deploy          = require('gulp-gh-pages');
+var lessAutoprefix  = require('less-plugin-autoprefix');
+var autoprefix      = new lessAutoprefix({ browsers: ['last 2 versions', 'ie 8', 'ie 9', 'android 2.3', 'android 4',
+                                                        'opera 12', 'firefox 20'] });
 
 // See https://github.com/austinpray/asset-builder
 var manifest = require('asset-builder')('./src/manifest.json');
@@ -261,6 +262,14 @@ gulp.task('build', function(callback) {
           'html',
           callback);
     }
+});
+
+
+gulp.task('deploy', function () {
+    return gulp.src('./dist/**/*')
+        .pipe(deploy({
+            origin: "github"
+        }));
 });
 
 
