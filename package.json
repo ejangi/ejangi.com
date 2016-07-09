@@ -33,6 +33,7 @@
     "imagemin-pngcrush": "^4.0.0",
     "jshint-stylish": "^1.0.1",
     "lazypipe": "^0.2.2",
+    "less-plugin-autoprefix": "^1.5.1",
     "map-stream": "0.0.6",
     "merge-stream": "^0.1.7",
     "run-sequence": "^1.1.0",

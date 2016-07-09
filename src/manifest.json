@@ -25,6 +25,12 @@
     },
     "modernizr.js": {
       "vendor": "vendor/modernizr/modernizr.js"
+    },
+    "cssrelpreload.js": {
+      "vendor": [
+        "vendor/loadcss/src/loadcss.js",
+        "vendor/loadcss/src/cssrelpreload.js"
+      ]
     }
   },
   "config": {

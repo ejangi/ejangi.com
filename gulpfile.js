@@ -10,10 +10,14 @@ var merge       = require('merge-stream');
 var htmlmin     = require('gulp-html-minifier');
 var swig        = require('gulp-swig');
 var data        = require('gulp-data');
+var rev          = require('gulp-rev');
 var revReplace  = require('gulp-rev-replace');
 var runSequence = require('run-sequence');
 var jshint      = require('gulp-jshint');
 var map         = require('map-stream');
+var lessAutoprefix = require('less-plugin-autoprefix');
+var autoprefix = new lessAutoprefix({ browsers: ['last 2 versions', 'ie 8', 'ie 9', 'android 2.3', 'android 4',
+            'opera 12', 'firefox 20'] });
 
 // See https://github.com/austinpray/asset-builder
 var manifest = require('asset-builder')('./src/manifest.json');
@@ -80,18 +84,10 @@ var cssTasks = function(filename) {
     .pipe(function() {
       return $.if(enabled.maps, $.sourcemaps.init());
     })
-      .pipe(function() {
-        return $.if('*.less', $.less());
-      })
-      .pipe($.concat, filename)
-      .pipe($.pleeease, {
-        autoprefixer: {
-          browsers: [
-            'last 2 versions', 'ie 8', 'ie 9', 'android 2.3', 'android 4',
-            'opera 12', 'firefox 20'
-          ]
-        }
-      })
+    .pipe(function() {
+        return $.if('*.less', $.less({ plugins: [autoprefix], compress: enabled.rev }));
+    })
+    .pipe($.concat, filename)
     .pipe(function() {
       return $.if(enabled.rev, $.rev());
     })
@@ -129,9 +125,7 @@ var jsTasks = function(filename) {
 var writeToManifest = function(directory) {
   return lazypipe()
     .pipe(gulp.dest, path.dist + directory)
-    .pipe(function() {
-      return $.if('**/*.{js,css}', browserSync.reload({stream:true}));
-    })
+    .pipe(browserSync.stream, {match: '**/*.{js,css}'})
     .pipe($.rev.manifest, revManifest, {
       base: path.dist,
       merge: true
@@ -208,6 +202,12 @@ gulp.task('images', function() {
 
 
 gulp.task('html', function() {
+    if(enabled.rev) {
+        var mani = require("./"+revManifest);
+        site.preloadcss = mani["preload.css"];
+    } else {
+        site.preloadcss = "preload.css"
+    }
   gulp.src(manifest.dependencies.html.files)
     .pipe(data(site))
     .pipe(swig())
@@ -241,7 +241,7 @@ gulp.task('watch', function() {
   gulp.watch([path.source + 'scripts/**/*'], ['jshint', 'scripts']);
   gulp.watch([path.source + 'fonts/**/*'], ['fonts']);
   gulp.watch([path.source + 'images/**/*'], ['images']);
-  gulp.watch([path.source + '**/*.html', 'site.json'], ['html']);
+  gulp.watch([path.source + '**/*.html', 'site.json', "sections/**/*"], ['html']);
 });
 
 // ### Build
@@ -249,7 +249,7 @@ gulp.task('watch', function() {
 // Generally you should be running `gulp` instead of `gulp build`.
 // gulp.task('build', ['styles', 'scripts', 'fonts', 'images', 'html']);
 gulp.task('build', function(callback) {
-    if(enabled.rev) {
+    if(argv.production) {
         runSequence(
           ['scripts', 'styles', 'fonts', 'images'],
           'html',
