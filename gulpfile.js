@@ -15,7 +15,7 @@ var revReplace      = require('gulp-rev-replace');
 var runSequence     = require('run-sequence');
 var jshint          = require('gulp-jshint');
 var map             = require('map-stream');
-var deploy          = require('gulp-gh-pages');
+var run             = require('gulp-run');
 var lessAutoprefix  = require('less-plugin-autoprefix');
 var autoprefix      = new lessAutoprefix({ browsers: ['last 2 versions', 'ie 8', 'ie 9', 'android 2.3', 'android 4',
                                                         'opera 12', 'firefox 20'] });
@@ -222,6 +222,10 @@ gulp.task("revreplace", function(){
     .pipe(revReplace({manifest: mani}))
     .pipe(gulp.dest(path.dist));
 });
+
+gulp.task('deploy', function() {
+  return run('python ghp-import.py -p ./dist/').exec();
+})
 
 // ### Clean
 // `gulp clean` - Deletes the build folder entirely.
