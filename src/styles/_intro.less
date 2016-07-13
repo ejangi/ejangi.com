@@ -81,3 +81,63 @@ only screen and (max-width: @screen-md) and (orientation: landscape) {
         height: auto;
     }
 }
+
+
+
+#about .container > h1:first-child {
+    transition: color .5s ease-in-out;
+}
+
+#about:hover > .container > h1:first-child {
+    color: @brand-primary;
+}
+
+#philosophy,
+#technical {
+    width: 100%;
+    overflow: hidden;
+}
+
+#philosophy {
+    padding-bottom: 5%;
+}
+
+#values,
+#skills {
+    position: relative;
+    margin-bottom: @margin-bottom;
+    overflow: hidden;
+}
+
+#heart {
+    width: 100%;
+    background-color: @brand-pink-light;
+    border-radius: 6px;
+    text-align: center;
+    padding: 1.5rem 2rem;
+    .csstransforms & {
+        background: radial-gradient(ellipse at center, @brand-pink-light 0%, @brand-pink-dark 100%); 
+    }
+    .csstransforms &::after {
+        content: ' ';
+        position: absolute;
+        top: 28%;
+        left: 0;
+        width: 150%;
+        height: 100%;
+        background-color: rgba(255,255,255,0.2);
+        transform: rotate(-17deg);
+    }
+}
+
+@media (min-width: @screen-md) {
+    #values,
+    #strengths {
+        .halfleft();
+    }
+
+    #beliefs,
+    #skills {
+        .halfright();
+    }
+}
