@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" id="sucamps-icon">
+    <defs>
+        <style>
+            @keyframes opacity-cycle {
+                0% {
+                    opacity: 0.5;
+                }
+                50% {
+                    opacity: 0;
+                }
+                100% {
+                    opacity: 0.5;
+                }
+            }
+            #blo {
+                animation: opacity-cycle 2s infinite;
+            }
+            #bro {
+                animation: opacity-cycle 2s infinite;
+                animation-delay: .5s;
+            }
+        </style>
+    </defs>
+      <rect id="tl" width="64" height="64" fill="#579835"/>
+      <rect id="tr" x="64" width="64" height="64" fill="#b2d235"/>
+      <rect id="bl" y="64" width="64" height="64" fill="#b2d235"/>
+      <rect id="br" x="64" y="64" width="64" height="64" fill="#72bf44"/>
+      <polygon id="blo" points="0 128 0 64 64 64 0 128" fill="#b2d235" opacity="0.5" style="mix-blend-mode: multiply"/>
+      <polygon id="bro" points="128 128 64 128 64 64 128 128" fill="#72bf44" opacity="0.5" style="mix-blend-mode: multiply"/>
+</svg>
