@@ -1,31 +1,40 @@
-<svg id="dolcestrings-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
-  <title>dolcestrings-icon</title>
-  <rect width="128" height="128" fill="#eee"/>
-  <text transform="translate(11.75 20.28)" font-size="13" font-family="Helvetica Neue" font-weight="700">Practice Per Day</text>
-  <rect x="11" y="30" width="106" height="14" fill="#fff"/>
-  <rect x="11" y="30" width="79.5" height="14" fill="#e9f8fe"/>
-  <text transform="translate(14.75 40.85)" font-size="11" fill="#444" font-family="Helvetica Neue" font-weight="700">45</text>
-  <text transform="translate(28.5 40.95)" font-size="6" fill="#444" font-family="Helvetica Neue">minutes</text>
-  <rect x="90.5" y="30" width="1" height="14" fill="#b8e7f8"/>
-  <text transform="translate(83.16 40.18)" font-size="9" fill="#777" font-family="Helvetica Neue">Sunday</text>
-  <rect x="11" y="48" width="106" height="14" fill="#fff"/>
-  <rect x="11" y="48" width="53" height="14" fill="#e9f8fe"/>
-  <text transform="translate(14.75 58.85)" font-size="11" fill="#444" font-family="Helvetica Neue" font-weight="700">30</text>
-  <text transform="translate(28.5 58.95)" font-size="6" fill="#444" font-family="Helvetica Neue">minutes</text>
-  <rect x="64" y="48" width="1" height="14" fill="#b8e7f8"/>
-  <text transform="translate(80.99 58.18)" font-size="9" fill="#777" font-family="Helvetica Neue">Monday</text>
-  <rect x="11" y="66" width="106" height="14" fill="#e9f8fe"/>
-  <text transform="translate(14.75 76.85)" font-size="11" fill="#444" font-family="Helvetica Neue" font-weight="700">60</text>
-  <text transform="translate(28.5 76.95)" font-size="6" fill="#444" font-family="Helvetica Neue">minutes</text>
-  <text transform="translate(80.32 76.18)" font-size="9" fill="#777" font-family="Helvetica Neue">T<tspan x="4.34" y="0">uesday</tspan></text>
-  <rect x="11" y="84" width="106" height="14" fill="#fff"/>
-  <rect x="11" y="84" width="26.5" height="14" fill="#e9f8fe"/>
-  <text transform="translate(14.75 94.85)" font-size="11" fill="#444" font-family="Helvetica Neue" font-weight="700">15</text>
-  <rect x="37.5" y="84" width="1" height="14" fill="#b8e7f8"/>
-  <text transform="translate(28.5 94.95)" font-size="6" fill="#444" font-family="Helvetica Neue">minutes</text>
-  <text transform="translate(66.67 94.18)" font-size="9" fill="#777" font-family="Helvetica Neue">W<tspan x="7.82" y="0">ednesday</tspan></text>
-  <rect x="11" y="102" width="106" height="14" fill="#e9f8fe"/>
-  <text transform="translate(14.75 112.85)" font-size="11" fill="#444" font-family="Helvetica Neue" font-weight="700">60</text>
-  <text transform="translate(28.5 112.95)" font-size="6" fill="#444" font-family="Helvetica Neue">minutes</text>
-  <text transform="translate(76.33 112.18)" font-size="9" fill="#777" font-family="Helvetica Neue">Thursday</text>
+<svg version="1.1" id="dolcestrings-icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 128 128" enable-background="new 0 0 128 128" xml:space="preserve">
+<rect fill="#282B2D" width="128" height="128"/>
+<rect id="bg" x="11" y="43" fill="#FFFFFF" width="106" height="42"/>
+<g id="progress-clip">
+    <defs>
+        <rect id="clip" x="11" y="43" width="106" height="42"/>
+        <style>
+            @keyframes progress-cycle {
+                0% {
+                    transform: translateX(-100px);
+                }
+                10% {
+                    transform: translateX(-10px);
+                }
+                70% {
+                    transform: translateX(-10px);
+                }
+                80% {
+                    transform: translateX(-100px);
+                }
+                100% {
+                    transform: translateX(-100px);
+                }
+            }
+            #progress-bar {
+                animation: progress-cycle 5s infinite;
+            }
+        </style>
+    </defs>
+    <clipPath id="clip_1_">
+        <use xlink:href="#clip"  overflow="visible"/>
+    </clipPath>
+    <g id="progress" clip-path="url(#clip_1_)">
+        <g id="progress-bar">
+            <rect x="10" y="42" fill="#E9F8FE" width="108" height="44"/>
+            <path fill="#B8E7F8" d="M117,43v42H11V43H117 M119,41h-2H11H9v2v42v2h2h106h2v-2V43V41L119,41z"/>
+        </g>
+    </g>
+</g>
 </svg>
