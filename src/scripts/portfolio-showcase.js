@@ -77,14 +77,17 @@
 
     PortfolioShowcase.prototype.setActiveProject = function(elem) {
         for(var i = 0; i < this.dom.projects.length; i++) {
+            var video = this.dom.projects[i].querySelector("video");
             if (this.dom.projects[i] === elem) {
                 this.dom.projects[i].removeAttribute("data-hidden");
                 this.dom.inheritsProjectData.dataset.background = this.dom.projects[i].dataset.background;
                 this.dom.inheritsProjectData.dataset.category = this.dom.projects[i].dataset.category;
                 document.getElementById("menu-" + this.dom.projects[i].getAttribute("id")).className = "active";
+                if(video) video.play();
             } else {
                 this.dom.projects[i].setAttribute("data-hidden", true);
                 document.getElementById("menu-" + this.dom.projects[i].getAttribute("id")).className = "inactive";
+                if(video) video.pause();
             }
         }
     };
@@ -111,13 +114,18 @@
             if(label) {
                 var fig = document.createElement("figure");
                 var img = document.createElement("img");
-                var icon = this.dom.projects[i].querySelector("img").getAttribute("src"),
+                var icon,
                     iconAttr = this.dom.projects[i].getAttribute("data-icon");
+                if(this.dom.projects[i].querySelector("img")) {
+                    icon = this.dom.projects[i].querySelector("img").getAttribute("src");
+                }
                 if(iconAttr) {
                     icon = iconAttr;
                 }
-                img.setAttribute("src", icon);
-                fig.appendChild(img);
+                if(icon) {
+                    img.setAttribute("src", icon);
+                    fig.appendChild(img);
+                }
                 li.appendChild(fig);
                 var figcap = document.createElement("figcaption");
                 figcap.innerHTML = document.getElementById(label).innerHTML;
