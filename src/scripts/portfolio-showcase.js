@@ -110,27 +110,28 @@
                 li.setAttribute("id", "menu-" + this.dom.projects[i].id);
                 li.setAttribute("data-target", this.dom.projects[i].id);
             }
-            var label = this.dom.projects[i].getAttribute("aria-labelledby");
-            if(label) {
-                var fig = document.createElement("figure");
+            var label = this.dom.projects[i].getAttribute("aria-labelledby"),
+                fig = document.createElement("figure"),
+                icon,
+                firstImg = this.dom.projects[i].querySelector("img"),
+                iconAttr = this.dom.projects[i].getAttribute("data-icon");
+            if(firstImg) {
+                icon = firstImg.getAttribute("src");
+            }
+            if(iconAttr) {
+                icon = iconAttr;
+            }
+            if(icon) {
                 var img = document.createElement("img");
-                var icon,
-                    iconAttr = this.dom.projects[i].getAttribute("data-icon");
-                if(this.dom.projects[i].querySelector("img")) {
-                    icon = this.dom.projects[i].querySelector("img").getAttribute("src");
-                }
-                if(iconAttr) {
-                    icon = iconAttr;
-                }
-                if(icon) {
-                    img.setAttribute("src", icon);
-                    fig.appendChild(img);
-                }
-                li.appendChild(fig);
+                img.setAttribute("src", icon);
+                fig.appendChild(img);
+            }
+            if(label) {
                 var figcap = document.createElement("figcaption");
                 figcap.innerHTML = document.getElementById(label).innerHTML;
                 fig.appendChild(figcap);
             }
+            li.appendChild(fig);
             li.addEventListener("click", function(e){
                 var t = e.target;
                 while(t.tagName != "LI") {
