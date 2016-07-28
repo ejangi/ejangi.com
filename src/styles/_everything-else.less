@@ -368,14 +368,10 @@
 @media (min-width: @screen-md) {
     .project {
         margin-bottom: 10%;
-        & > figure {
-            .halfright();
-            margin-bottom: 0;
-            background-position: 52% center;
-        }
-
         & > .description {
-            .halfleft();
+            max-width: 468px;
+            margin-left: auto;
+            margin-right: auto;
         }
     }
 }
