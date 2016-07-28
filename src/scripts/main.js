@@ -7,7 +7,14 @@
         anchors[i].innerHTML = '<span class="txt">' + text + '</span>';
     }
 
+    function isVisible(el) {
+        var bounds = el.getBoundingClientRect(),
+            height = Math.max(document.documentElement.clientHeight, window.innerHeight);
+        return !(bounds.bottom < 0 || bounds.top - height >= 0);
+    }
+
     function fcAnimate() {
+        fcTriggered = true;
         fc.typeWriter("whoami");
         fc.typeWriter("\nJames Angus");
         fc.newPrompt();
@@ -19,19 +26,18 @@
     }
 
     var fc, 
-        fcDiv = document.querySelector("#console");
+        fcDiv = document.querySelector("#console"),
+        fcTriggered = false;
     if(fcDiv) {
         fc = new FauxConsole(fcDiv, {
             title: "Auto Console"
         });
-        
-        if(!window.requestAnimationFrame) {
-            fcAnimate();
-        } else {
-            window.requestAnimationFrame(function(){        
-                fcAnimate();
-            });
-        }
+
+        window.addEventListener("scroll", function() {
+            if(!fcTriggered && isVisible(fcDiv)) {
+                fcAnimate();    
+            }
+        });
     }
 
     var ps, 
