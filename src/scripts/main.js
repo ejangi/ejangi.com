@@ -1,6 +1,8 @@
 
 ;(function(window, document, undefined){
 
+    document.querySelector("html").className = "js";
+
     var anchors = document.querySelectorAll(".container p a, .container #email a");
     for(var i = 0; i < anchors.length; i++) {
         var text = anchors[i].innerText || anchors[i].textContent;
@@ -48,5 +50,7 @@
             inheritsProjectData: iPD
         });
     }
+
+    new FullscreenVideo();
 
 })(window, document);

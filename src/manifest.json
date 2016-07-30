@@ -7,6 +7,7 @@
       "files": [
         "scripts/faux-console.js",
         "scripts/portfolio-showcase.js",
+        "scripts/fullscreen-video.js",
         "scripts/main.js"
       ],
       "main": true
@@ -22,9 +23,6 @@
         "styles/preload.less"
       ],
       "main": false
-    },
-    "modernizr.js": {
-      "vendor": "vendor/modernizr/modernizr.js"
     },
     "cssrelpreload.js": {
       "vendor": [

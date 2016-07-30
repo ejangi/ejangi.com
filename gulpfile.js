@@ -207,7 +207,7 @@ gulp.task('html', function() {
         var mani = require("./"+revManifest);
         site.preloadcss = mani["preload.css"];
     } else {
-        site.preloadcss = "preload.css"
+        site.preloadcss = "preload.css";
     }
   gulp.src(manifest.dependencies.html.files)
     .pipe(data(site))
@@ -225,7 +225,7 @@ gulp.task("revreplace", function(){
 
 gulp.task('deploy', function() {
   return run('python ghp-import.py -p ./dist/').exec();
-})
+});
 
 // ### Clean
 // `gulp clean` - Deletes the build folder entirely.

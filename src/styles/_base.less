@@ -76,22 +76,22 @@ a:visited {
     text-decoration: none;
 }
 
-.csstransitions a:link,
-.csstransitions a:visited {
+.js a:link,
+.js a:visited {
     position: relative;
     display: inline-block;
     transition: color .2s ease-in-out;
     z-index: 10;
 }
 
-.csstransitions a:link .txt,
-.csstransitions a:visited .txt {
+.js a:link .txt,
+.js a:visited .txt {
     position: relative;
     z-index: 10;
 }
 
-.csstransitions a:link::after,
-.csstransitions a:visited::after {
+.js a:link::after,
+.js a:visited::after {
     position: absolute;
     left: 0;
     right: 0;
@@ -110,13 +110,13 @@ a:active {
     text-decoration: underline;
 }
 
-.csstransitions a:hover,
-.csstransitions a:active {
+.js a:hover,
+.js a:active {
     text-decoration: none;
 }
 
-.csstransitions a:hover::after,
-.csstransitions a:active::after {
+.js a:hover::after,
+.js a:active::after {
     height: 100%;
 }
 
