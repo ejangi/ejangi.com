@@ -483,7 +483,8 @@
         transition: all .2s ease-in-out;
     }
     a:hover,
-    a:active {
+    a:active,
+    a:focus {
         color: @brand-grey;
         background-color: @brand-beige;
         border-color: @brand-beige;
@@ -495,7 +496,8 @@
     }
 
     .js & a:hover::after,
-    .js & a:active::after {
+    .js & a:active::after,
+    .js & a:focus::after {
         background-color: transparent;
     }
 }

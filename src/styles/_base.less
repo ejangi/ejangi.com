@@ -105,18 +105,21 @@ a:visited {
 }
 
 a:hover,
-a:active {
+a:active,
+a:focus {
     color: white;
     text-decoration: underline;
 }
 
 .js a:hover,
-.js a:active {
+.js a:active,
+.js a:focus {
     text-decoration: none;
 }
 
 .js a:hover::after,
-.js a:active::after {
+.js a:active::after,
+.js a:focus::after {
     height: 100%;
 }
 
