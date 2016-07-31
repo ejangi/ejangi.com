@@ -1,12 +1,21 @@
 
 ;(function(window, document, undefined){
 
-    document.querySelector("html").className = "js";
+    if('ontouchstart' in window || window.DocumentTouch && document instanceof DocumentTouch) {
+        document.querySelector("html").className = "js touch";
+    } else {
+        document.querySelector("html").className = "js";
+    }
 
     var anchors = document.querySelectorAll(".container p a, .container #email a");
     for(var i = 0; i < anchors.length; i++) {
         var text = anchors[i].innerText || anchors[i].textContent;
         anchors[i].innerHTML = '<span class="txt">' + text + '</span>';
+    }
+
+    var clickTouches = document.querySelectorAll("html.touch .click-tap");
+    for(var ct = 0; ct < clickTouches.length; ct++) {
+        clickTouches[ct].textContent = "Tap";
     }
 
     function isVisible(el) {

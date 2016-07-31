@@ -85,5 +85,10 @@
             // Apply to all video elements:
             this.applyToElements(document.querySelectorAll("video"));
         }
+
+        var notices = document.querySelectorAll(".fullscreen-notice");
+        for(var n = 0; n < notices.length; n++) {
+            notices[n].removeAttribute("hidden");
+        }
     };
 })(window, document);
