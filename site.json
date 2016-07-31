@@ -1,6 +1,6 @@
 {
     "title": "James Angus",
     "description": "Online Portfolio",
-    "sections": ["intro", "about", "skillset", "timeline", "portfolio", "contact"],
+    "sections": ["intro", "about", "skillset", "portfolio", "contact"],
     "googleAnalyticsID": ""
 }
