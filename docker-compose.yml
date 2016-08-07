@@ -7,7 +7,4 @@ services:
       - ./nginx.conf:/etc/nginx/nginx.conf
     ports:
       - "3001:80"
-    environment:
-      - NGINX_HOST=ejangi.com
-      - NGINX_PORT=80
     command: /bin/bash -c "nginx -g 'daemon off;'"
