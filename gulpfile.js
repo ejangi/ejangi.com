@@ -17,8 +17,7 @@ var jshint          = require('gulp-jshint');
 var map             = require('map-stream');
 var run             = require('gulp-run');
 var lessAutoprefix  = require('less-plugin-autoprefix');
-var autoprefix      = new lessAutoprefix({ browsers: ['last 2 versions', 'ie 8', 'ie 9', 'android 2.3', 'android 4',
-                                                        'opera 12', 'firefox 20'] });
+var autoprefix      = new lessAutoprefix({ browsers: ['last 2 versions', 'ie 9', 'android 4'] });
 
 // See https://github.com/austinpray/asset-builder
 var manifest = require('asset-builder')('./src/manifest.json');
