@@ -2,5 +2,5 @@
     "title": "James Angus",
     "description": "Online Portfolio",
     "sections": ["intro", "about", "skillset", "portfolio", "contact"],
-    "googleAnalyticsID": ""
+    "googleAnalyticsID": "UA-12314225-1"
 }
