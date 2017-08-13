@@ -32,7 +32,6 @@
     }
   },
   "config": {
-    "devUrl": "ejangi-static.dev",
     "devPath": "dist"
   },
   "paths": {
