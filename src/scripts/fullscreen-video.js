@@ -52,7 +52,7 @@
             el.style.left = "";
             el.style.right = "";
             el.style.width = "";
-            el.style.height = ""
+            el.style.height = "";
             el.style.zIndex = "";
             el.style.backgroundColor = "";
         };
