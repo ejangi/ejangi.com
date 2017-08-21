@@ -8,6 +8,7 @@
         "scripts/faux-console.js",
         "scripts/portfolio-showcase.js",
         "scripts/fullscreen-video.js",
+        "scripts/defer-sources.js",
         "scripts/main.js"
       ],
       "main": true

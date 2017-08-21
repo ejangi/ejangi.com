@@ -62,4 +62,6 @@
 
     new FullscreenVideo();
 
+    new DeferSources();
+
 })(window, document);
