@@ -215,6 +215,11 @@ gulp.task('html', function() {
     .pipe(gulp.dest(path.dist));
 });
 
+gulp.task("cname", function(){
+  return gulp.src(path.dist + "CNAME")
+    .pipe(gulp.dest(path.dist));
+});
+
 gulp.task("revreplace", function(){
   var mani = gulp.src(revManifest);
   return gulp.src(path.dist + "/index.html")
@@ -257,6 +262,7 @@ gulp.task('build', function(callback) {
           ['scripts', 'styles', 'fonts', 'images'],
           'html',
           'revreplace',
+          'cname',
           callback);
     } else {
         runSequence(
