@@ -343,36 +343,57 @@
 #email {
     margin: (@margin-bottom * 2) 0;
     text-align: center;
-    a:link,
-    a:visited {
-        display: inline-block;
-        margin: 0 auto;
-        padding: 1rem 2rem;
-        color: @brand-beige;
-        background-color: transparent;
-        border: 5px solid @brand-beige;
-        font-size: 10pt;
-        text-transform: uppercase;
-        letter-spacing: .2rem;
-        transition: all .2s ease-in-out;
-    }
-    a:hover,
-    a:active,
-    a:focus {
-        color: @brand-grey;
-        background-color: @brand-beige;
-        border-color: @brand-beige;
-    }
-    .js & a:link::after,
-    .js & a:visited::after {
-        bottom: -2px;
-        background-color: @brand-beige;
+    .address {
+        a:link,
+        a:visited {
+            display: inline-block;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            color: @brand-beige;
+            background-color: transparent;
+            border: 5px solid @brand-beige;
+            font-size: 10pt;
+            text-transform: uppercase;
+            letter-spacing: .2rem;
+            transition: all .2s ease-in-out;
+        }
+        a:hover,
+        a:active,
+        a:focus {
+            color: @brand-grey;
+            background-color: @brand-beige;
+            border-color: @brand-beige;
+        }
+        .js & a:link::after,
+        .js & a:visited::after {
+            bottom: -2px;
+            background-color: @brand-beige;
+        }
+
+        .js & a:hover::after,
+        .js & a:active::after,
+        .js & a:focus::after {
+            background-color: transparent;
+        }
     }
 
-    .js & a:hover::after,
-    .js & a:active::after,
-    .js & a:focus::after {
-        background-color: transparent;
+    .pgp {
+        color: @brand-beige;
+        a:link,
+        a:visited {
+            color: @brand-beige;
+        }
+
+        .js & a:link::after,
+        .js & a:visited::after {
+            background-color: @brand-beige;
+        }
+
+        .js & a:hover .txt,
+        .js & a:active .txt,
+        .js & a:focus .txt {
+            color: @brand-grey;
+        }
     }
 }
 
