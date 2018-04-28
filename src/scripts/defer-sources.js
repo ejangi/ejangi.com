@@ -14,7 +14,9 @@
             for(var s = 0; s < videos.length; s++) {
                 if (videos[s].hasAttribute("data-src")) {
                     videos[s].setAttribute("src", videos[s].getAttribute("data-src"));
-                    videos[s].load();
+                    if (videos[s].hasAttribute("autoplay") || videos[s].hasAttribute("data-autoload")) {
+                        videos[s].load();
+                    }
                     if (videos[s].hasAttribute("autoplay")) {
                         videos[s].play();
                     }
