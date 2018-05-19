@@ -1,3 +1,3 @@
 # ejangi.com
 
-Static site for ejangi.com
+Wordpress Theme for ejangi.com
