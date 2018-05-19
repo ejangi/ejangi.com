@@ -6,6 +6,8 @@ wp-content/*.*
 wp-content/.DS_Store
 wp-content/plugins
 wp-content/themes/*.*
+wp-content/themes/.DS_Store
+wp-content/themes/ejangi/.DS_Store
 wp-content/themes/twentyfifteen
 wp-content/themes/twentysixteen
 wp-content/themes/twentyseventeen
