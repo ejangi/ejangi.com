@@ -3,6 +3,7 @@ mariadb_root_password
 mariadb-data/
 !mariadb-data/.*
 wp-content/*.*
+wp-content/.DS_Store
 wp-content/plugins
 wp-content/themes/*.*
 wp-content/themes/twentyfifteen

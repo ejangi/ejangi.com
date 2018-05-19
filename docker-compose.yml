@@ -1,7 +1,7 @@
 version: '3.1'
 services:
   ejangi:
-    image: wordpress
+    build: .
     ports:
       - 8081:80
     volumes:
