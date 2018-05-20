@@ -1,4 +1,5 @@
 .DS_Store
+node_modules
 mariadb_root_password
 mariadb-data/
 !mariadb-data/.*
