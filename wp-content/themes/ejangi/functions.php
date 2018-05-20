@@ -27,6 +27,7 @@ const theme = 'ejangi';
 add_action( 'wp_enqueue_scripts', function() {
 
     wp_enqueue_style( theme.'-styles', get_stylesheet_directory_uri().'/styles/main.css', [], theme );
+    wp_enqueue_script( theme.'-bootstrap', get_stylesheet_directory_uri().'/scripts/bootstrap.min.js', [ 'jquery' ], theme );
     wp_enqueue_script( theme.'-scripts', get_stylesheet_directory_uri().'/scripts/app.min.js', [ 'jquery' ], theme );
 
 } );

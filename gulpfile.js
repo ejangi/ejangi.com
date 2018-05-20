@@ -31,6 +31,11 @@ gulp.task('css', function(){
     .pipe(gulp.dest(dest+'/styles'))
 });
 
+gulp.task('bootstrap', function(){
+  return gulp.src('node_modules/bootstrap/dist/js/bootstrap.min.js')
+    .pipe(gulp.dest(dest+'/scripts'))
+});
+
 gulp.task('js', function(){
   return rollup({
       input: './src/scripts/app.js',
@@ -103,7 +108,7 @@ gulp.task('js', function(){
     .pipe(gulp.dest(dest+'/scripts'))
 });
 
-gulp.task('default', [ 'php', 'style.css', 'css', 'js' ]);
+gulp.task('default', [ 'php', 'style.css', 'css', 'js', 'bootstrap' ]);
 
 gulp.task('watch', function() {
     gulp.watch('src/styles/*.scss', ['css']);

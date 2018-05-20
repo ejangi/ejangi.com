@@ -21,14 +21,16 @@ namespace Ejangi;
                 <div class="container">
           
                     <div class="navbar-header">
-                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
+                        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+                            <span class="navbar-toggler-icon"></span>
                         </button>
 
                         <a class="navbar-brand" title="<?php echo get_bloginfo('description'); ?>" href="<?php echo home_url(); ?>"><?php bloginfo('name'); ?></a>
                     </div>
+
+                    <? if( get_theme_mod( theme.'_me' ) ) : ?>
+                    <div class="col me"><?= get_theme_mod( theme.'_me' ) ?></div>
+                    <? endif ?>
 
                     <div class="collapse navbar-collapse navbar-responsive-collapse">
                         <?php main_nav(); ?>
@@ -46,3 +48,5 @@ namespace Ejangi;
             </div>
         
         </header>
+
+        <main>

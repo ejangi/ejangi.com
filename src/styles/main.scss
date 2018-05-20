@@ -1,29 +1,23 @@
-@import "node_modules/bootstrap/scss/functions";
-@import "node_modules/bootstrap/scss/variables";
-@import "node_modules/bootstrap/scss/mixins";
-@import "node_modules/bootstrap/scss/root";
-@import "node_modules/bootstrap/scss/reboot";
-@import "node_modules/bootstrap/scss/type";
-@import "node_modules/bootstrap/scss/images";
-@import "node_modules/bootstrap/scss/code";
-@import "node_modules/bootstrap/scss/grid";
-@import "node_modules/bootstrap/scss/tables";
-@import "node_modules/bootstrap/scss/forms";
-@import "node_modules/bootstrap/scss/buttons";
-@import "node_modules/bootstrap/scss/transitions";
+// @import "node_modules/bootstrap/scss/functions";
+// @import "node_modules/bootstrap/scss/variables";
+// @import "node_modules/bootstrap/scss/mixins";
+// @import "node_modules/bootstrap/scss/root";
+// @import "node_modules/bootstrap/scss/reboot";
+// @import "node_modules/bootstrap/scss/type";
+// @import "node_modules/bootstrap/scss/images";
+// @import "node_modules/bootstrap/scss/code";
+// @import "node_modules/bootstrap/scss/grid";
+// @import "node_modules/bootstrap/scss/tables";
+// @import "node_modules/bootstrap/scss/forms";
+// @import "node_modules/bootstrap/scss/buttons";
+// @import "node_modules/bootstrap/scss/transitions";
 
-@import "node_modules/bootstrap/scss/nav";
-@import "node_modules/bootstrap/scss/navbar";
+// @import "node_modules/bootstrap/scss/nav";
+// @import "node_modules/bootstrap/scss/navbar";
 
-@import "node_modules/bootstrap/scss/print";
+// @import "node_modules/bootstrap/scss/print";
 
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700,700i');
+@import "node_modules/bootstrap/scss/bootstrap.scss";
 
-body {
-    font-family: 'Open Sans', sans-serif;
-}
-
-h1 {
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 900;
-}
+@import "typography";
+@import "me";
