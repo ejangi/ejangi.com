@@ -3,8 +3,14 @@ const watch = require('gulp-watch');
 const sass = require('gulp-sass');
 const minifyCSS = require('gulp-csso');
 const concat = require('gulp-concat');
-const babel = require('gulp-babel');
 const sourcemaps = require('gulp-sourcemaps');
+const rollup = require('rollup-stream');
+const babel = require('rollup-plugin-babel')
+const source = require('vinyl-source-stream');
+const buffer = require('vinyl-buffer');
+const eslint = require('rollup-plugin-eslint');
+const uglify = require('gulp-uglifyes');
+const rename = require('gulp-rename');
 
 const dest = 'wp-content/themes/ejangi';
 
@@ -26,13 +32,74 @@ gulp.task('css', function(){
 });
 
 gulp.task('js', function(){
-  return gulp.src('src/scripts/*.js')
-    .pipe(sourcemaps.init())
-    .pipe(babel({
-        presets: ['env']
+  return rollup({
+      input: './src/scripts/app.js',
+      sourcemap: true,
+      format: 'umd',
+      external: [ 'jquery' ],
+      globals: { 
+        jquery: 'jQuery' 
+      },
+      name: 'ejangi',
+      plugins: [
+        babel({
+            exclude: 'node_modules/**', // Only transpile our source code
+            externalHelpersWhitelist: [ // Include only required helpers
+              'defineProperties',
+              'createClass',
+              'inheritsLoose',
+              'defineProperty',
+              'objectSpread'
+            ]
+          }),
+        eslint({
+          "env": {
+            "es6": true,
+            "browser": true,
+            "node": false
+          },
+          "parserOptions": {
+            "ecmaVersion": 6,
+            "sourceType": "module"
+          },
+          "rules": {
+            "consistent-return": "off",
+            "func-style": "off",
+            "no-console": "off",
+            "no-magic-numbers": "off",
+            "no-process-env": "off",
+            "no-process-exit": "off",
+            "no-sync": "off",
+            "spaced-comment": "off"
+          }
+        })
+      ]
+    })
+
+    // point to the entry file.
+    .pipe(source('app.js', './src/scripts'))
+
+    // buffer the output. most gulp plugins, including gulp-sourcemaps, don't support streams.
+    .pipe(buffer())
+
+    // tell gulp-sourcemaps to load the inline sourcemap produced by rollup-stream.
+    .pipe(sourcemaps.init({loadMaps: true}))
+
+        // transform the code further here.
+    .pipe(uglify({ 
+       mangle: false, 
+       ecma: 6 
     }))
-    .pipe(concat('app.min.js'))
-    .pipe(sourcemaps.write('.'))
+
+    // if you want to output with a different name from the input file, use gulp-rename here.
+    .pipe(rename(function (path) {
+      path.extname = '.min.js';
+    }))
+
+    // write the sourcemap alongside the output file.
+    .pipe(sourcemaps.write('.'))    
+
+    // and output to ./dist/main.js as normal.
     .pipe(gulp.dest(dest+'/scripts'))
 });
 
