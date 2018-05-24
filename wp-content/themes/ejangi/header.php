@@ -21,18 +21,18 @@ namespace Ejangi;
                 <div class="container">
           
                     <div class="navbar-header">
-                        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+                        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target=".navbar-responsive-collapse">
                             <span class="navbar-toggler-icon"></span>
                         </button>
 
-                        <a class="navbar-brand" title="<?php echo get_bloginfo('description'); ?>" href="<?php echo home_url(); ?>"><?php bloginfo('name'); ?></a>
+                        <?= the_custom_logo() ?>
                     </div>
 
                     <? if( get_theme_mod( theme.'_me' ) ) : ?>
-                    <div class="col me"><?= get_theme_mod( theme.'_me' ) ?></div>
+                    <div class="col me"><?= me_block( get_theme_mod( theme.'_me' ), new Me_Options( [ 'container_element' => 'div' ] ) ) ?></div>
                     <? endif ?>
 
-                    <div class="collapse navbar-collapse navbar-responsive-collapse">
+                    <div class="main-nav collapse navbar-collapse navbar-responsive-collapse">
                         <?php main_nav(); ?>
 
                         <?php //if(of_get_option('search_bar', '1')) {?>

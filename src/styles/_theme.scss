@@ -1,0 +1,103 @@
+
+body {
+    background-color: $secondary;
+}
+
+.main-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 10rem 5rem 5rem 5rem;
+    background-color: white;
+    z-index: 999;
+
+    .nav {
+        margin-bottom: 1rem;
+        li {
+            margin-bottom: 1rem;
+        }
+    }
+}
+
+.navbar-header {
+    display: flex;
+}
+
+.navbar-toggler {
+    position: relative;
+    width: 2.5rem;
+    height: 2.5rem;
+    margin: 0 .5rem 0 0;
+    padding: 0;
+    background-color: white;
+    border-radius: 0;
+    transition: all .2s ease .2s;
+    z-index: 1000;
+}
+
+.navbar-toggler {
+    .navbar-toggler-icon,
+    &:before,
+    &:after {
+        display: block;
+        content: ' ';
+        position: absolute;
+        top: 50%;
+        right: 0;
+        left: 0;
+        width: 2rem;
+        height: 4px;
+        margin-top: -2px;
+        margin-left: auto;
+        margin-right: auto;
+        background-color: $tertiary;
+        transform: rotate(45deg);
+        transition: top .2s ease, transform 0.3s ease .2s;
+    }
+
+    &:after {
+        transform: rotate(-45deg);
+    }
+
+    .navbar-toggler-icon {
+        transform: rotate(0);
+        transition: opacity .2s ease .2s;
+        opacity: 0;
+    }
+}
+
+.navbar-toggler.collapsed {
+    background-color: transparent;
+
+    &:hover,
+    &:active {
+        background-color: white;
+    }
+
+    .navbar-toggler-icon,
+    &:before,
+    &:after {
+        transform: rotate(0);
+        transition: transform 0.3s ease, top .2s ease .2s;
+    }
+
+    &:before {
+        top: 33%;
+    }
+
+    &:after {
+        top: 66%;
+    }
+
+    .navbar-toggler-icon {
+        top: 50%;
+        opacity: 1;
+        transition: opacity .2s ease .2s;
+    }
+}
+
+
+
+

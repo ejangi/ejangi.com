@@ -5,8 +5,8 @@ namespace Ejangi;
 
         <footer role="contentinfo">
         
-            <div id="inner-footer" class="clearfix">
-              <hr />
+            <div id="inner-footer" class="container">
+
               <div id="widget-footer" class="clearfix row">
                 <?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('footer1') ) : ?>
                 <?php endif; ?>
@@ -16,7 +16,7 @@ namespace Ejangi;
                 <?php endif; ?>
               </div>
                 
-                <nav class="clearfix">
+                <nav class="footer-links">
                     <?php footer_links(); ?>
                 </nav>
                 

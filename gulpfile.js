@@ -43,7 +43,7 @@ gulp.task('js', function(){
       format: 'umd',
       external: [ 'jquery' ],
       globals: { 
-        jquery: 'jQuery' 
+        jquery: 'jQuery',
       },
       name: 'ejangi',
       plugins: [

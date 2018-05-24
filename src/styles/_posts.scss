@@ -1,0 +1,68 @@
+
+.post {
+    border-radius: 2rem;
+    overflow: hidden;
+    margin: 0 0 2rem 0;
+    background-color: $tertiary;
+    box-shadow: 0px 0px 50px 0px rgba(0,0,0,0.23);
+    display: flex;
+    flex-direction: column;
+
+    & > header {
+        display: flex;
+        flex-direction: column;
+        background-color: white;
+        padding: 2rem;
+        order: 10;
+
+        & > .post-title {
+            max-width: 75%;
+            order: 2;
+
+            & > a:link,
+            & > a:visited {
+                color: black;
+                text-decoration: none;
+            }
+        }
+
+        & > .post-category {
+            order: 1;
+            @include hint();
+
+            & > a:link,
+            & > a:visited {
+                color: #999;
+                text-decoration: none;
+            }
+        }
+
+        & > .post-excerpt {
+            order: 3;
+            max-width: 75%;
+
+            & > *:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    & > .post-thumbnail {
+        position: relative;
+        overflow-x: hidden;
+        display: flex;
+        justify-content: center;
+        align-content: flex-start;
+        align-items: center;
+        z-index: 11;
+        margin: 0 auto;
+
+        & > img {
+            position: relative;
+            display: inline-block;
+            height: 100%;
+            width: auto;
+            margin: 0 auto;
+        }
+    }
+}

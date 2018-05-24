@@ -11,15 +11,15 @@ class Bootstrap_walker extends Walker_Nav_Menu {
     
      $class_names = $value = '';
     
-        // If the item has children, add the dropdown class for bootstrap
-        if ( $args->has_children ) {
-            $class_names = "dropdown ";
-        }
+    // If the item has children, add the dropdown class for bootstrap
+    if ( $args->has_children ) {
+        $class_names = "dropdown ";
+    }
+
+    $classes = empty( $object->classes ) ? array() : (array) $object->classes;
     
-        $classes = empty( $object->classes ) ? array() : (array) $object->classes;
-        
-        $class_names .= join( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $object ) );
-        $class_names = ' class="'. esc_attr( $class_names ) . '"';
+    $class_names .= join( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $object ) );
+    $class_names = ' class="'. esc_attr( $class_names ) . '"';
        
     $output .= $indent . '<li id="menu-item-'. $object->ID . '"' . $value . $class_names .'>';
     $attributes  = ! empty( $object->attr_title ) ? ' title="'  . esc_attr( $object->attr_title ) .'"' : '';

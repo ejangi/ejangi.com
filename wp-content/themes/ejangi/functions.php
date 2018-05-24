@@ -2,6 +2,8 @@
 namespace Ejangi;
 
 include_once realpath( dirname( __FILE__ ) . '/includes/class-bootstrap-walker.php' );
+include_once realpath( dirname( __FILE__ ) . '/includes/class-options.php' );
+include_once realpath( dirname( __FILE__ ) . '/includes/class-me-options.php' );
 
 /**
  * Theme version number
@@ -100,6 +102,79 @@ add_action( 'init', function() {
 
 
 /**
+ * Register theme support
+ *
+ * @return void
+ **/
+add_action( 'after_setup_theme', function() {
+
+    add_theme_support( 'custom-logo', array(
+        'height'      => null,
+        'width'       => null,
+        'flex-width' => true,
+    ) );
+
+    add_theme_support( 'post-thumbnails' );
+
+    add_theme_support( 'automatic-feed-links' );
+
+    add_theme_support( 'menus' );
+
+    register_nav_menus(                      // wp3+ menus
+        [
+            'main_nav' => 'The Main Menu',   // main nav in header
+            'me_nav' => 'Me Menu',
+            'footer_links' => 'Footer Links' // secondary nav in footer
+        ]
+    ); 
+
+} );
+
+function the_custom_logo() {
+    if ( function_exists( 'the_custom_logo' ) ) {
+        \the_custom_logo();
+    } else {
+        echo '';
+    }
+}
+
+add_filter( 'get_custom_logo', function($html)
+{
+    $html = str_replace('class="custom-logo-link"', 'class="navbar-brand"', $html);
+    return $html;
+} );
+
+
+
+/**
+ * Enable SVG support
+ *
+ * @return void
+ **/
+add_action( 'upload_mimes', function( $file_types ) {
+
+    $new_filetypes = array();
+    $new_filetypes['svg'] = 'image/svg+xml';
+    $file_types = array_merge( $file_types, $new_filetypes );
+
+    return $file_types;
+} );
+
+add_action( 'wp_AJAX_svg_get_attachment_url', function() {
+    $url = '';
+    $attachmentID = isset( $_REQUEST['attachmentID'] ) ? $_REQUEST['attachmentID'] : '';
+    if( $attachmentID ){
+        $url = wp_get_attachment_url( $attachmentID );
+    }
+
+    echo $url;
+
+    die();
+} );
+
+
+
+/**
  * Don't expose the wordpress version number in the RSS Feed
  *
  * @return void
@@ -129,6 +204,19 @@ function main_nav() {
     );
 }
 
+function me_nav() {
+    wp_nav_menu( 
+        [ 
+            'menu' => 'me_nav', /* menu name */
+            'menu_class' => 'dropdown-menu dropdown-menu-right',
+            'theme_location' => 'me_nav', /* where in the theme it's assigned */
+            'container' => 'false', /* container class */
+            'fallback_cb' => __NAMESPACE__.'\main_nav_fallback', /* menu fallback */
+            'walker' => new \Bootstrap_walker()
+        ]
+    );
+}
+
 function footer_links() { 
   // Display the WordPress menu if available
     wp_nav_menu(
@@ -143,4 +231,32 @@ function footer_links() {
 
 function nav_fallback() {
     // Blank!
+}
+
+
+
+add_filter('nav_menu_css_class', function($classes, $item) {
+    if( $item->menu_item_parent == 0 && in_array('current-menu-item', $classes) ) {
+        $classes[] = "active";
+    }
+  
+  return $classes;
+}, 10, 2 );
+
+
+
+/**
+ * Display the ME block
+ *
+ * @return string
+ **/
+function me_block( $user_id, Me_Options $options = null )
+{
+    ob_start();
+    require_once realpath( dirname( __FILE__ ) . '/partials/me.php' );
+
+    $contents = ob_get_contents();
+    ob_end_clean();
+
+    return $contents;
 }
