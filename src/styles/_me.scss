@@ -34,6 +34,16 @@
                 color: $tertiary;
                 padding: .5rem 1rem;
             }
+
+            & > a:hover,
+            & > a:active {
+                background-color: $secondary;
+            }
+
+            &.active > a:link,
+            &.active > a:visited {
+                font-weight: 900;
+            }
         }
     }
 }

@@ -16,7 +16,28 @@ body {
     .nav {
         margin-bottom: 1rem;
         li {
-            margin-bottom: 1rem;
+            margin: 0;
+            list-style: none;
+
+            a:link,
+            a:visited {
+                display: block;
+                padding: .5rem;
+                color: $tertiary;
+                font-weight: 700;
+                text-transform: uppercase;
+            }
+
+            &.active a:link,
+            &.active a:visited {
+                color: black;
+                font-weight: 900;
+            }
+
+            a:hover,
+            a:active {
+                background-color: $secondary;
+            }
         }
     }
 }
