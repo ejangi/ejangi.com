@@ -260,3 +260,19 @@ function me_block( $user_id, Me_Options $options = null )
 
     return $contents;
 }
+
+
+
+/**
+ * Did we request a headless version of this post or a regular one?
+ *
+ * @return bool
+ **/
+function is_headless()
+{
+    if( $_REQUEST['headless'] == '1' ) {
+        return true;
+    }
+
+    return false;
+}

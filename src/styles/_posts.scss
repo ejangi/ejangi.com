@@ -1,5 +1,6 @@
 
 .post {
+    position: relative;
     border-radius: 2rem;
     overflow: hidden;
     margin: 0 0 2rem 0;
@@ -63,6 +64,64 @@
             height: 100%;
             width: auto;
             margin: 0 auto;
+        }
+    }
+
+    & > .shade {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, 0.7);
+        z-index: 12;
+        transition: all .3s ease;
+    }
+}
+
+
+
+#single-container {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: white;
+    z-index: 11;
+    transition: all .3s ease;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+
+    .admin-bar & {
+        padding-top: 32px;
+    }
+
+    & > .close {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        width: 2rem;
+        height: 2rem;
+        font-size: 1rem;
+        padding: .4rem;
+        color: white;
+        background-color: rgba(0, 0, 0, 0.5);
+        text-shadow: none;
+        border-radius: 100%;
+        text-align: center;
+        z-index: 12;
+    }
+
+    .admin-bar & > .close {
+        top: 3rem;
+    }
+
+    & > .content {
+        & > .post {
+            margin: 0;
+            border-radius: 0;
         }
     }
 }
