@@ -64,6 +64,31 @@
 
             } );
 
+            $( '.main-container > article.post > header a:link' ).each( function () {
+
+                var url = '',
+                    that = $( this ),
+                    up = 0,
+                    maxUp = 10;
+
+                if ( $( this ).not( 'article' ) ) {
+
+                    while ( $( that ).not( 'article' ) && up > maxUp ) {
+
+                        that = $( that ).parent();
+                        up = up + 1;
+
+                    }
+
+                }
+
+                $( this ).on( 'click', function( e ) {
+                    e.preventDefault();
+                    $( that ).trigger( 'click' );
+                } );
+
+            } );
+
         }
 
     });
