@@ -292,3 +292,18 @@ function get_field_value( $field )
 
     return null;
 }
+
+/**
+ * Don't allow Abbreviations with spaces to wrap over new lines.
+ *
+ * @param $content string The content to transform
+ * @return string
+ **/
+function maintain_abbr( $content )
+{
+    $content = preg_replace( '/([A-Z]{2,})(\s)([A-Z]{2,})/', "$1&nbsp;$3", $content );
+    return $content;
+}
+add_filter( 'the_title', __NAMESPACE__.'\maintain_abbr', 10, 1 );
+add_filter( 'the_excerpt', __NAMESPACE__.'\maintain_abbr', 10, 1 );
+add_filter( 'the_content', __NAMESPACE__.'\maintain_abbr', 10, 1 );
