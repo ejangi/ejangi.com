@@ -41,7 +41,7 @@
                 $( '#single-container' ).slideUp();
             } );
 
-            $( '.main-container > article.post' ).each( function () {
+            $( '.main-container > article.post.format-standard' ).each( function () {
 
                 $( '<div class="shade"></div>' ).appendTo( $( this ) ).hide();
 

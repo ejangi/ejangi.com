@@ -1,5 +1,5 @@
 
-.post {
+.post.format-standard {
     position: relative;
     border-radius: 2rem;
     overflow: hidden;
@@ -104,6 +104,45 @@
 
 
 
+.post.format-quote,
+.post.format-aside {
+    margin: -7rem -9999px -6rem;
+    padding: 10rem 15px;
+    background-color: $tertiary;
+
+    & > header {
+        & > .header-container {
+            display: none;
+        }
+    }
+
+    .post-excerpt {
+        & > .container {
+            padding-left: 30px;
+            padding-right: 30px;
+            font-size: 2rem;
+            font-weight: 200;
+            color: $secondary;
+        }
+    }
+}
+
+
+
+.post.format-quote {
+    background-color: $primary;
+
+    .post-excerpt {
+        & > .container {
+            font-style: italic;
+            text-align: center;
+            color: white;
+        }
+    }
+}
+
+
+
 #single-container {
     position: fixed;
     top: 0;
@@ -146,7 +185,7 @@
     }
 
     & > .content {
-        & > .post {
+        & > .post.format-standard {
             margin: 0;
             border-radius: 0;
 
