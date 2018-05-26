@@ -12,6 +12,10 @@
 
         $.get( postUrl, { 'headless': '1' }, function( data ) {
 
+            if ( window.history !== undefined ) {
+                history.pushState( {}, "", postUrl );    
+            }
+            
             $( '#single-container > .content' ).html( data );
             $( '#single-container' ).slideDown();
 
@@ -26,6 +30,8 @@
 
 
     $( document ).ready( function() {
+
+        window.baseLocation = window.location.pathname;
     
         if ( $( 'body.blog' ) ) {
 
@@ -86,6 +92,14 @@
                     e.preventDefault();
                     $( that ).trigger( 'click' );
                 } );
+
+            } );
+
+            $( '#single-container > .close' ).on( 'click', function( e ) {
+
+                if ( window.history !== undefined ) {
+                    history.pushState( {}, "", window.baseLocation );    
+                }
 
             } );
 
