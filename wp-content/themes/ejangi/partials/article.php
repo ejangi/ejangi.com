@@ -6,11 +6,13 @@
                 <h1 class="post-title"><a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>"><? the_title() ?></a></h1>
                 <h4 class="post-category"><? the_category( '&bull;' ) ?></h4>
             </div>
+            <? if ( !is_single() ) : ?>
             <section class="post-excerpt">
                 <div class="container">
                     <? the_excerpt() ?>
                 </div>
             </section>
+            <? endif; ?>
         </header>
 
         <? if ( has_post_thumbnail() ) : ?>
