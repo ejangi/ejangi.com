@@ -1,5 +1,23 @@
-    
-    <article id="post-<?php the_ID(); ?>" <? post_class( 'post-preview' ) ?> data-permalink="<?= esc_attr( get_the_permalink() ) ?>">
+<?
+namespace Ejangi;
+
+$post_classes = [];
+
+$header_location = 'bottom';
+$header_style = 'standard';
+$header_colour = '';
+
+if ( get_field_value( 'header_location' ) ) $header_location = 
+    get_field_value( 'header_location' );
+if ( get_field_value( 'header_style' ) ) $header_style = get_field_value( 'header_style' );
+if ( get_field_value( 'header_colour' ) ) $header_colour = get_field_value( 'header_colour' );
+
+if ( is_single() ) $post_classes[] = 'post-preview';
+$post_classes[] = 'header-location-'.$header_location;
+$post_classes[] = 'header-style-'.$header_style;
+?>
+
+    <article id="post-<?php the_ID(); ?>" <? post_class( implode( ' ', $post_classes ) ) ?> data-permalink="<?= esc_attr( get_the_permalink() ) ?>"<? if ( $header_colour ) : ?> style="background-color: <?= $header_colour ?>;"<? endif; ?>>
         
         <header>
             <div class="container header-container">

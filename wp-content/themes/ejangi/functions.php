@@ -278,3 +278,17 @@ function is_headless()
 
     return false;
 }
+
+/**
+ * If Advanced Custom Fields is installed, return the field value
+ *
+ * @return mixed
+ **/
+function get_field_value( $field )
+{
+    if ( function_exists( 'get_field' ) ) {
+        return get_field( $field );
+    }
+
+    return null;
+}
