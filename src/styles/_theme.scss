@@ -29,6 +29,34 @@ body {
 
 
 
+@mixin btn() {
+    font-size: 90%;
+    border-radius: 50px;
+    padding: 1rem 2.5rem;
+    text-transform: uppercase;
+    transition: .3s all ease;
+
+    &:hover,
+    &:focus {
+        background-color: white;
+    }
+
+    &:active {
+        color: $secondary;
+        background-color: $primary;
+    }
+
+    .active > & {
+        font-weight: 700;
+    }
+}
+
+.btn {
+    @include btn();
+}
+
+
+
 .main-nav {
     position: fixed;
     top: 0;
@@ -142,6 +170,53 @@ body {
         top: 50%;
         opacity: 1;
         transition: opacity .2s ease .2s;
+    }
+}
+
+
+
+.contentinfo {
+    margin: -7rem -30px 0;
+    padding: 15rem 15px 7rem;
+    color: $secondary;
+    background-color: $tertiary;
+    text-align: center;
+
+    a:link,
+    a:visited {
+        color: $secondary;
+    }
+
+    .footer-links {
+        margin-bottom: 5rem;
+
+        ul {
+            padding: 0;
+            list-style: none;
+
+            li {
+                margin: 0 0 2rem 0;
+                padding: 0;
+
+                a:link,
+                a:visited {
+                    color: $tertiary;
+                    background-color: $secondary;
+                    display: inline-block;
+                    @include btn();
+                }
+
+                &.active a:link,
+                &.active a:visited {
+                    font-weight: 700;
+                }
+            }
+        }
+    }
+
+    .attribution {
+        font-size: .8rem;
+        font-weight: 200;
     }
 }
 

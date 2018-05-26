@@ -3,7 +3,7 @@ namespace Ejangi;
 ?>
         </main>
 
-        <footer role="contentinfo">
+        <footer class="contentinfo" role="contentinfo">
         
             <div id="inner-footer" class="container">
 
