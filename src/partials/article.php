@@ -21,7 +21,7 @@ $post_classes[] = 'header-style-'.$header_style;
         
         <header>
             <div class="container header-container">
-                <h1 class="post-title"><a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>"><? the_title() ?></a></h1>
+                <h1 class="post-title"><? if ( !is_single() ) : ?><a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>"><? endif; ?><? the_title() ?><? if ( !is_single() ) : ?></a><? endif; ?></h1>
                 <h4 class="post-category"><? the_category( '&bull;' ) ?></h4>
             </div>
             <? if ( !is_single() ) : ?>

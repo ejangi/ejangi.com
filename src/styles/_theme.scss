@@ -3,6 +3,32 @@ body {
     background-color: $secondary;
 }
 
+.container {
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+@media (min-width: 576px) {
+    .container {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}
+
+@media (min-width: 992px) {
+    .container {
+        max-width: 720px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .container {
+        max-width: 720px;
+    }
+}
+
+
+
 .main-nav {
     position: fixed;
     top: 0;

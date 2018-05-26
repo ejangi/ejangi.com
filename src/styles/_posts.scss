@@ -20,7 +20,7 @@
         & > .container {
             display: flex;
             flex-direction: column;
-            padding: 0 25% .5rem 25px;
+            padding: 0 20% .5rem 25px;
         }
 
         & .post-title {
@@ -79,6 +79,8 @@
 
     &.header-style-seamless-dark > header {
         .post-title {
+            color: white;
+
             & > a:link,
             & > a:visited {
                 color: white;
@@ -106,15 +108,22 @@
         align-items: center;
         z-index: 11;
         margin: 0 -9999px;
+        padding: 0 0 100% 0;
         order: 2;
 
         & > img {
-            position: relative;
-            display: inline-block;
+            position: absolute;
+            top: 0;
+            display: block;
             height: 100%;
             width: auto;
             margin: 0 auto;
         }
+    }
+
+    &.header-style-seamless-light > .post-thumbnail,
+    &.header-style-seamless-dark > .post-thumbnail {
+        padding-bottom: 135%;
     }
 
     & > .entry-content {
@@ -146,9 +155,14 @@
 
 .post.format-quote,
 .post.format-aside {
-    margin: -7rem -9999px -6rem;
+    margin: -7rem -30px -6rem;
     padding: 10rem 15px;
     background-color: $tertiary;
+
+    @media (min-width: 576px) {
+        margin-left: -9999px;
+        margin-right: -9999px;
+    }
 
     & > header {
         & > .header-container {
@@ -224,8 +238,15 @@
         top: 4rem;
     }
 
-    .post.format-standard.header-location-top > header > .container {
-        padding-top: 3rem;
+    .post.format-standard {
+        &.header-style-seamless-light > header,
+        &.header-style-seamless-dark > header {
+            position: relative;
+        }
+
+        &.header-location-top > header > .container {
+            padding-top: 3rem;
+        }
     }
 
     & > .content {
@@ -235,13 +256,32 @@
 
             & > header {
                 & > .container {
-                    padding-left: 15px;
+                    padding-left: 30px;
+
+                    @media (min-width: 576px) {
+                        padding-left: 15px;
+                    }
                 }
 
                 & .post-excerpt {
                     & > .container {
-                        padding-left: 15px;
+                        padding-left: 30px;
+
+                        @media (min-width: 576px) {
+                            padding-left: 15px;
+                        }
                     }
+                }
+            }
+
+            & > .post-thumbnail {
+                width: 100%;
+                margin: 0 auto;
+                padding-bottom: 0;
+                img {
+                    position: relative;
+                    width: 100%;
+                    height: auto;
                 }
             }
         }
