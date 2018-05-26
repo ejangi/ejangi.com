@@ -55,6 +55,19 @@ body {
     @include btn();
 }
 
+@mixin form-control() {
+    border-width: 3px;
+
+    &:hover,
+    &:active {
+        border-color: $secondary;
+    }
+}
+
+.form-control {
+    @include form-control();
+}
+
 
 
 .main-nav {
