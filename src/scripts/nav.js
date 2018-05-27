@@ -13,7 +13,7 @@ const Nav = ( ( $ ) => {
 
         } );
 
-        $( '.navbar-toggler,.dropdown-toggle' ).on( 'click', function ( e ) {
+        $( '.navbar-toggler' ).on( 'click', function ( e ) {
 
             e.preventDefault();
 
@@ -25,6 +25,22 @@ const Nav = ( ( $ ) => {
             } else {
                 $( this ).addClass( 'collapsed' );
                 $( target ).slideUp();
+            }
+
+        } );
+
+        $( '.dropdown-toggle' ).on( 'click', function ( e ) {
+
+            e.preventDefault();
+
+            const target = $( this ).attr( 'data-target' );
+
+            if ( $( this ).hasClass( 'collapsed' ) ) {
+                $( this ).removeClass( 'collapsed' );
+                $( target ).slideDown( 200 );
+            } else {
+                $( this ).addClass( 'collapsed' );
+                $( target ).slideUp( 200 );
             }
 
         } );
