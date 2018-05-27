@@ -56,16 +56,6 @@ gulp.task('js', function(){
         console.error(message);
       },
       plugins: [
-        babel({
-            exclude: 'node_modules/**', // Only transpile our source code
-            externalHelpersWhitelist: [ // Include only required helpers
-              'defineProperties',
-              'createClass',
-              'inheritsLoose',
-              'defineProperty',
-              'objectSpread'
-            ]
-          }),
         eslint({
           "env": {
             "es6": true,
@@ -86,6 +76,11 @@ gulp.task('js', function(){
             "no-sync": "off",
             "spaced-comment": "off"
           }
+        }),
+        babel({
+            babelrc: false,
+            presets: ['es2015-rollup'],
+            exclude: 'node_modules/**'
         })
       ]
     })

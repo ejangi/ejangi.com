@@ -1,6 +1,6 @@
 import jQuery from 'jQuery'
 
-( ($) => {
+const Nav = ( ( $ ) => {
 
     $( document ).ready( () => {
 
@@ -32,3 +32,5 @@ import jQuery from 'jQuery'
     } );
 
 } )( jQuery )
+
+export default Nav

@@ -1,8 +1,12 @@
 import jQuery from 'jQuery'
+import CachedArticle from './cached-article.js'
 
-( ( $ ) => {
+const Site =( ( $, CachedArticle ) => {
 
-    function displayPost( postUrl, that ) {
+    const displayPost = ( postUrl, modifiedDate, that ) => {
+
+        var key = postUrl + modifiedDate,
+            cached = new CachedArticle();
 
         if ( $( '#single-container' ).is( ':visible' ) ) {
 
@@ -12,20 +16,35 @@ import jQuery from 'jQuery'
 
         $( that ).find( '.shade' ).fadeIn();
 
-        $.get( postUrl, { 'headless': '1' }, function( data ) {
+        if ( cached.retrieve( key ) ) {
 
             if ( window.history !== undefined ) {
                 history.pushState( {}, "", postUrl );    
             }
             
-            $( '#single-container > .content' ).html( data );
+            $( '#single-container > .content' ).html( cached.getContent() );
             $( '#single-container' ).slideDown();
-
-        } ).always(function() {
-
             $( that ).find( '.shade' ).hide();
 
-        } );
+        } else {
+            $.get( postUrl, { 'headless': '1' }, function( data ) {
+
+                if ( window.history !== undefined ) {
+                    history.pushState( {}, "", postUrl );    
+                }
+
+                cached = new CachedArticle();
+                cached.save( key, data );
+                
+                $( '#single-container > .content' ).html( data );
+                $( '#single-container' ).slideDown();
+
+            } ).always(function() {
+
+                $( that ).find( '.shade' ).hide();
+
+            } );
+        }
 
     }
 
@@ -50,6 +69,7 @@ import jQuery from 'jQuery'
                 $( this ).on( 'click', function ( e ) {
 
                     var url = '',
+                        date = '',
                         that = $( this ),
                         up = 0,
                         maxUp = 10;
@@ -66,7 +86,8 @@ import jQuery from 'jQuery'
                     }
 
                     url = $( that ).attr( 'data-permalink' );
-                    displayPost( url, that );
+                    date = $( that ).attr( 'data-last-modified' );
+                    displayPost( url, date, that );
 
                 } );
 
@@ -109,4 +130,6 @@ import jQuery from 'jQuery'
 
     });
 
-} )( jQuery );
+} )( jQuery, CachedArticle );
+
+export default Site
