@@ -23,6 +23,7 @@
 
     ul.dropdown-menu {
         padding: 0;
+        z-index: 998;
 
         & > li {
             display: block;

@@ -30,7 +30,7 @@ const theme = 'ejangi';
 add_action( 'wp_enqueue_scripts', function() {
 
     wp_enqueue_style( theme.'-styles', get_stylesheet_directory_uri().'/styles/main.css', [], theme );
-    wp_enqueue_script( theme.'-bootstrap', get_stylesheet_directory_uri().'/scripts/bootstrap.min.js', [ 'jquery' ], theme );
+    // wp_enqueue_script( theme.'-bootstrap', get_stylesheet_directory_uri().'/scripts/bootstrap.min.js', [ 'jquery' ], theme );
     wp_enqueue_script( theme.'-scripts', get_stylesheet_directory_uri().'/scripts/app.min.js', [ 'jquery' ], theme );
 
 } );
@@ -211,7 +211,7 @@ function me_nav() {
     wp_nav_menu( 
         [ 
             'menu' => 'me_nav', /* menu name */
-            'menu_class' => 'dropdown-menu dropdown-menu-right',
+            'menu_class' => 'dropdown-menu dropdown-menu-right me-nav',
             'theme_location' => 'me_nav', /* where in the theme it's assigned */
             'container' => 'false', /* container class */
             'fallback_cb' => __NAMESPACE__.'\main_nav_fallback', /* menu fallback */

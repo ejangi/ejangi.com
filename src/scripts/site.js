@@ -1,4 +1,6 @@
-( function( $ ) {
+import jQuery from 'jQuery'
+
+( ( $ ) => {
 
     function displayPost( postUrl, that ) {
 

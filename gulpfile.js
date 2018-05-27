@@ -11,6 +11,7 @@ const buffer = require('vinyl-buffer');
 const eslint = require('rollup-plugin-eslint');
 const uglify = require('gulp-uglifyes');
 const rename = require('gulp-rename');
+const clean = require('gulp-clean');
 
 const dest = 'wp-content/themes/ejangi';
 
@@ -40,12 +41,20 @@ gulp.task('js', function(){
   return rollup({
       input: './src/scripts/app.js',
       sourcemap: true,
-      format: 'umd',
-      external: [ 'jquery' ],
+      format: 'iife',
+      external: [ 'jQuery' ],
       globals: { 
-        jquery: 'jQuery',
+        jQuery: 'jQuery'
       },
       name: 'ejangi',
+      onwarn: function (message) {
+        // Suppress this error message... there are hundreds of them. Angular team says to ignore it.
+        // https://github.com/rollup/rollup/wiki/Troubleshooting#this-is-undefined
+        if (/The 'this' keyword is equivalent to 'undefined' at the top level of an ES module, and has been rewritten./.test(message)) {
+            return;
+        }
+        console.error(message);
+      },
       plugins: [
         babel({
             exclude: 'node_modules/**', // Only transpile our source code
@@ -108,7 +117,12 @@ gulp.task('js', function(){
     .pipe(gulp.dest(dest+'/scripts'))
 });
 
-gulp.task('default', [ 'php', 'style.css', 'css', 'js', 'bootstrap' ]);
+gulp.task('clean', function () {
+    return gulp.src(dest, {read: false})
+        .pipe(clean());
+});
+
+gulp.task('default', [ 'php', 'style.css', 'css', 'js' ]);
 
 gulp.task('watch', function() {
     gulp.watch('src/styles/*.scss', ['css']);
