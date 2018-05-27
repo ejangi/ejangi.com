@@ -6,15 +6,18 @@ $post_classes = [];
 $header_location = 'bottom';
 $header_style = 'standard';
 $header_colour = '';
+$header_gradient = 'none';
 
 if ( get_field_value( 'header_location' ) ) $header_location = 
     get_field_value( 'header_location' );
 if ( get_field_value( 'header_style' ) ) $header_style = get_field_value( 'header_style' );
 if ( get_field_value( 'header_colour' ) ) $header_colour = get_field_value( 'header_colour' );
+if ( get_field_value( 'header_gradient' ) ) $header_gradient = get_field_value( 'header_gradient' );
 
 if ( is_single() ) $post_classes[] = 'post-preview';
 $post_classes[] = 'header-location-'.$header_location;
 $post_classes[] = 'header-style-'.$header_style;
+$post_classes[] = 'header-gradient-'.$header_gradient;
 ?>
 
     <article id="post-<?php the_ID(); ?>" <? post_class( implode( ' ', $post_classes ) ) ?> data-permalink="<?= esc_attr( get_the_permalink() ) ?>"<? if ( $header_colour ) : ?> style="background-color: <?= $header_colour ?>;"<? endif; ?>>
