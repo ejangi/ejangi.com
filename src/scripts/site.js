@@ -35,7 +35,7 @@ import jQuery from 'jQuery'
 
         window.baseLocation = window.location.pathname;
     
-        if ( $( 'body.blog' ) ) {
+        if ( !$( 'body' ).hasClass( 'single' ) ) {
 
             $( '<div id="single-container"><div class="close">&#x2715;</div><div class="content"></div></div>' ).appendTo( $( 'body' ) ).hide();
 
