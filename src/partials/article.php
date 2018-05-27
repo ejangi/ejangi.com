@@ -18,6 +18,8 @@ if ( is_single() ) $post_classes[] = 'post-preview';
 $post_classes[] = 'header-location-'.$header_location;
 $post_classes[] = 'header-style-'.$header_style;
 $post_classes[] = 'header-gradient-'.$header_gradient;
+
+if ( $header_gradient == 'header-colour' ) new Header_Colours( get_the_ID(), $header_colour );
 ?>
 
     <article id="post-<?php the_ID(); ?>" <? post_class( implode( ' ', $post_classes ) ) ?> data-permalink="<?= esc_attr( get_the_permalink() ) ?>"<? if ( $header_colour ) : ?> style="background-color: <?= $header_colour ?>;"<? endif; ?>>

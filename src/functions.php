@@ -4,6 +4,7 @@ namespace Ejangi;
 include_once realpath( dirname( __FILE__ ) . '/includes/class-bootstrap-walker.php' );
 include_once realpath( dirname( __FILE__ ) . '/includes/class-options.php' );
 include_once realpath( dirname( __FILE__ ) . '/includes/class-me-options.php' );
+include_once realpath( dirname( __FILE__ ) . '/includes/class-header-colours.php' );
 
 /**
  * Theme version number
@@ -307,3 +308,20 @@ function maintain_abbr( $content )
 add_filter( 'the_title', __NAMESPACE__.'\maintain_abbr', 10, 1 );
 add_filter( 'the_excerpt', __NAMESPACE__.'\maintain_abbr', 10, 1 );
 add_filter( 'the_content', __NAMESPACE__.'\maintain_abbr', 10, 1 );
+
+
+
+/**
+ * Add our custom header colours <style> block to the output
+ *
+ * @return void
+ **/
+add_action( 'wp_footer', function () {
+
+    if ( Header_Colours::has_colours() ) {
+        echo Header_Colours::get_style_block();
+    }
+
+}, 100 );
+
+

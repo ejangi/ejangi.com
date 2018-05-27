@@ -11,9 +11,10 @@ class Options {
     /**
      * Constructor
      *
+     * @param $options Array An associative array of object keys and values for instantiate this object with
      * @return void
      **/
-    public function __construct($options = [])
+    public function __construct( $options = [] )
     {
         foreach( $options as $key => $value ) {
             if( property_exists( $this, $key ) ) {
