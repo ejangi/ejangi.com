@@ -26,7 +26,7 @@ class Bootstrap_walker extends Walker_Nav_Menu {
     $attributes .= ! empty( $object->target )     ? ' target="' . esc_attr( $object->target     ) .'"' : '';
     $attributes .= ! empty( $object->xfn )        ? ' rel="'    . esc_attr( $object->xfn        ) .'"' : '';
     $attributes .= ! empty( $object->url )        ? ' href="'   . esc_attr( $object->url        ) .'"' : '';
-    $attributes .= ' data-last-modified="'.esc_attr( get_the_modified_date( null, $object ) ).'"';
+    $attributes .= ' data-last-modified="'.esc_attr( get_the_modified_date( 'Y-m-d H:i:s', $object ) ).'"';
     // if the item has children add these two attributes to the anchor tag
     if ( $args->has_children ) {
           $attributes .= ' class="dropdown-toggle" data-toggle="dropdown"';
