@@ -1,6 +1,8 @@
 <?
 namespace Ejangi;
 
+$is_single = ( is_single() || is_page() ) ? true : false;
+
 $post_classes = [];
 
 $header_location = 'bottom';
@@ -26,10 +28,10 @@ if ( $header_gradient == 'header-colour' ) new Header_Colours( get_the_ID(), $he
         
         <header>
             <div class="container header-container">
-                <h1 class="post-title"><? if ( !is_single() ) : ?><a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>"><? endif; ?><? the_title() ?><? if ( !is_single() ) : ?></a><? endif; ?></h1>
+                <h1 class="post-title"><? if ( !$is_single ) : ?><a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>"><? endif; ?><? the_title() ?><? if ( !$is_single ) : ?></a><? endif; ?></h1>
                 <h4 class="post-category"><? the_category( '&bull;' ) ?></h4>
             </div>
-            <? if ( !is_single() ) : ?>
+            <? if ( !$is_single ) : ?>
             <section class="post-excerpt">
                 <div class="container">
                     <? the_excerpt() ?>
@@ -47,7 +49,7 @@ if ( $header_gradient == 'header-colour' ) new Header_Colours( get_the_ID(), $he
         </figure>
         <? endif; ?>
 
-        <? if ( is_single() ) : ?>
+        <? if ( $is_single ) : ?>
         <div class="entry-content">
             <section class="basic-content">
                 <div class="container">

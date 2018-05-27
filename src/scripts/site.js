@@ -126,6 +126,30 @@ const Site =( ( $, CachedArticle ) => {
 
             } );
 
+            $( '.main-nav a, .me-nav a' ).each( function () {
+
+                $( this ).on( 'click', function ( e ) {
+
+                    e.preventDefault();
+
+                    var url = $( this ).attr( 'href' ),
+                        date = $( this ).attr( 'data-last-modified' );
+
+                    displayPost( url, date, this );
+
+                    if ( $( '.me-nav' ).is( ':visible' ) ) {
+                        $( '.me-nav' ).slideUp();
+                    }
+
+                    if ( $( '.main-nav' ).is( ':visible' ) ) {
+                        $( '.main-nav' ).slideUp();
+                        $( '.navbar-toggler' ).addClass( 'collapsed' );
+                    }
+
+                } );
+
+            } );
+
         }
 
     });

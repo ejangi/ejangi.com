@@ -292,7 +292,8 @@
     }
 
     & > .content {
-        & > .post.format-standard {
+        & > .post.format-standard,
+        & > .page {
             margin: 0;
             border-radius: 0;
 
@@ -327,17 +328,25 @@
                 }
             }
         }
+
+        .page {
+            & > header {
+                padding-top: 7rem;
+            }            
+        }
     }
 }
 
 
 
-.single {
+body.single,
+body.page {
     & > header {
         position: absolute;
         left: 0;
         right: 0;
         z-index: 12;
+        background-color: transparent;
     }
 
     .main-container {
@@ -357,10 +366,13 @@
             top: 4rem;
         }
 
-        .post.format-standard {
+        .post.format-standard,
+        .page {
             margin: 0;
             border-radius: 0;
+        }
 
+        .post.format-standard {
             &.header-style-seamless-light > header,
             &.header-style-seamless-dark > header {
                 position: relative;
@@ -380,6 +392,18 @@
                     display: none;
                 }
             }
+        }
+
+        .page {
+            & > header {
+                padding-top: 7rem;
+
+                & > .container,
+                & > .post-excerpt > .container {
+                    padding-left: 15px;
+                }
+
+            }            
         }
 
     }
