@@ -30,7 +30,7 @@
 
             & > a:link,
             & > a:visited {
-                color: black;
+                color: $tertiary;
                 text-decoration: none;
             }
         }
@@ -38,6 +38,12 @@
         & .post-category {
             order: 1;
             @include hint();
+            font-size: .7rem;
+
+
+            @media (min-width: 768px) {
+                font-size: 1rem;
+            }
 
             & > a:link,
             & > a:visited {

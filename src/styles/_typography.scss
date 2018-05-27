@@ -11,7 +11,6 @@ h3,
 h4,
 h5,
 h6 {
-    margin-bottom: .75rem;
     font-family: 'Open Sans', sans-serif;
     font-weight: 700;
     color: $tertiary;
@@ -22,14 +21,20 @@ h2 {
     letter-spacing: -0.05rem;
 }
 
-h1 { font-size: 1.8rem }
-h2 { font-size: 1.5rem }
-h3 { font-size: 1.2rem }
-h4 { font-size: 1rem }
-h5 { font-size: .8rem }
+h1 { font-size: 1.5rem }
+h2 { font-size: 1.3rem }
+h3 { font-size: 1rem }
+h4 { font-size: .8rem }
+h5 { font-size: .7rem }
 h6 { font-size: .6rem }
 
 @media (min-width: 768px) {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 { margin-bottom: .75rem; }
     body { font-size: 1rem }
     h1 { font-size: 2.2rem }
     h2 { font-size: 1.8rem }
