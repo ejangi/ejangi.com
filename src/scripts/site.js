@@ -128,6 +128,15 @@ const Site =( ( $, CachedArticle ) => {
 
             $( '.main-nav a, .me-nav a' ).each( function () {
 
+                var href = $( this ).attr( 'href' ),
+                    url = document.createElement( 'a' );
+                    url.href = href;
+
+                if ( url.origin !=  window.location.origin ) {
+                    $( this ).attr( 'target', '_blank' );
+                    return;
+                }
+
                 $( this ).on( 'click', function ( e ) {
 
                     e.preventDefault();
