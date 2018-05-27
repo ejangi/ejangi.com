@@ -332,7 +332,11 @@
         .page {
             & > header {
                 padding-top: 7rem;
-            }            
+            }
+
+            &.has-post-thumbnail > header {
+                padding-top: 3rem;
+            }           
         }
     }
 }
