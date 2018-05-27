@@ -43,7 +43,7 @@ class Header_Colours
 
             foreach ( self::$header_colours as $post_id => $colour ) {
                 list( $r, $g, $b ) = self::hex_to_rgb( $colour );
-                $block .= '#post-'.$post_id.'.format-standard.header-gradient-header-colour:after { background: linear-gradient(to bottom, rgba('.$r.', '.$g.', '.$b.', 0) 0%,rgba('.$r.', '.$g.', '.$b.', 0.8) 50%); }';
+                $block .= '#post-'.$post_id.'.format-standard.header-gradient-header-colour:after { background: linear-gradient(to bottom, rgba('.$r.', '.$g.', '.$b.', 0) 0%,rgba('.$r.', '.$g.', '.$b.', 1) 50%); }';
             }
 
             $block .= '</style>';
