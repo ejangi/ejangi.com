@@ -216,7 +216,7 @@ gulp.task('html', function() {
 });
 
 gulp.task("cname", function(){
-  return gulp.src([path.dist + "CNAME"])
+  return gulp.src([path.source + "/CNAME"])
     .pipe(gulp.dest(path.dist));
 });
 
