@@ -134,6 +134,12 @@ const Site =( ( $, CachedArticle ) => {
 
             } );
 
+            $( document ).keyup( function( e ) {
+                if ( e.which == 27 && $( '#single-container' ).is( ':visible' ) ) {
+                    $( '#single-container > .close' ).trigger( 'click' );
+                }
+            } );
+
             $( '.main-nav a, .me-nav a' ).each( function () {
 
                 var href = $( this ).attr( 'href' ),
