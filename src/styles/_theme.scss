@@ -196,6 +196,14 @@ body {
     background-color: $tertiary;
     text-align: center;
 
+    @media (min-width: 782px) {
+        margin-top: -9rem;
+    }
+
+    @media (min-width: 992px) {
+        margin-top: -11rem;
+    }
+
     a:link,
     a:visited {
         color: $secondary;
