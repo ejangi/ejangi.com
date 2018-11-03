@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:200,200i,400,400i,700,700i');
+@import url('https://fonts.googleapis.com/css?family=Nanum+Myeongjo:400,700');
 
 body {
     font-family: 'Open Sans', sans-serif;
@@ -42,6 +43,31 @@ h6 { font-size: .6rem }
     h4 { font-size: 1.2rem }
     h5 { font-size: 1rem }
     h6 { font-size: .8rem }
+}
+
+blockquote {
+    margin: 1.5rem 0;
+    padding: 1rem 30px;
+    color: $tertiary;
+    border: 1px solid lighten($tertiary, 50%);
+    font-family: 'Nanum Myeongjo', serif;
+    font-style: italic;
+
+    @media (min-width: 768px) {
+        margin: 2rem -30px;
+        font-size: 1.2rem;
+    }
+
+    & > p:last-child {
+        margin-bottom: 0;
+    }
+
+    & > footer {
+        font-size: 0.8rem;
+        @media (min-width: 768px) {
+            font-size: 1rem;
+        }
+    }
 }
 
 @mixin hint() {

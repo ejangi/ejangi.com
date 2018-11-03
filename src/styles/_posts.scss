@@ -88,8 +88,16 @@
         position: absolute;
         left: 0;
         right: 0;
+        top: 0;
+        bottom: 0;
         z-index: 12;
         background-color: transparent;
+
+        & > .post-excerpt {
+            position: absolute;
+            bottom: 0;
+            padding-bottom: .5rem;
+        }
     }
 
     &.header-style-seamless-light.header-location-bottom > header,
@@ -309,6 +317,11 @@
             position: relative;
         }
 
+        &.header-location-top.header-style-seamless-light.header-gradient-none > header,
+        &.header-location-top.header-style-seamless-dark.header-gradient-none > header {
+            position: absolute;
+        }
+
         &.header-location-top > header > .container {
             padding-top: 3rem;
         }
@@ -414,6 +427,11 @@ body.page {
             &.header-style-seamless-light > header,
             &.header-style-seamless-dark > header {
                 position: relative;
+            }
+
+            &.header-location-top.header-style-seamless-light.header-gradient-none > header,
+            &.header-location-top.header-style-seamless-dark.header-gradient-none > header {
+                position: absolute;
             }
 
             &.header-location-top > header > .container {
