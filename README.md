@@ -21,3 +21,10 @@ docker-compose up
 ```
 
 3) Open a browser and navigate to [http://localhost:8081](http://localhost:8081). Follow the Wordpress installation wizard to get setup.
+
+4) To run the automated build scripts (gulp), start the gulp container:
+
+```
+docker-compose -f docker-compose.gulp.yml build
+docker-compose -f docker-compose.gulp.yml up
+```
