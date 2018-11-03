@@ -20,7 +20,7 @@ namespace Ejangi;
                     <?php footer_links(); ?>
                 </nav>
                 
-                <p class="attribution">&copy; <?php bloginfo('name'); ?></p>
+                <p class="attribution">&copy; <?= get_theme_mod( theme.'_copyright' ) ?></p>
             
             </div>
             

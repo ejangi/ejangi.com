@@ -75,7 +75,24 @@ add_action( 'customize_register', function( $wp_customize ) {
         'section' => theme.'_me_section',
         'settings' => theme.'_me',
         'type'    => 'select',
-        'choices' => $me_choices,
+        'choices' => $me_choices
+    ] );
+
+    $wp_customize->add_section( theme.'_footer_section' , [
+        'title'      => __( 'Footer', theme ),
+        'priority'   => 150
+    ] );
+
+    $wp_customize->add_setting( theme.'_copyright', [
+        'default'    => get_bloginfo('name'),
+        'transport' => 'refresh'
+    ] );     
+
+    $wp_customize->add_control( theme.'_copyright', [
+        'label'   => __( 'Copyright Disclaimer', theme ),
+        'section' => theme.'_footer_section',
+        'settings' => theme.'_copyright',
+        'type'    => 'text'
     ] );
 
 } );
