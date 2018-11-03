@@ -22,6 +22,11 @@ const Nav = ( ( $ ) => {
             if ( $( this ).hasClass( 'collapsed' ) ) {
                 $( this ).removeClass( 'collapsed' );
                 $( target ).slideDown();
+                $( '.dropdown-toggle' ).each( function() {
+                    let target = $( this ).attr( 'data-target' );
+                    $( this ).addClass( 'collapsed' );
+                    $( target ).slideUp( 200 );
+                } );
             } else {
                 $( this ).addClass( 'collapsed' );
                 $( target ).slideUp();
