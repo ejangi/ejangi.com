@@ -16,4 +16,4 @@ RUN npm install -g gulp-cli gulp && \
     npm install gulp-cli gulp -D && \
     npx -p touch nodetouch gulpfile.js
 
-ENTRYPOINT ["gulp", "watch"]
+CMD ["gulp", "watch"]
