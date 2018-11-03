@@ -327,3 +327,157 @@ add_action( 'wp_footer', function () {
 }, 100 );
 
 
+/**
+ * Include the Advanced Custom Fields configuration this theme needs
+ */
+if ( function_exists( 'acf_add_local_field_group' ) ) {
+    acf_add_local_field_group(array(
+        'key' => 'group_5bdd17abba6b2',
+        'title' => 'Post',
+        'fields' => array(
+            array(
+                'key' => 'field_5b09135330ae4',
+                'label' => 'Header Location',
+                'name' => 'header_location',
+                'type' => 'select',
+                'instructions' => '',
+                'required' => 1,
+                'conditional_logic' => 0,
+                'wrapper' => array(
+                    'width' => '',
+                    'class' => '',
+                    'id' => '',
+                ),
+                'choices' => array(
+                    'bottom' => 'Bottom',
+                    'top' => 'Top',
+                ),
+                'default_value' => array(
+                    0 => 'bottom',
+                ),
+                'allow_null' => 0,
+                'multiple' => 0,
+                'ui' => 0,
+                'ajax' => 0,
+                'placeholder' => '',
+                'return_format' => 'value',
+            ),
+            array(
+                'key' => 'field_5b09127730ae2',
+                'label' => 'Header Style',
+                'name' => 'header_style',
+                'type' => 'select',
+                'instructions' => '',
+                'required' => 1,
+                'conditional_logic' => 0,
+                'wrapper' => array(
+                    'width' => '',
+                    'class' => '',
+                    'id' => '',
+                ),
+                'choices' => array(
+                    'standard' => 'Standard',
+                    'seamless-light' => 'Seamless Light',
+                    'seamless-dark' => 'Seamless Dark',
+                ),
+                'default_value' => array(
+                    0 => 'standard',
+                ),
+                'allow_null' => 0,
+                'multiple' => 0,
+                'ui' => 0,
+                'ajax' => 0,
+                'placeholder' => '',
+                'return_format' => 'value',
+            ),
+            array(
+                'key' => 'field_5b09131930ae3',
+                'label' => 'Header Colour',
+                'name' => 'header_colour',
+                'type' => 'color_picker',
+                'instructions' => '',
+                'required' => 0,
+                'conditional_logic' => 0,
+                'wrapper' => array(
+                    'width' => '',
+                    'class' => '',
+                    'id' => '',
+                ),
+                'default_value' => '',
+            ),
+            array(
+                'key' => 'field_5b0945c1b5c6b',
+                'label' => 'Header Gradient',
+                'name' => 'header_gradient',
+                'type' => 'select',
+                'instructions' => '',
+                'required' => 1,
+                'conditional_logic' => 0,
+                'wrapper' => array(
+                    'width' => '',
+                    'class' => '',
+                    'id' => '',
+                ),
+                'choices' => array(
+                    'none' => 'None',
+                    'black' => 'Black',
+                    'white' => 'White',
+                    'primary' => 'Primary',
+                    'secondary' => 'Secondary',
+                    'tertiary' => 'Tertiary',
+                    'header-colour' => 'Header Colour',
+                ),
+                'default_value' => array(
+                    0 => 'none',
+                ),
+                'allow_null' => 0,
+                'multiple' => 0,
+                'ui' => 0,
+                'ajax' => 0,
+                'placeholder' => '',
+                'return_format' => 'value',
+            ),
+            array(
+                'key' => 'field_5b0a8d6d752de',
+                'label' => 'Header Padding',
+                'name' => 'header_padding',
+                'type' => 'text',
+                'instructions' => '',
+                'required' => 0,
+                'conditional_logic' => 0,
+                'wrapper' => array(
+                    'width' => '',
+                    'class' => '',
+                    'id' => '',
+                ),
+                'default_value' => 0,
+                'placeholder' => '',
+                'prepend' => '',
+                'append' => '',
+                'formatting' => 'none',
+                'maxlength' => '',
+            ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param' => 'post_type',
+                    'operator' => '==',
+                    'value' => 'post',
+                ),
+            ),
+        ),
+        'menu_order' => 0,
+        'position' => 'side',
+        'style' => 'default',
+        'label_placement' => 'top',
+        'instruction_placement' => 'label',
+        'hide_on_screen' => array(
+            0 => 'tags',
+            1 => 'send-trackbacks',
+        ),
+        'active' => 1,
+        'description' => '',
+    ));
+}
+
