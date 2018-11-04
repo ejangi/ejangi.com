@@ -88,10 +88,14 @@
         position: absolute;
         left: 0;
         right: 0;
-        top: 0;
-        bottom: 0;
         z-index: 12;
         background-color: transparent;
+    }
+
+    &.header-style-seamless-light.header-location-top > header,
+    &.header-style-seamless-dark.header-location-top > header {
+        top: 0;
+        bottom: 0;
 
         & > .post-excerpt {
             position: absolute;
@@ -102,6 +106,7 @@
 
     &.header-style-seamless-light.header-location-bottom > header,
     &.header-style-seamless-dark.header-location-bottom > header {
+        top: auto;
         bottom: 0;
     }
 
