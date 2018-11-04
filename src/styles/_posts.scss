@@ -429,6 +429,8 @@
 
 body.single,
 body.page {
+    overflow: visible;
+
     & > header {
         position: absolute;
         left: 0;
