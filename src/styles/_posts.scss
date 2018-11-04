@@ -34,7 +34,7 @@
         & > .container {
             display: flex;
             flex-direction: column;
-            padding: 0 20% .5rem 25px;
+            padding: 0 20% .5rem 30px;
         }
 
         & .post-title {
@@ -316,7 +316,8 @@
         top: 4rem;
     }
 
-    .post.format-standard {
+    .post.format-standard,
+    .page {
         &.header-style-seamless-light > header,
         &.header-style-seamless-dark > header {
             position: relative;
@@ -341,6 +342,24 @@
                 display: none;
             }
         }
+
+        &.header-style-standard {
+            & > header {
+                padding-bottom : 0;
+
+                & > .container {
+                    padding-bottom: 0;
+                }
+            }
+
+            & > .entry-content {
+                & > .basic-content {
+                    & > .container {
+                        padding-top: 1rem;
+                    }
+                }
+            }
+        }
     }
 
     & > .content {
@@ -348,26 +367,6 @@
         & > .page {
             margin: 0;
             border-radius: 0;
-
-            & > header {
-                & > .container {
-                    padding-left: 30px;
-
-                    @media (min-width: 576px) {
-                        padding-left: 15px;
-                    }
-                }
-
-                & .post-excerpt {
-                    & > .container {
-                        padding-left: 30px;
-
-                        @media (min-width: 576px) {
-                            padding-left: 15px;
-                        }
-                    }
-                }
-            }
 
             & > .post-thumbnail {
                 width: 100%;
@@ -460,9 +459,7 @@ body.page {
         .page {
             margin: 0;
             border-radius: 0;
-        }
 
-        .post.format-standard {
             &.header-style-seamless-light > header,
             &.header-style-seamless-dark > header {
                 position: relative;
@@ -519,18 +516,45 @@ body.page {
                     height: auto;
                 }
             }
+
+            &.header-style-standard {
+                & > header {
+                    padding-bottom : 0;
+
+                    & > .container {
+                        padding-bottom: 0;
+                    }
+                }
+
+                & > .entry-content {
+                    & > .basic-content {
+                        & > .container {
+                            padding-top: 1rem;
+                        }
+                    }
+                }
+            }
         }
 
         .page {
             & > header {
                 padding-top: 7rem;
 
-                & > .container,
-                & > .post-excerpt > .container {
-                    padding-left: 15px;
+                @media (min-width: 768px) {
+                    padding-top: 9rem;
                 }
 
-            }            
+                & > .container,
+                & > .post-excerpt > .container {
+                    padding-left: 30px;
+                    padding-right: 30px;
+                }
+
+            }
+
+            &.has-post-thumbnail > header {
+                padding-top: 3rem;
+            }
         }
 
     }
