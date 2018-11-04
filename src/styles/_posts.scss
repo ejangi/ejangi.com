@@ -224,7 +224,7 @@
 .post.format-quote,
 .post.format-aside {
     margin: -7rem -30px -6rem;
-    padding: 10rem 15px;
+    padding: 10rem 0;
     background-color: $tertiary;
 
     @media (min-width: 576px) {
@@ -297,6 +297,18 @@ body.search {
                 & > .post-category > a:active {
                     text-decoration: none;
                     cursor: default;
+                }
+            }
+        }
+
+        & > .post-thumbnail {
+            margin-bottom: 2rem;
+            text-align: center;
+
+            @media (max-width: 576px) {
+                & > img {
+                    width: 100%;
+                    height: auto;
                 }
             }
         }
