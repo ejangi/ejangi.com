@@ -64,7 +64,7 @@ const Site =( ( $, CachedArticle ) => {
             $( '#single-container' ).slideUp();
         } );
 
-        $( 'body.blog .main-container > article.post.format-standard, body.search .main-container > article.post.format-standard' ).each( function () {
+        $( 'body.blog .main-container > article.post, body.search .main-container > article.post' ).each( function () {
 
             $( '<div class="shade"></div>' ).appendTo( $( this ) ).hide();
 
