@@ -379,6 +379,38 @@
                     height: auto;
                 }
             }
+
+            &.header-contained > .post-thumbnail {
+                margin: 0 auto;
+                padding: 0 15px 1rem 15px;
+                width: 100%;
+    
+                @media (min-width: 576px) { 
+                    padding-bottom: 2rem;
+                }
+    
+                @media (min-width: 768px) { 
+                    width: 768px;
+                    padding-left: 30px;
+                    padding-right: 30px;
+                    padding-bottom: 3rem;
+                }
+    
+                @media (min-width: 992px) { 
+                    width: 992px;
+                    padding-bottom: 4rem;
+                }
+    
+                @media (min-width: 1200px) { 
+                    width: 1200px;
+                }
+    
+                & > img {
+                    position: relative;
+                    width: 100%;
+                    height: auto;
+                }
+            }
         }
 
         .page {
@@ -451,6 +483,38 @@ body.page {
             &.header-gradient-header-colour {
                 &:after {
                     display: none;
+                }
+            }
+
+            &.header-contained > .post-thumbnail {
+                margin: 0 auto;
+                padding: 0 15px 1rem 15px;
+                width: 100%;
+
+                @media (min-width: 576px) { 
+                    padding-bottom: 2rem;
+                }
+
+                @media (min-width: 768px) { 
+                    width: 768px;
+                    padding-left: 30px;
+                    padding-right: 30px;
+                    padding-bottom: 3rem;
+                }
+
+                @media (min-width: 992px) { 
+                    width: 992px;
+                    padding-bottom: 4rem;
+                }
+
+                @media (min-width: 1200px) { 
+                    width: 1200px;
+                }
+
+                & > img {
+                    position: relative;
+                    width: 100%;
+                    height: auto;
                 }
             }
         }

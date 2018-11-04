@@ -9,12 +9,17 @@ $header_location = 'bottom';
 $header_style = 'standard';
 $header_colour = '';
 $header_gradient = 'none';
+$contain_header = 0;
 
 if ( get_field_value( 'header_location' ) ) $header_location = 
     get_field_value( 'header_location' );
 if ( get_field_value( 'header_style' ) ) $header_style = get_field_value( 'header_style' );
 if ( get_field_value( 'header_colour' ) ) $header_colour = get_field_value( 'header_colour' );
 if ( get_field_value( 'header_gradient' ) ) $header_gradient = get_field_value( 'header_gradient' );
+if ( get_field_value( 'contain_header' ) ) {
+    $contain_header = (int) get_field_value( 'contain_header' );
+    $post_classes[] = 'header-contained';
+}
 
 if ( is_single() ) $post_classes[] = 'post-preview';
 $post_classes[] = 'header-location-'.$header_location;
