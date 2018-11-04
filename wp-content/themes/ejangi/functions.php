@@ -114,7 +114,10 @@ add_action( 'init', function() {
     remove_action( 'wp_head', 'parent_post_rel_link', 10, 0 );            // previous link
     remove_action( 'wp_head', 'start_post_rel_link', 10, 0 );             // start link
     remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0 ); // Links for Adjacent Posts
-    remove_action( 'wp_head', 'wp_generator' );                           // WP version
+    remove_action( 'wp_head', 'wp_generator' );   
+    
+    remove_filter('the_content', 'wpautop');
+    add_filter('the_content', 'wpautop', 12);
 } );
 
 
@@ -342,6 +345,43 @@ add_action( 'wp_footer', function () {
     }
 
 }, 100 );
+
+
+
+/**
+ * Shortcode for <div class="row"></div> content wrapper
+ **/
+add_shortcode( 'row', function ( $atts, $content = null ) {
+    ob_start();
+    $atts = shortcode_atts( [
+        'class' => 'row'
+    ], $atts );
+    
+    echo '<div class="'.$atts['class'].'">';
+    echo wpautop( do_shortcode( trim( $content ) ) );
+    echo '</div>';
+
+    return ob_get_clean();
+} );
+
+
+
+/**
+ * Shortcode for <div class="col"></div> content wrapper
+ **/
+add_shortcode( 'col', function ( $atts, $content = null ) {
+    ob_start();
+    $atts = shortcode_atts( [
+        'class' => 'col-sm'
+    ], $atts );
+    
+    echo '<div class="'.$atts['class'].'">';
+    echo wpautop( do_shortcode( trim( $content ) ) );
+    echo '</div>';
+
+    return ob_get_clean();
+} );
+
 
 
 /**
