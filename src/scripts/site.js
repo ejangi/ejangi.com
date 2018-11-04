@@ -64,7 +64,7 @@ const Site =( ( $, CachedArticle ) => {
             $( '#single-container' ).slideUp();
         } );
 
-        $( '.main-container > article.post.format-standard' ).each( function () {
+        $( 'body.blog .main-container > article.post.format-standard, body.search .main-container > article.post.format-standard' ).each( function () {
 
             $( '<div class="shade"></div>' ).appendTo( $( this ) ).hide();
 
@@ -138,7 +138,7 @@ const Site =( ( $, CachedArticle ) => {
             }
         } );
 
-        $( '.main-nav a, .me-nav a' ).each( function () {
+        $( '.main-nav a, .me-nav a' ).not('.menu-item-home a').each( function () {
 
             var href = $( this ).attr( 'href' ),
                 url = document.createElement( 'a' );

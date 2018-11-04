@@ -5,6 +5,11 @@ body {
     right: 0;
 }
 
+body > main {
+    position: relative;
+    z-index: 11;
+}
+
 .container {
     padding-left: 30px;
     padding-right: 30px;
