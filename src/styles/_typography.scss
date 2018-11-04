@@ -50,11 +50,13 @@ blockquote {
     padding: 1rem 30px;
     color: $tertiary;
     border: 1px solid lighten($tertiary, 50%);
+    border-left-color: transparent;
+    border-right-color: transparent;
     font-family: 'Nanum Myeongjo', serif;
     font-style: italic;
 
     @media (min-width: 768px) {
-        margin: 2rem -30px;
+        margin: 2rem -15px;
         font-size: 1.2rem;
     }
 
