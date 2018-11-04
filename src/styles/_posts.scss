@@ -292,10 +292,17 @@ body.search {
             & > .container {
                 padding-left: 60px;
                 padding-right: 60px;
+                
+                & > .post-category > a:hover,
+                & > .post-category > a:active {
+                    text-decoration: none;
+                    cursor: default;
+                }
             }
         }
 
-        .post-excerpt {
+        .post-excerpt,
+        .entry-content > .basic-content {
             & > .container {
                 padding-left: 60px;
                 padding-right: 60px;

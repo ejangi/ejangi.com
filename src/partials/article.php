@@ -1,7 +1,7 @@
 <?
 namespace Ejangi;
 
-$is_single = ( is_single() || is_page() ) ? true : false;
+$is_single = ( is_single() || is_page() || has_post_format( 'aside' ) ) ? true : false;
 
 $post_classes = [];
 
