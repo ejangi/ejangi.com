@@ -407,7 +407,7 @@ body.search {
             }
         }
 
-        &.header-style-standard {
+        &.header-style-standard.header-location-bottom {
             & > header {
                 padding-bottom : 0;
 
@@ -581,7 +581,7 @@ body.page {
                 }
             }
 
-            &.header-style-standard {
+            &.header-style-standard.header-location-bottom {
                 & > header {
                     padding-bottom : 0;
 
