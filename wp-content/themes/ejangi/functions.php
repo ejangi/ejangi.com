@@ -485,6 +485,22 @@ add_filter( 'embed_oembed_html', function ( $cache, $url, $attr = '', $post_ID =
 
 
 
+/**
+ * Pin select articles to the top of the home page feed
+ **/
+add_action( 'pre_get_posts', function( $query ) {
+
+    if( is_home() ) {
+        //echo "<pre>".var_dump( $query )."</pre>";
+        $query->query_vars['meta_key'] = 'pin_to_top';
+        $query->query_vars['orderby'] = 'meta_value date';
+        $query->query_vars['order'] = 'DESC';
+    }
+
+}, 10, 1 );
+
+
+
 
 /**
  * Include the Advanced Custom Fields configuration this theme needs
@@ -494,6 +510,31 @@ if ( function_exists( 'acf_add_local_field_group' ) ) {
         'key' => 'group_5bdd17abba6b2',
         'title' => 'Post',
         'fields' => array(
+            array(
+                'key' => 'field_5bdfae7c08cac',
+                'label' => 'Pin to Top',
+                'name' => 'pin_to_top',
+                'type' => 'checkbox',
+                'instructions' => '',
+                'required' => 0,
+                'conditional_logic' => 0,
+                'wrapper' => array(
+                    'width' => '',
+                    'class' => '',
+                    'id' => '',
+                ),
+                'choices' => array(
+                    1 => 'Yes',
+                ),
+                'allow_custom' => 0,
+                'default_value' => array(
+                    0 => 0,
+                ),
+                'layout' => 'vertical',
+                'toggle' => 0,
+                'return_format' => 'value',
+                'save_custom' => 0,
+            ),
             array(
                 'key' => 'field_5b09135330ae4',
                 'label' => 'Header Location',
