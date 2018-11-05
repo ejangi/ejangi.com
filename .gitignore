@@ -5,6 +5,7 @@ mariadb-data/
 !mariadb-data/.*
 wp-content/*.*
 wp-content/.DS_Store
+wp-content/languages
 wp-content/plugins
 wp-content/themes/*.*
 wp-content/themes/.DS_Store
