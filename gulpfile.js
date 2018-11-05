@@ -20,6 +20,11 @@ gulp.task('php', function(){
     .pipe(gulp.dest(dest))
 });
 
+gulp.task('images', function(){
+  return gulp.src('src/images/*')
+    .pipe(gulp.dest(dest+'/images'))
+});
+
 gulp.task('style.css', function(){
   return gulp.src('src/style.css')
     .pipe(gulp.dest(dest))

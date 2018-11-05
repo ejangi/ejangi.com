@@ -72,7 +72,7 @@ const Site =( ( $, CachedArticle ) => {
 
         $( 'body.blog .main-container > article.post.format-standard, body.search .main-container > article.post.format-standard' ).each( function () {
 
-            $( '<div class="shade"></div>' ).appendTo( $( this ) ).hide();
+            $( '<div class="shade"><div class="spinner"></div></div>' ).appendTo( $( this ) ).hide();
 
             $( this ).on( 'click', function ( e ) {
 

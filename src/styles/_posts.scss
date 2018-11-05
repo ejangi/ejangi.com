@@ -223,6 +223,17 @@
         z-index: 13;
         transition: all .3s ease;
         border-radius: 2rem;
+
+        & > .spinner {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 64px;
+            height: 64px;
+            background-image: url(../images/spinner.png);
+            background-size: 64px 64px;
+            transform: translate(-50%,-50%);
+        }
     }
 }
 
