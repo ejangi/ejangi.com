@@ -26,12 +26,12 @@ $post_classes[] = 'header-location-'.$header_location;
 $post_classes[] = 'header-style-'.$header_style;
 $post_classes[] = 'header-gradient-'.$header_gradient;
 
-if ( $header_gradient == 'header-colour' ) new Header_Colours( get_the_ID(), $header_colour );
+if ( $header_gradient == 'header-colour' ) new Header_Colours( get_the_ID(), $header_colour, $header_location );
 ?>
 
-    <article id="post-<?php the_ID(); ?>" <? post_class( implode( ' ', $post_classes ) ) ?> data-permalink="<?= esc_attr( get_the_permalink() ) ?>" data-last-modified="<?= esc_attr( get_the_modified_date( 'Y-m-d H:i:s' ) ) ?>"<? if ( $header_colour ) : ?> style="background-color: <?= $header_colour ?>;"<? endif; ?>>
+    <article id="post-<?php the_ID(); ?>" <? post_class( implode( ' ', $post_classes ) ) ?> data-permalink="<?= esc_attr( get_the_permalink() ) ?>" data-last-modified="<?= esc_attr( get_the_modified_date( 'Y-m-d H:i:s' ) ) ?>">
         
-        <header>
+        <header<? if ( $header_colour ) : ?> style="background-color: <?= $header_colour ?>;"<? endif; ?>>
             <div class="container header-container">
                 <h1 class="post-title"><? if ( !$is_single ) : ?><a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>"><? endif; ?><? the_title() ?><? if ( !$is_single ) : ?></a><? endif; ?></h1>
                 <h4 class="post-category"><? the_category( '&bull;' ) ?></h4>

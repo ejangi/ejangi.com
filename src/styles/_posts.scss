@@ -155,11 +155,17 @@
         }
     }
 
-    &.header-gradient-black:after { background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,1) 50%); }
-    &.header-gradient-white:after { background: linear-gradient(to bottom, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 50%); }
-    &.header-gradient-primary:after { background: linear-gradient(to bottom, rgba($primary ,0) 0%,rgba($primary, 1) 50%); }
-    &.header-gradient-secondary:after { background: linear-gradient(to bottom, rgba($secondary ,0) 0%,rgba($secondary, 1) 50%); }
-    &.header-gradient-tertiary:after { background: linear-gradient(to bottom, rgba($tertiary ,0) 0%,rgba($tertiary, 1) 50%); }
+    &.header-location-bottom.header-gradient-black:after { background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,1) 50%); }
+    &.header-location-bottom.header-gradient-white:after { background: linear-gradient(to bottom, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 50%); }
+    &.header-location-bottom.header-gradient-primary:after { background: linear-gradient(to bottom, rgba($primary ,0) 0%,rgba($primary, 1) 50%); }
+    &.header-location-bottom.header-gradient-secondary:after { background: linear-gradient(to bottom, rgba($secondary ,0) 0%,rgba($secondary, 1) 50%); }
+    &.header-location-bottom.header-gradient-tertiary:after { background: linear-gradient(to bottom, rgba($tertiary ,0) 0%,rgba($tertiary, 1) 50%); }
+
+    &.header-location-top.header-gradient-black:after { background: linear-gradient(to bottom, rgba(0,0,0,1) 0%,rgba(0,0,0,0) 50%); }
+    &.header-location-top.header-gradient-white:after { background: linear-gradient(to bottom, rgba(255,255,255,1) 0%,rgba(255,255,255,0) 50%); }
+    &.header-location-top.header-gradient-primary:after { background: linear-gradient(to bottom, rgba($primary ,1) 0%,rgba($primary, 0) 50%); }
+    &.header-location-top.header-gradient-secondary:after { background: linear-gradient(to bottom, rgba($secondary ,1) 0%,rgba($secondary, 0) 50%); }
+    &.header-location-top.header-gradient-tertiary:after { background: linear-gradient(to bottom, rgba($tertiary ,1) 0%,rgba($tertiary, 0) 50%); }
 
     & > .post-thumbnail {
         position: relative;
@@ -189,8 +195,10 @@
     }
 
     & > .entry-content {
+        position: relative;
         order: 3;
         background-color: white;
+        z-index: 12;
 
         & > .basic-content {
             & > .container {
@@ -278,45 +286,56 @@
 
 body.blog,
 body.search {
-    .post.format-quote {
-        & > header {
-            & > .header-container {
-                display: none;
-            }
-        }
-    }
-
-    .post.format-aside {
-        & > header {
-            & > .container {
-                padding-left: 60px;
-                padding-right: 60px;
-                
-                & > .post-category > a:hover,
-                & > .post-category > a:active {
-                    text-decoration: none;
-                    cursor: default;
+    .main-container {
+        .post.format-quote {
+            & > header {
+                & > .header-container {
+                    display: none;
                 }
             }
         }
-
-        & > .post-thumbnail {
-            margin-bottom: 2rem;
-            text-align: center;
-
-            @media (max-width: 576px) {
-                & > img {
-                    width: 100%;
-                    height: auto;
+    
+        .post.format-aside {
+            & > header {
+                & > .container {
+                    padding-left: 60px;
+                    padding-right: 60px;
+                    
+                    & > .post-category > a:hover,
+                    & > .post-category > a:active {
+                        text-decoration: none;
+                        cursor: default;
+                    }
+                }
+            }
+    
+            & > .post-thumbnail {
+                margin-bottom: 2rem;
+                text-align: center;
+    
+                @media (max-width: 576px) {
+                    & > img {
+                        width: 100%;
+                        height: auto;
+                    }
+                }
+            }
+    
+            .post-excerpt,
+            .entry-content > .basic-content {
+                & > .container {
+                    padding-left: 60px;
+                    padding-right: 60px;
                 }
             }
         }
-
-        .post-excerpt,
-        .entry-content > .basic-content {
-            & > .container {
-                padding-left: 60px;
-                padding-right: 60px;
+    
+        .post.format-standard,
+        .page {
+            &.header-gradient-header-colour {
+                & > header {
+                    background-color: transparent !important;
+                }
             }
         }
     }
@@ -405,24 +424,14 @@ body.search {
             position: relative;
         }
 
-        &.header-location-top.header-style-seamless-light.header-gradient-none > header,
-        &.header-location-top.header-style-seamless-dark.header-gradient-none > header {
+        &.header-location-top.header-style-seamless-light > header,
+        &.header-location-top.header-style-seamless-dark > header {
             position: absolute;
+            background-color: transparent !important;
         }
 
         &.header-location-top > header > .container {
             padding-top: 3rem;
-        }
-
-        &.header-gradient-black,
-        &.header-gradient-white,
-        &.header-gradient-primary,
-        &.header-gradient-secondary,
-        &.header-gradient-tertiary,
-        &.header-gradient-header-colour {
-            &:after {
-                display: none;
-            }
         }
 
         &.header-style-standard.header-location-bottom {
@@ -547,24 +556,14 @@ body.page {
                 position: relative;
             }
 
-            &.header-location-top.header-style-seamless-light.header-gradient-none > header,
-            &.header-location-top.header-style-seamless-dark.header-gradient-none > header {
+            &.header-location-top.header-style-seamless-light > header,
+            &.header-location-top.header-style-seamless-dark > header {
                 position: absolute;
+                background-color: transparent !important;
             }
 
             &.header-location-top > header > .container {
                 padding-top: 3rem;
-            }
-
-            &.header-gradient-black,
-            &.header-gradient-white,
-            &.header-gradient-primary,
-            &.header-gradient-secondary,
-            &.header-gradient-tertiary,
-            &.header-gradient-header-colour {
-                &:after {
-                    display: none;
-                }
             }
 
             &.header-contained > .post-thumbnail {

@@ -23,9 +23,12 @@ class Header_Colours
      *
      * @return void
      **/
-    public function __construct( $post_id, $colour )
+    public function __construct( $post_id, $colour, $location )
     {
-        self::$header_colours[ $post_id ] = $colour;
+        self::$header_colours[ $post_id ] = [
+            'color' => $colour,
+            'location' => $location
+        ];
     }
 
 
@@ -41,9 +44,20 @@ class Header_Colours
         if ( count( self::$header_colours ) ) {
             $block .= '<style id="header-colours">';
 
-            foreach ( self::$header_colours as $post_id => $colour ) {
-                list( $r, $g, $b ) = self::hex_to_rgb( $colour );
-                $block .= '#post-'.$post_id.'.format-standard.header-gradient-header-colour:after { background: linear-gradient(to bottom, rgba('.$r.', '.$g.', '.$b.', 0) 0%,rgba('.$r.', '.$g.', '.$b.', 1) 50%); }';
+            foreach ( self::$header_colours as $post_id => $details ) {
+                $color = $details['color'];
+                $location = $details['location'];
+
+                $opacity_1 = 0;
+                $opacity_2 = 1;
+
+                if ( $location == 'top' ) {
+                    $opacity_1 = 1;
+                    $opacity_2 = 0;
+                }
+
+                list( $r, $g, $b ) = self::hex_to_rgb( $color );
+                $block .= '#post-'.$post_id.'.format-standard.header-gradient-header-colour:after { background: linear-gradient(to bottom, rgba('.$r.', '.$g.', '.$b.', '.$opacity_1.') 0%,rgba('.$r.', '.$g.', '.$b.', '.$opacity_2.') 50%); }';
             }
 
             $block .= '</style>';
