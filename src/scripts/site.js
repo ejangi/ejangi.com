@@ -20,7 +20,7 @@ const Site =( ( $, CachedArticle ) => {
 
         }
 
-        $( that ).find( '.shade' ).fadeIn();
+        $( that ).find( '.shade' ).fadeIn( 'slow' );
 
         if ( sessionTime <= expireTime && cached.retrieve( key ) ) {
 
@@ -32,7 +32,7 @@ const Site =( ( $, CachedArticle ) => {
             $( '#single-container' ).slideDown(function() {
                 $( 'body' ).css( 'position', 'fixed' );
             });
-            $( that ).find( '.shade' ).hide();
+            $( that ).find( '.shade' ).fadeOut( 'slow' );
 
         } else {
             $.get( postUrl, { 'headless': '1' }, function( data ) {
@@ -51,7 +51,7 @@ const Site =( ( $, CachedArticle ) => {
 
             } ).always(function() {
 
-                $( that ).find( '.shade' ).hide();
+                $( that ).find( '.shade' ).fadeOut( 'slow' );
 
             } );
         }
