@@ -16,7 +16,9 @@ services:
       WORDPRESS_DB_PASSWORD_FILE: /tmp/mariadb_root_password
     restart: always
   ejangi_db:
-    image: mariadb
+    build:
+        context: .
+        dockerfile: mariadb.Dockerfile
     volumes:
         - ./mariadb-data:/var/lib/mysql
         - ./mariadb_root_password:/tmp/mariadb_root_password
