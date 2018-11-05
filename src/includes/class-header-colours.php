@@ -57,7 +57,7 @@ class Header_Colours
                 }
 
                 list( $r, $g, $b ) = self::hex_to_rgb( $color );
-                $block .= '#post-'.$post_id.'.format-standard.header-gradient-header-colour:after { background: linear-gradient(to bottom, rgba('.$r.', '.$g.', '.$b.', '.$opacity_1.') 0%,rgba('.$r.', '.$g.', '.$b.', '.$opacity_2.') 50%); }';
+                $block .= '#post-'.$post_id.'.format-standard.header-gradient-header-colour:after { background: linear-gradient(to bottom, rgba('.$r.', '.$g.', '.$b.', '.$opacity_1.') 0%,rgba('.$r.', '.$g.', '.$b.', '.$opacity_2.') 70%); }';
             }
 
             $block .= '</style>';
