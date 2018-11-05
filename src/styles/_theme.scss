@@ -49,6 +49,12 @@ body > main {
     .active > & {
         font-weight: 700;
     }
+
+    & > img:first-child {
+        margin-top: -2px;
+        margin-right: .5rem;
+        transform: translateX(-25%);
+    }
 }
 
 .btn {
