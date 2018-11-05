@@ -446,6 +446,47 @@ add_shortcode( 'btn', function ( $atts, $content = null ) {
 
 
 /**
+ * Wrap embedded media as suggested by Readability
+ *
+ * @link https://gist.github.com/965956
+ * @link http://www.readability.com/publishers/guidelines#publisher
+ */
+add_filter( 'embed_oembed_html', function ( $cache, $url, $attr = '', $post_ID = '' ) {
+    $classes = array('embed-responsive embed-responsive-16by9');
+    $site_url = site_url();
+    if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off') {
+        $site_url = str_replace('http:', 'https:', $site_url);
+    } else {
+        $site_url = str_replace('https:', 'http:', $site_url);
+    }
+    
+    if(preg_match('/youtube|youtu\.be/i', $cache)) {
+        $classes[] = 'embed-youtube';
+        $qschar = "?";
+        if(preg_match("/src=([^\?]*\?[^'\">\s]*)/i", $cache)) {
+            $qschar = "&";
+        }
+        $cache = preg_replace("@src=(['\"])?([^'\">\s]*)@", "class=\"embed-responsive-item\" src=$1$2{$qschar}showinfo=0&modestbranding=1&rel=0&autohide=1&wmode=transparent&origin={$site_url}", $cache);
+        if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off') {
+            $cache = str_replace('src="http:', 'src="https:', $cache);
+        } else {
+            $cache = str_replace('src="https:', 'src="http:', $cache);
+        }
+    }
+
+    if(preg_match('/vimeo/i', $cache)) {
+        $classes[] = 'embed-vimeo';
+        $cache = preg_replace("@src=@", "class=\"embed-responsive-item\" src=", $cache);
+        
+    }
+
+    return '<div class="' . implode(' ', $classes) . '">' . $cache . '</div>';
+}, 10, 4 );
+
+
+
+
+/**
  * Include the Advanced Custom Fields configuration this theme needs
  */
 if ( function_exists( 'acf_add_local_field_group' ) ) {
