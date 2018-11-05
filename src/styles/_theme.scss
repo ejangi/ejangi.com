@@ -37,6 +37,7 @@ body > main {
 
     &:hover,
     &:focus {
+        color: $primary;
         background-color: white;
     }
 
@@ -52,6 +53,19 @@ body > main {
 
 .btn {
     @include btn();
+}
+
+.btn-default {
+    color: $tertiary;
+    background-color: $secondary;
+    @include btn();
+
+    &:hover,
+    &:focus,
+    &:active {
+        color: $secondary;
+        background-color: $tertiary;
+    }
 }
 
 @mixin form-control() {

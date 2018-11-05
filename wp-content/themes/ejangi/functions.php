@@ -23,6 +23,24 @@ const theme = 'ejangi';
 
 
 /**
+ * Set the CachedArticle cookie
+ *
+ * Set a datetime cookie and expire the CachedArticle cache every 10 minutes.
+ *
+ * @return void
+ **/
+function set_cachedarticle_cookie()
+{
+    $path = parse_url( get_option( 'siteurl' ), PHP_URL_PATH );
+    $host = parse_url( get_option( 'siteurl' ), PHP_URL_HOST );
+    $expiry = strtotime( '+10 minutes' );
+    $value = date( 'Y-m-dTH:i:s' );
+    setcookie( 'cachedarticle', $value, $expiry, $path, $host );
+}
+
+
+
+/**
  * Queue up the main script and stylesheet files
  *
  * @return void
@@ -105,6 +123,12 @@ add_action( 'customize_register', function( $wp_customize ) {
  * @return void
  **/
 add_action( 'init', function() {
+    
+    // Set the CachedArticle cookie:
+    if ( empty( $_COOKIE['cachedarticle'] ) || strtotime( $_COOKIE['cachedarticle'] ) <= strtotime( '-10 minutes' ) ) {
+        set_cachedarticle_cookie();
+    }
+
     // remove header links
     remove_action( 'wp_head', 'feed_links_extra', 3 );                    // Category Feeds
     remove_action( 'wp_head', 'feed_links', 2 );                          // Post and Comment Feeds
@@ -116,6 +140,7 @@ add_action( 'init', function() {
     remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0 ); // Links for Adjacent Posts
     remove_action( 'wp_head', 'wp_generator' );   
     
+    // Fix an issue with shortcodes processing:
     remove_filter('the_content', 'wpautop');
     add_filter('the_content', 'wpautop', 12);
 } );
@@ -334,6 +359,23 @@ add_filter( 'the_content', __NAMESPACE__.'\maintain_abbr', 10, 1 );
 
 
 /**
+ * Set the <meta name="cachedarticle" content="[CURRENTDATETIME]" /> tag for use by JavaScript:
+ *
+ * @return void
+ **/
+add_action( 'wp_head', function () {
+    $date = date( 'Y-m-dTH:i:s' );
+    if ( !empty( $_COOKIE['cachedarticle'] ) ) {
+        $date = str_replace( 'UTC', 'T', $_COOKIE['cachedarticle'] );
+    }
+    ?>
+    <meta name="cachedarticle" content="<?= $date ?>" />
+    <?
+}, 100 );
+
+
+
+/**
  * Add our custom header colours <style> block to the output
  *
  * @return void
@@ -378,6 +420,25 @@ add_shortcode( 'col', function ( $atts, $content = null ) {
     echo '<div class="'.$atts['class'].'">';
     echo wpautop( do_shortcode( trim( $content ) ) );
     echo '</div>';
+
+    return ob_get_clean();
+} );
+
+
+
+/**
+ * Shortcode for a <a href="..." class="btn"></a> link
+ **/
+add_shortcode( 'btn', function ( $atts, $content = null ) {
+    ob_start();
+    $atts = shortcode_atts( [
+        'class' => 'btn btn-default',
+        'href' => ''
+    ], $atts );
+    
+    echo '<a href="'.$atts['href'].'" class="'.$atts['class'].'">';
+    echo do_shortcode( trim( $content ) );
+    echo '</a>';
 
     return ob_get_clean();
 } );

@@ -5,8 +5,14 @@ const Site =( ( $, CachedArticle ) => {
 
     const displayPost = ( postUrl, modifiedDate, that ) => {
 
-        var key = postUrl + modifiedDate,
+        var sessionTime = Date.now(),
+            expireTime = Date.now() - (60000 * 10),
+            key = postUrl + modifiedDate,
             cached = new CachedArticle();
+
+        if ( $( 'meta[name="cachedarticle"]' ).length > 0 ) {
+            sessionTime = Date.parse( $( 'meta[name="cachedarticle"]' ).attr( 'content' ) );
+        }
 
         if ( $( '#single-container' ).is( ':visible' ) ) {
 
@@ -16,7 +22,7 @@ const Site =( ( $, CachedArticle ) => {
 
         $( that ).find( '.shade' ).fadeIn();
 
-        if ( cached.retrieve( key ) ) {
+        if ( sessionTime <= expireTime && cached.retrieve( key ) ) {
 
             if ( window.history !== undefined ) {
                 history.pushState( {}, "", postUrl );    
