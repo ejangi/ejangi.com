@@ -437,6 +437,7 @@ body.search {
         &.header-style-standard.header-location-bottom {
             & > header {
                 padding-bottom : 0;
+                background-color: white !important;
 
                 & > .container {
                     padding-bottom: 0;
@@ -601,6 +602,7 @@ body.page {
             &.header-style-standard.header-location-bottom {
                 & > header {
                     padding-bottom : 0;
+                    background-color: white !important;
 
                     & > .container {
                         padding-bottom: 0;

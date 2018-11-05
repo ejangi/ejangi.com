@@ -46,7 +46,7 @@ if ( $header_gradient == 'header-colour' ) new Header_Colours( get_the_ID(), $he
         </header>
 
         <? if ( has_post_thumbnail() ) : ?>
-        <figure class="post-thumbnail">
+        <figure class="post-thumbnail"<? if ( $header_colour ) : ?> style="background-color: <?= $header_colour ?>;"<? endif; ?>>
             <? the_post_thumbnail( 'post-large' ) ?>
             <? if ( get_post(get_post_thumbnail_id())->post_excerpt ) : ?>
             <figcaption><?= esc_html( get_post(get_post_thumbnail_id())->post_excerpt ) ?></figcaption>
