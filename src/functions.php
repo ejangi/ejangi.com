@@ -490,7 +490,7 @@ add_filter( 'embed_oembed_html', function ( $cache, $url, $attr = '', $post_ID =
  **/
 add_action( 'pre_get_posts', function( $query ) {
 
-    if( is_home() ) {
+    if( is_home() && $query->is_main_query() ) {
         //echo "<pre>".var_dump( $query )."</pre>";
         $query->query_vars['meta_key'] = 'pin_to_top';
         $query->query_vars['orderby'] = 'meta_value date';
