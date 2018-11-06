@@ -6,7 +6,10 @@ body {
 
 body > main {
     position: relative;
-    z-index: 11;
+    z-index: 4;
+    overflow-x: hidden;
+    margin-top: -3rem;
+    padding-top: 3rem;
 }
 
 .container {
@@ -85,6 +88,13 @@ body > main {
 
 .form-control {
     @include form-control();
+}
+
+
+
+.navbar-fixed-top {
+    position: relative;
+    z-index: 10;
 }
 
 
