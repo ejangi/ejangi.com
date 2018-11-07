@@ -1,3 +1,6 @@
+#!/bin/bash
+source /tmp/environment
+
 file_env() {
     local var="$1"
     local fileVar="${var}_FILE"
@@ -18,4 +21,6 @@ file_env() {
 
 file_env 'MYSQL_ROOT_PASSWORD'
 touch /var/lib/mysql/$MYSQL_DATABASE-nightly.sql
-/usr/bin/mysqldump -uroot -p$MYSQL_ROOT_PASSWORD $MYSQL_DATABASE > /var/lib/mysql/$MYSQL_DATABASE-nightly.sql
+/usr/bin/mysqldump -hejangi_db -uroot -p$MYSQL_ROOT_PASSWORD $MYSQL_DATABASE > /var/lib/mysql/$MYSQL_DATABASE-nightly.sql
+CURRENT_DATE=`date -I`
+echo "Backup performed for [${MYSQL_DATABASE}]: ${CURRENT_DATE}"

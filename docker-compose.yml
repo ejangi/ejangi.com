@@ -28,3 +28,14 @@ services:
       MYSQL_DATABASE: ejangi
       MYSQL_ROOT_PASSWORD_FILE: /tmp/mariadb_root_password
     restart: always
+  ejangi_cron:
+    build:
+      context: .
+      dockerfile: cron.Dockerfile
+    volumes:
+        - ./mariadb-data:/var/lib/mysql
+        - ./mariadb_root_password:/tmp/mariadb_root_password
+    environment:
+      MYSQL_DATABASE: ejangi
+      MYSQL_ROOT_PASSWORD_FILE: /tmp/mariadb_root_password
+    restart: always

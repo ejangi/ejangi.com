@@ -1,1 +1,3 @@
-0 0 * * * bash /root/backup.sh
+BASH_ENV=/tmp/environment
+
+0 0 * * * bash -l -c '/root/backup.sh'
