@@ -19,7 +19,7 @@
     "gulp-flatten": "",
     "gulp-html-minifier": "",
     "gulp-if": "",
-    "gulp-imagemin": "",
+    "gulp-imagemin": "^4.1",
     "gulp-jshint": "",
     "gulp-less": "",
     "gulp-load-plugins": "",
