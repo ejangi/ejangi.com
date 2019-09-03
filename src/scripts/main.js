@@ -32,7 +32,7 @@
         fc.sleep(2000);
         fc.typeWriter('ls skills');
         fc.sleep(1000);
-        fc.typeWriter('\nDeveloper,\tWeb Designer,\tHacker of PHP, MySQL and Ruby,\tEmail Marketer,\tVideo Producer,\tMusic Maker,\tPhotographer,\tFundraiser');
+        fc.typeWriter('\nCreative,\tDeveloper,\tExperience Designer,\tMarketer,\tProject Manager,\tCustomer-centric,\tLeader of people');
         fc.sleep(5000);
     }
 
