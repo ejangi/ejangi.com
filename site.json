@@ -2,5 +2,6 @@
     "title": "James Angus",
     "description": "Online Portfolio",
     "sections": ["intro", "about", "skillset", "portfolio", "contact"],
-    "googleAnalyticsID": "UA-12314225-1"
+    "googleAnalyticsID": "UA-12314225-1",
+    "mixPanelID": "1b559cf463eb9172e36fc351203057a4"
 }
