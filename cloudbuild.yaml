@@ -16,3 +16,8 @@ steps:
   args:
   - 'run'
   - 'build'
+
+artifacts:
+  objects:
+    location: 'gs://artifacts.lunar-nuance-251922.appspot.com'
+    paths: ['dist/*']
