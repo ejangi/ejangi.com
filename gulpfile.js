@@ -260,14 +260,20 @@ gulp.task('watch', function() {
 gulp.task('build', function(callback) {
     if(argv.production) {
         runSequence(
-          ['scripts', 'styles', 'fonts', 'images'],
+          'scripts', 
+          'styles', 
+          'fonts', 
+          'images',
           'html',
           'revreplace',
           'cname',
           callback);
     } else {
         runSequence(
-          ['scripts', 'styles', 'fonts', 'images'],
+          'scripts', 
+          'styles', 
+          'fonts', 
+          'images',
           'html',
           callback);
     }

@@ -6,9 +6,7 @@ VOLUME /usr/src/app
 EXPOSE 3000
 EXPOSE 3001
 
-COPY package.json /usr/src/app/
-COPY bower.json /usr/src/app/
-COPY .bowerrc /usr/src/app/
+COPY . /usr/src/app/
 
 RUN npm install && \
     npm install -g bower gulp && \
