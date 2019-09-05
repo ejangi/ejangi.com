@@ -4,7 +4,7 @@
   "author": "James Angus <james@ejangi.com>",
   "private": true,
   "scripts": {
-    "build": "bower install && gulp"
+    "build": "bower install && gulp --production"
   },
   "devDependencies": {
     "asset-builder": "",

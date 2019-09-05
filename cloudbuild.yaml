@@ -1,0 +1,18 @@
+steps:
+
+# This step builds the container image.
+- name: 'gcr.io/cloud-builders/npm'
+  args:
+  - 'install'
+
+- name: 'gcr.io/cloud-builders/npm'
+  args:
+  - 'install'
+  - '-g'
+  - 'bower'
+  - 'gulp'
+
+- name: 'gcr.io/cloud-builders/npm'
+  args:
+  - 'run'
+  - 'build'
