@@ -48,6 +48,7 @@ steps:
 # This step deploys the code
 - name: 'gcr.io/cloud-builders/git'
   id: Deploy
+  entrypoint: bash
   args: ['python', 'ghp-import.py', '-p', './dist/']
 
 artifacts:
