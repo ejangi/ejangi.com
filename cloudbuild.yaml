@@ -2,24 +2,13 @@ steps:
 
 # This step builds the container image.
 - name: 'gcr.io/cloud-builders/npm'
-  args:
-  - 'install'
+  args: ['install']
 
 - name: 'gcr.io/cloud-builders/npm'
-  args:
-  - 'install'
-  - '-g'
-  - 'bower'
-  - 'gulp'
+  args: ['install','-g','bower','gulp']
 
 - name: 'gcr.io/cloud-builders/npm'
-  args:
-  - 'run'
-  - 'build'
+  args: ['run','build']
 
 - name: 'gcr.io/cloud-builders/gsutil'
-  args: 
-  - 'cp'
-  - '-r'
-  - 'dist'
-  - 'gs://artifacts.lunar-nuance-251922.appspot.com/'
+  args: ['cp','-r','dist','gs://ejangi-private/']
