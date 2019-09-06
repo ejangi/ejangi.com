@@ -46,7 +46,7 @@ steps:
     path: /root/.ssh
 
 # This step deploys the code
-- name: 'python:latest'
+- name: 'gcr.io/cloud-builders/git'
   id: Deploy
   args: ['python', 'ghp-import.py', '-p', './dist/']
 
