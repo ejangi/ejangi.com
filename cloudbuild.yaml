@@ -2,13 +2,55 @@ steps:
 
 # This step builds the container image.
 - name: 'gcr.io/cloud-builders/npm'
+  id: Install Dependencies
   args: ['install']
 
 - name: 'gcr.io/cloud-builders/npm'
+  id: Install Bower and Gulp
   args: ['install','-g','bower','gulp']
 
 - name: 'gcr.io/cloud-builders/npm'
+  id: Build
   args: ['run','build']
 
-- name: 'gcr.io/cloud-builders/gsutil'
-  args: ['cp','-r','dist','gs://ejangi-private/']
+# Decrypt the file containing the key
+- name: 'gcr.io/cloud-builders/gcloud'
+  id: Decrypt Key
+  args:
+  - kms
+  - decrypt
+  - --ciphertext-file=github_rsa.enc
+  - --plaintext-file=/root/.ssh/github_rsa
+  - --location=global
+  - --keyring=ejangi-keyring
+  - --key=github-key
+  volumes:
+  - name: 'ssh'
+    path: /root/.ssh
+
+# Set up git with key and domain.
+- name: 'gcr.io/cloud-builders/git'
+  id: Setup Key
+  entrypoint: 'bash'
+  args:
+  - '-c'
+  - |
+    chmod 600 /root/.ssh/github_rsa
+    cat <<EOF >/root/.ssh/config
+    Hostname github.com
+    IdentityFile /root/.ssh/github_rsa
+    EOF
+    mv known_hosts /root/.ssh/known_hosts
+  volumes:
+  - name: 'ssh'
+    path: /root/.ssh
+
+# This step deploys the code
+- name: 'python:latest'
+  id: Deploy
+  args: ['python', 'ghp-import.py', '-p', './dist/']
+
+artifacts:
+  objects:
+    location: 'gs://ejangi-private/'
+    paths: ['dist**']
