@@ -47,7 +47,7 @@ steps:
 
 - name: 'gcr.io/cloud-builders/git'
   id: Git config
-  args: ['git', 'config', 'user.email', '$(gcloud auth list --filter=status:ACTIVE --format="value(account)")']
+  args: ['config', 'user.email', '$(gcloud auth list --filter=status:ACTIVE --format="value(account)")']
 
 # This step deploys the code
 - name: 'gcr.io/cloud-builders/git'
