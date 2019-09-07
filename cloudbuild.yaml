@@ -46,7 +46,11 @@ steps:
     path: /root/.ssh
 
 - name: 'gcr.io/cloud-builders/git'
-  id: Output git config
+  id: Git Add Remote
+  args: ['remote', 'add', 'origin', 'git@github.com:ejangi/ejangi.com.git']
+
+- name: 'gcr.io/cloud-builders/git'
+  id: Output Git Config
   entrypoint: 'cat'
   args: ['.git/config']
 
@@ -63,4 +67,4 @@ steps:
 artifacts:
   objects:
     location: 'gs://ejangi-private/'
-    paths: ['dist**']
+    paths: ['dist/**']
