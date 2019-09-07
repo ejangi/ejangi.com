@@ -47,8 +47,8 @@ steps:
 
 - name: 'gcr.io/cloud-builders/git'
   id: Output git config
-  entrypoint: 'bash'
-  args: ['cat', '.git/config']
+  entrypoint: 'cat'
+  args: ['.git/config']
 
 # - name: 'gcr.io/cloud-builders/git'
 #   id: Git config
