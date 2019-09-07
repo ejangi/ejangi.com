@@ -46,14 +46,19 @@ steps:
     path: /root/.ssh
 
 - name: 'gcr.io/cloud-builders/git'
-  id: Git config
-  args: ['config', 'user.email', '$(gcloud auth list --filter=status:ACTIVE --format="value(account)")']
+  id: Output git config
+  entrypoint: 'bash'
+  args: ['cat', '.git/config']
 
-# This step deploys the code
-- name: 'gcr.io/cloud-builders/git'
-  id: Deploy
-  entrypoint: python
-  args: ['ghp-import.py', '-p', './dist/']
+# - name: 'gcr.io/cloud-builders/git'
+#   id: Git config
+#   args: ['config', 'user.email', '$(gcloud auth list --filter=status:ACTIVE --format="value(account)")']
+
+# # This step deploys the code
+# - name: 'gcr.io/cloud-builders/git'
+#   id: Deploy
+#   entrypoint: python
+#   args: ['ghp-import.py', '-p', './dist/']
 
 artifacts:
   objects:
