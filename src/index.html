@@ -11,10 +11,7 @@
         <title>{{ title|escape }}</title>
         <meta name="description" content="{{ description|escape }}">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <style id="prestyles">
-        {% set preloadPath = "../dist/styles/" + preloadcss %}
-        {% include preloadPath %}
-        </style>
+        <link rel="stylesheet" href="styles/main.css">
     </head>
     <body>
         <!--[if lt IE 8]><div class="alert alert-warning"><p>You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p></div><![endif]-->
@@ -24,9 +21,6 @@
                 {% include sectionPath %}
             {% endfor %}
         </div>
-        <link rel="preload" href="styles/main.css" as="style" onload="this.rel='stylesheet'">
-        <noscript><link rel="stylesheet" href="styles/main.css"></noscript>
-        <script src="scripts/cssrelpreload.js"></script>
         <script src="scripts/main.js"></script>
         {% if googleAnalyticsID %}
         <script>

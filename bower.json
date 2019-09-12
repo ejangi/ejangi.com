@@ -6,7 +6,6 @@
   "private": true,
   "dependencies": {},
   "devDependencies": {
-    "reset-css": "~2.0.20110126",
-    "loadcss": "^1.2.0"
+    "reset-css": "~2.0.20110126"
   }
 }
