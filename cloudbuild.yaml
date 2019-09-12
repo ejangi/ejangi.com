@@ -19,4 +19,4 @@ steps:
 
 - name: 'gcr.io/cloud-builders/gsutil'
   id: Deploy
-  args: ['cp', '-r', 'dist/**', 'gs://ejangi.com/']
+  args: ['cp', '-r', 'dist/*', 'gs://ejangi.com/']
