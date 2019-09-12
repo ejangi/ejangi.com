@@ -13,58 +13,10 @@ steps:
   id: Build
   args: ['run','build']
 
-# Decrypt the file containing the key
-- name: 'gcr.io/cloud-builders/gcloud'
-  id: Decrypt Key
-  args:
-  - kms
-  - decrypt
-  - --ciphertext-file=github_rsa.enc
-  - --plaintext-file=/root/.ssh/github_rsa
-  - --location=global
-  - --keyring=ejangi-keyring
-  - --key=github-key
-  volumes:
-  - name: 'ssh'
-    path: /root/.ssh
+- name: 'gcr.io/cloud-builders/npm'
+  id: Test
+  args: ['run','test']
 
-# Set up git with key and domain.
-- name: 'gcr.io/cloud-builders/git'
-  id: Setup Key
-  entrypoint: 'bash'
-  args:
-  - '-c'
-  - |
-    chmod 600 /root/.ssh/github_rsa
-    cat <<EOF >/root/.ssh/config
-    Hostname github.com
-    IdentityFile /root/.ssh/github_rsa
-    EOF
-    mv known_hosts /root/.ssh/known_hosts
-  volumes:
-  - name: 'ssh'
-    path: /root/.ssh
-
-- name: 'gcr.io/cloud-builders/git'
-  id: Git Add Remote
-  args: ['remote', 'add', 'origin', 'git@github.com:ejangi/ejangi.com.git']
-
-- name: 'gcr.io/cloud-builders/git'
-  id: Output Git Config
-  entrypoint: 'cat'
-  args: ['.git/config']
-
-# - name: 'gcr.io/cloud-builders/git'
-#   id: Git config
-#   args: ['config', 'user.email', '$(gcloud auth list --filter=status:ACTIVE --format="value(account)")']
-
-# # This step deploys the code
-# - name: 'gcr.io/cloud-builders/git'
-#   id: Deploy
-#   entrypoint: python
-#   args: ['ghp-import.py', '-p', './dist/']
-
-artifacts:
-  objects:
-    location: 'gs://ejangi-private/'
-    paths: ['dist/**']
+- name: 'gcr.io/cloud-builders/gsutil'
+  id: Deploy
+  args: ['cp', '-r', 'dist/**', 'gs://ejangi.com/']

@@ -12,4 +12,4 @@ RUN npm install && \
     npm install -g bower gulp && \
     bower install
 
-ENTRYPOINT ["gulp", "watch"]
+ENTRYPOINT ["npm", "run", "build"]
