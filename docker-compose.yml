@@ -1,41 +1,9 @@
-version: '3.1'
+version: "3.8"
 services:
-  ejangi:
-    build: .
-    ports:
-      - 8081:80
-    volumes:
-      - ./wp-content:/var/www/html/wp-content
-      - ./uploads.ini:/usr/local/etc/php/conf.d/uploads.ini 
-      - ./errors.ini:/usr/local/etc/php/conf.d/errors.ini 
-      - ./mariadb_root_password:/tmp/mariadb_root_password
-    environment:
-      WORDPRESS_DB_HOST: ejangi_db
-      WORDPRESS_DB_USER: root
-      WORDPRESS_DB_NAME: ejangi
-      WORDPRESS_DB_PASSWORD_FILE: /tmp/mariadb_root_password
-    restart: always
-  ejangi_db:
-    build:
-        context: .
-        dockerfile: mariadb.Dockerfile
-    volumes:
-        - ./mariadb-data:/var/lib/mysql
-        - ./mariadb_root_password:/tmp/mariadb_root_password
-    ports:
-      - 3306:3306
-    environment:
-      MYSQL_DATABASE: ejangi
-      MYSQL_ROOT_PASSWORD_FILE: /tmp/mariadb_root_password
-    restart: always
-  ejangi_cron:
-    build:
-      context: .
-      dockerfile: cron.Dockerfile
-    volumes:
-        - ./mariadb-data:/var/lib/mysql
-        - ./mariadb_root_password:/tmp/mariadb_root_password
-    environment:
-      MYSQL_DATABASE: ejangi
-      MYSQL_ROOT_PASSWORD_FILE: /tmp/mariadb_root_password
-    restart: always
+    app:
+        build: .
+        ports: 
+            - 1313:1313
+        command: hugo server --bind 0.0.0.0 --watch
+        volumes:
+            - .:/src/

@@ -1,0 +1,8 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ .Title }}</title>
+    {{ $sass := resources.Get "scss/main.scss"  | resources.ToCSS (dict "outputStyle" "compressed") | fingerprint }}
+    <link rel="stylesheet" href="{{ $sass.Permalink }}">
+</head>
+<body>

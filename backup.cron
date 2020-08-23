@@ -1,3 +1,0 @@
-BASH_ENV=/tmp/environment
-
-0 0 * * * bash -l -c '/root/backup.sh'
