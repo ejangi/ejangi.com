@@ -1,4 +1,45 @@
-{{ partial "header.html" }}
-<h1>Hello world</h1>
-<p>Hi</p>
-{{ partial "footer.html" }}
+{{ define "main" }}
+<section id="intro">
+    <div class="two-up">
+        <div class="business-card">
+            <div class="profile">
+                {{ if .Site.Params.ProfilePhoto }}
+                <div class="profile-photo"><img src="{{print .Site.Params.ProfilePhoto | absURL}}" alt="{{ .Site.Title }}"></div>
+                {{ end }}
+                <div class="profile-attributes">
+                    <h1>{{ .Site.Title }}</h1>
+                    <p>{{ .Site.Params.CurrentJobTitle }}</p>
+                    <p><a href="mailto:{{ .Site.Params.EmailAddress }}">{{ .Site.Params.EmailAddress }}</a></p>
+                </div>
+            </div>
+
+            <div class="location"><p><img src="{{print "svg/location.svg" | absURL}}"> <small>{{ .Site.Params.Location }}</small></p></div>
+        </div>
+        
+        <div class="core-philosophy">
+                {{ if .Site.Params.CorePhilosophy }}
+                <div class="quote">
+                    <p><q>{{ .Site.Params.CorePhilosophy }}</q></p>
+                </div>
+                {{ end }}
+                {{ if .Site.Params.Expertise }}
+                <div class="roles">
+                    {{- $expertise := .Site.Params.Expertise  -}}
+                    <p>{{ range $expi, $exp := $expertise }}<strong>{{ $exp }}</strong>{{ if ne $expi (sub (len $expertise) 1) }} &#x2022; {{ end }}{{ end }}</p>
+                </div>
+                {{ end }}
+        </div>
+    </div>
+</section>
+
+<section id="projects">
+    <h2>Projects</h2>
+    <h3>A selections of works</h3>
+
+    {{ range where .Site.Pages.ByDate.Reverse "Section" "projects" }}
+    <div class="page">
+        <h3><a href={{ .Permalink }}>{{ .Title }}</a></h3>
+    </div>
+    {{ end }}
+</section>
+{{ end }}

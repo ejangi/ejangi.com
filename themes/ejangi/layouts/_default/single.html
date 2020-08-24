@@ -1,0 +1,13 @@
+{{ define "main" }}
+<article class="article section-{{ .Section }} page-{{ .File.ContentBaseName }}">
+    <header>
+        <h1>{{ .Title }}</h1>
+        {{ if ne .Section "projects" }}
+        <p class="date">{{ .Date.Format "Monday, 2 January, 2006" }}</p>
+        {{ end }}
+    </header>
+    <section class="content">
+        {{ .Content }}
+    </section>
+</article>
+{{ end }} 

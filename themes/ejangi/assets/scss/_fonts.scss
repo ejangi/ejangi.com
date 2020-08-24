@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Playfair+Display:wght@400;700&display=swap');
+
+
+@mixin serif {
+    font-family: 'Playfair Display', serif;
+}
+
+@mixin sans {
+    font-family: 'Inter', sans-serif;
+}
+
+
+
+body {
+    @include sans;
+    font-size: 11pt;
+    color: $color-secondary;
+    line-height: 145%;
+}
+
+h1 {
+    @include serif;
+    font-weight: bold;
+    font-size: 30pt;
+    line-height: 36pt;
+    color: $color-secondary;
+    margin: 0 0 .5rem 0;
+}
+
+h2 {
+    @include serif;
+    font-weight: bold;
+    font-size: 24pt;
+    line-height: 30pt;
+    color: $color-secondary;
+    margin: .5rem 0 1rem 0;
+
+    section > & {
+        text-align: center;
+    }
+}
+
+h3 {
+    color: $color-muted-text;
+    font-weight: normal;
+    font-size: 10pt;
+    line-height: 14pt;
+    margin: .5rem 0 1rem 0;
+
+    section > & {
+        margin-top: -.5rem;
+        margin-bottom: 2.5rem;
+        text-align: center;
+    }
+}
+
+p {
+    margin: 1.5rem 0;
+}
+
+ul,ol {
+    padding-left: 1.5rem;
+    margin: 1.5rem 0;
+}
+
+li {
+    
+}
+
+a:link,
+a:visited {
+    color: $color-primary;
+    transition: .2s all ease-in-out;
+}
+
+a:hover,
+a:active {
+    color: white;
+    background-color: $color-primary;
+}
+
+q {
+    @include serif;
+    font-weight: normal;
+    quotes: "“" "”" "‘" "’";
+
+    &::before {
+        content: open-quote;
+    }
+
+    &::after {
+        content: close-quote;
+    }
+}
+
+small {
+    font-size: 10pt;
+}

@@ -1,0 +1,80 @@
+.global-header {
+    position: absolute;
+    width: 100%;
+    z-index: 99;
+}
+
+.site-title {
+    position: absolute;
+    @include serif;
+    color: $color-primary;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16pt;
+    top: $gutter-sm;
+    right: $gutter-sm;
+
+    @media (min-width: $width-sm) {
+        top: $gutter-md;
+        right: $gutter-md;
+    }
+}
+
+#main-menu-toggle,
+.menu-toggle {
+    position: absolute;
+    @include padded;
+}
+
+.menu-hamburger {
+    display: inline-block;
+    line-height: 10pt;
+
+    span {
+        display: block;
+        content: ' ';
+        width: 18px;
+        height: 1px;
+        background-color: $color-light;
+        transition: transform 0.4s ease-in-out, background-color 0.4s ease-in-out 0s;
+        pointer-events: none;
+    }
+
+    &::before {
+        display: block;
+        content: ' ';
+        width: 20px;
+        height: 1px;
+        background-color: $color-light;
+        transform: translateY(-5px);
+    }
+
+    &::after {
+        display: block;
+        content: ' ';
+        width: 16px;
+        height: 1px;
+        background-color: $color-light;
+        transform: translateY(5px);
+    }
+}
+
+.hamburger-nav {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: $color-light;
+    transition: all .3s ease-in-out;
+    opacity: 0;
+    display: none;
+
+    .menu-hamburger {
+        span,
+        &::before,
+        &::after {
+            background-color: $color-secondary;
+        }
+    }
+}

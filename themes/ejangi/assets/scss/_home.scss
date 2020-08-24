@@ -1,0 +1,138 @@
+
+.two-up {
+    display: flex;
+    justify-content: space-between;
+    align-content: stretch;
+    align-items: stretch;
+    flex-flow: column wrap;
+
+    @media (min-width: $width-sm) {
+        flex-flow: row nowrap;
+    }
+
+    & > div {
+        @include padded;
+
+        @media (min-width: $width-sm) {
+            width: 50%;
+        }
+    }
+}
+
+
+
+.profile,
+.core-philosophy > .quote {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: ($gutter-md * 2);
+    padding-bottom: ($gutter-md * 2);
+
+    @media (min-width: $width-md) {
+        padding-top: ($gutter-md * 3);
+        padding-bottom: ($gutter-md * 3);
+    }
+
+    @media (min-width: $width-lg) {
+        padding-top: ($gutter-md * 4);
+        padding-bottom: ($gutter-md * 4);
+    }
+}
+
+.profile-photo {
+    margin-right: $gutter-sm;
+
+    @media (min-width: $width-md) {
+        margin-right: $gutter-md;
+    }
+}
+
+.profile-photo img {
+    width: 96px;
+    height: 96px;
+}
+
+
+
+.business-card {
+    position: relative;
+    background-color: $color-tertiary;
+
+    p {
+        color: $color-muted-text;
+        margin: .5rem 0;
+    }
+}
+
+.location,
+.roles {
+    position: absolute;
+    left: $gutter-sm;
+    bottom: $gutter-sm;
+
+    @media (min-width: $width-sm) {
+        left: $gutter-md;
+        bottom: $gutter-md;
+    }
+}
+
+.location p {
+    margin: 0;
+}
+
+.location img {
+    margin-right: .3rem;
+}
+
+.core-philosophy {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    color: $color-light;
+    background-color: $color-secondary;
+    min-height: 15rem;
+
+    .quote {
+        position: absolute;
+        top: -25%;
+        right: $gutter-sm;
+        width: 260px;
+        padding: $gutter-md;
+        padding-bottom: ($gutter-md + $gutter-sm);
+        background: url('../images/speech-bubble.png') no-repeat center center;
+        background-size: 100% 100%;
+
+        @media(min-width: $width-sm) {
+            position: relative;
+            top: auto;
+            right: auto;
+        }
+
+        p {
+            margin: 0;
+            text-align: center;
+            @media (min-width: $width-sm) {
+                font-size: 13pt;
+            }
+        }
+    }
+
+    .roles {
+        bottom: $gutter-md;
+        p {
+            color: $color-primary;
+            margin: 0;
+
+            strong {
+                font-weight: normal;
+                color: $color-light;
+            }
+        }
+    }
+}
+
+#projects {
+    @include padded;
+}

@@ -3,3 +3,11 @@ languageCode = "en-au"
 title = "James Angus"
 theme = "ejangi"
 googleAnalytics = ""
+
+[params]
+    EmailAddress = "james@ejangi.com"
+    ProfilePhoto = "images/profile-photo.png"
+    CorePhilosophy = "Technology should work hard for people, not the other way around"
+    CurrentJobTitle = "Service Evolution Manager"
+    Location = "Brisbane, Australia"
+    Expertise = ["Business Analysis", "Data Analysis", "Design & Programming"]

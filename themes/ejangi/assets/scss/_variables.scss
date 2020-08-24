@@ -1,0 +1,29 @@
+
+$color-primary: #C09F66;
+$color-secondary: #3A3D46;
+$color-tertiary: #F1EDE8;
+$color-muted-text: #777777;
+$color-light: #FFFFFF;
+$color-gradient-dark: #3A3D46;
+$color-gradient-light: #4A3FC9;
+
+$gutter-sm: 15px;
+$gutter-md: 30px;
+
+$width-sm: 720px;
+$width-md: 960px;
+$width-lg: 1200px;
+
+
+@mixin padded {
+    padding: $gutter-sm;
+
+    @media (min-width: $width-sm) {
+        padding: $gutter-md;
+    }
+}
+
+@mixin gradient-bg {
+    background: $color-secondary;
+    background: linear-gradient(145deg, $color-gradient-dark 0%, $color-gradient-light 100%);
+}

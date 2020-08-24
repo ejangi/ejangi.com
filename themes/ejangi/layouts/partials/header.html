@@ -1,8 +1,20 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>{{ .Title }}</title>
-    {{ $sass := resources.Get "scss/main.scss"  | resources.ToCSS (dict "outputStyle" "compressed") | fingerprint }}
-    <link rel="stylesheet" href="{{ $sass.Permalink }}">
-</head>
-<body>
+<header role="banner" class="global-header">
+    {{ if ne .Page.IsHome true }}
+    <a href="{{ .Site.BaseURL }}" class="site-title">{{ .Site.Title }}</a>
+    {{ end }}
+
+    <a id="main-menu-toggle" href="javascript:;" aria-label="Toggle Menu">
+        <span class="menu-hamburger"><span></span></span>
+    </a>
+
+    <section id="hamburger-nav" class="hamburger-nav" aria-hidden="false" data-module="HamburgerNav">
+        <a class="menu-toggle" href="javascript:;" aria-label="Toggle Menu">
+            <span class="menu-hamburger"><span></span></span>
+        </a>
+        <div class="main-nav-inner">
+            <nav class="main-nav" role="menu">
+                ...
+            </nav>
+        </div>
+    </section>
+</header>

@@ -1,0 +1,16 @@
+.article {
+    & > header,
+    & > section.content {
+        @include padded;
+    }
+
+    & > header {
+        @include gradient-bg;
+        padding-top: ($gutter-md * 3);
+        color: $color-light;
+
+        h1 {
+            color: $color-light;
+        }
+    }
+}
