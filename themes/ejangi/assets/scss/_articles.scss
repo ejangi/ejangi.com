@@ -107,3 +107,31 @@
         display: block;
     }
 }
+
+figure {
+    background-color: $color-tertiary;
+    @include drop-shadow;
+
+    img {
+        display: block;
+        max-width: 100%;
+        height: auto;
+        
+    }
+
+    figcaption {
+        padding: .5rem 0;
+        margin: 0 0 3rem 0;
+
+        @media (min-width: $width-sm) {
+            padding: 1rem 0;
+        }
+
+        h4 {
+            color: $color-muted-text;
+            font-weight: normal;
+            text-align: center;
+            font-size: 9pt;
+        }
+    }
+}
