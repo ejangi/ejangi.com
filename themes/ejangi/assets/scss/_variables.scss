@@ -29,7 +29,7 @@ $width-lg: 1200px;
 }
 
 @mixin drop-shadow {
-    box-shadow: 0 .4rem 1rem rgba(0,0,0,0.2);
+    box-shadow: 0 .4rem .7rem rgba(0,0,0,0.2);
 }
 
 @mixin deep-shadow {

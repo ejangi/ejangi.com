@@ -2,3 +2,9 @@ main {
     position: relative;
     z-index: 2;
 }
+
+.container {
+    max-width: $width-md;
+    margin-left: auto;
+    margin-right: auto;
+}

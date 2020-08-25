@@ -4,7 +4,7 @@
         <div class="business-card">
             <div class="profile">
                 {{ if .Site.Params.ProfilePhoto }}
-                <div class="profile-photo"><img src="{{print .Site.Params.ProfilePhoto | absURL}}" alt="{{ .Site.Title }}"></div>
+                <div class="profile-photo"><img src="{{ print .Site.Params.ProfilePhoto | absURL }}" alt="{{ .Site.Title }}"></div>
                 {{ end }}
                 <div class="profile-attributes">
                     <h1>{{ .Site.Title }}</h1>
@@ -33,13 +33,58 @@
 </section>
 
 <section id="projects">
-    <h2>Projects</h2>
-    <h3>A selections of works</h3>
+    <div class="container">
+        <h2>Projects</h2>
+        <h3>A selections of works</h3>
 
-    {{ range where .Site.Pages.ByDate.Reverse "Section" "projects" }}
-    {{ if ne .Kind "section" }}
-    {{ partial "li.html" .}}
-    {{ end }}
-    {{ end }}
+        {{ range where .Site.Pages.ByDate.Reverse "Section" "projects" }}
+        {{ if ne .Kind "section" }}
+        {{ partial "li.html" .}}
+        {{ end }}
+        {{ end }}
+    </div>
+</section>
+
+<section id="about">
+    <div class="container">
+        {{ with .Site.GetPage "/about" }}
+        <h2>{{ .Title }}</h2>
+        <div class="content">
+            {{ .Content }}
+        </div>
+        {{ if .Params.quote }}
+        <div class="quote"><q>{{ .Params.quote }}</q></div>
+        {{ end }}
+        {{ end }}
+    </div>
+</section>
+
+<section id="gold">
+    <div class="container">
+        <h2>Gold</h2>
+        <h3>Things I'm enjoying at the moment</h3>
+
+        {{ range where .Site.Pages.ByDate.Reverse "Section" "gold" }}
+        {{ if ne .Kind "section" }}
+        <article class="list-item kind-{{ .Kind }} type-{{ .Type }}">
+            <a href="{{ .Params.link }}" target="_blank">
+                {{ partial "icon.html" .}}
+                <span class="title">{{ .Title }}</span>
+            </a>
+        </article>
+        {{ end }}
+        {{ end }}
+    </div>
+</section>
+
+<section id="contact">
+    <div class="container">
+        <h2>Contact</h2>
+        <h3>Connect with me on the following networks</h3>
+        <div class="content">
+            <p><a href="mailto:{{ .Site.Params.EmailAddress }}">{{ .Site.Params.EmailAddress }}</a></p>
+            <p>For additional privacy, my <a href="{{ print .Site.Params.PGPKey | absURL }}">PGP Public Key</a>.</p>
+        </div>
+    </div>
 </section>
 {{ end }}

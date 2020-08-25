@@ -133,6 +133,54 @@
     }
 }
 
-#projects {
+#projects,
+#about,
+#gold,
+#contact {
     @include padded;
+    padding-bottom: ($gutter-md * 2);
+
+    & > .container {
+        & > h2,
+        & > h3 {
+            text-align: center;
+        }
+    }
+}
+
+
+#about {
+    color: $color-tertiary;
+    background-color: $color-secondary;
+
+    h2, h3 {
+        color: $color-tertiary;
+    }
+}
+
+#gold {
+    background-color: $color-tertiary;
+
+    .list-item {
+        & > a:link,
+        & > a:visited {
+            box-shadow: none;
+            color: $color-primary;
+            text-decoration: underline;
+
+            &::before {
+                background-color: $color-tertiary;
+            }
+        }
+
+        & > a:hover,
+        & > a:active {
+            color: white;
+            text-decoration: none;
+        }
+    }
+}
+
+#contact {
+    text-align: center;
 }
