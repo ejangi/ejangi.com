@@ -98,10 +98,10 @@
         position: absolute;
         top: -25%;
         right: $gutter-sm;
-        width: 260px;
-        padding: $gutter-md;
-        padding-bottom: ($gutter-md + $gutter-sm);
-        background: url('../images/speech-bubble.png') no-repeat center center;
+        width: 280px;
+        padding: ($gutter-md + ($gutter-sm / 2));
+        padding-bottom: ($gutter-md * 2);
+        background: url('../svg/speech-bubble.svg') no-repeat center center;
         background-size: 100% 100%;
 
         @media(min-width: $width-sm) {
@@ -139,6 +139,10 @@
 #contact {
     @include padded;
     padding-bottom: ($gutter-md * 2);
+
+    @media (min-width: $width-sm) {
+        padding-bottom: ($gutter-md * 2);
+    }
 
     & > .container {
         & > h2,
@@ -183,4 +187,83 @@
 
 #contact {
     text-align: center;
+}
+
+.socials {
+    display: flex;
+    justify-content: center;
+    margin: 2rem 0 4rem 0;
+}
+
+.social {
+    a:link,
+    a:visited {
+        position: relative;
+        z-index: 3;
+        display: block;
+        @include padded;
+        @include drop-shadow;
+        @include gradient-bg;
+
+        &::before {
+            position: absolute;
+            content: ' ';
+            top: 0;
+            right: 0;
+            bottom: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            @include transition-all-2;
+            z-index: 4;
+        }
+    }
+
+    a:hover,
+    a:active {
+        &::before {
+            opacity: 0;
+        }
+
+        img {
+            @include subtle-zoom;
+        }
+    }
+
+    img {
+        position: relative;
+        display: block;
+        z-index: 5;
+        width: 32px;
+        height: 32px;
+        @include transition-all-2;
+    }
+}
+
+.linkedin {
+    a:link::before,
+    a:hover::before {
+        background-color: #4875b4;
+    }
+}
+
+.twitter {
+    a:link::before,
+    a:visited::before {
+        background-color: #1db2eb;
+    }
+}
+
+.github {
+    a:link::before,
+    a:visited::before {
+        background-color: $color-secondary;
+    }
+}
+
+.trailblazer {
+    a:link::before,
+    a:visited::before {
+        background-color: $color-light;
+    }
 }

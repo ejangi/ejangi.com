@@ -13,7 +13,7 @@
                 </div>
             </div>
 
-            <div class="location"><p><img src="{{print "svg/location.svg" | absURL}}"> <small>{{ .Site.Params.Location }}</small></p></div>
+            <div class="location"><p><img src="{{ print "svg/location.svg" | absURL }}"> <small>{{ .Site.Params.Location }}</small></p></div>
         </div>
         
         <div class="core-philosophy">
@@ -82,6 +82,20 @@
         <h2>Contact</h2>
         <h3>Connect with me on the following networks</h3>
         <div class="content">
+            <div class="socials">
+                {{ if .Site.Params.LinkedIn }}
+                <div class="social linkedin"><a href="{{ .Site.Params.LinkedIn }}" target="_blank"><img src="{{ print "svg/linkedin.svg" | absURL }}" alt="LinkedIn"></a></div>
+                {{ end }}
+                {{ if .Site.Params.Twitter }}
+                <div class="social twitter"><a href="{{ .Site.Params.Twitter }}" target="_blank"><img src="{{ print "svg/twitter.svg" | absURL }}" alt="Twitter"></a></div>
+                {{ end }}
+                {{ if .Site.Params.Github }}
+                <div class="social github"><a href="{{ .Site.Params.Github }}" target="_blank"><img src="{{ print "svg/github.svg" | absURL }}" alt="Github"></a></div>
+                {{ end }}
+                {{ if .Site.Params.Trailblazer }}
+                <div class="social trailblazer"><a href="{{ .Site.Params.Trailblazer }}" target="_blank"><img src="{{ print "images/ranger.png" | absURL }}" alt="Trailblazer"></a></div>
+                {{ end }}
+            </div>
             <p><a href="mailto:{{ .Site.Params.EmailAddress }}">{{ .Site.Params.EmailAddress }}</a></p>
             <p>For additional privacy, my <a href="{{ print .Site.Params.PGPKey | absURL }}">PGP Public Key</a>.</p>
         </div>
