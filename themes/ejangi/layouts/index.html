@@ -37,11 +37,13 @@
         <h2>Projects</h2>
         <h3>A selections of works</h3>
 
-        {{ range where .Site.Pages.ByDate.Reverse "Section" "projects" }}
-        {{ if ne .Kind "section" }}
-        {{ partial "li.html" .}}
-        {{ end }}
-        {{ end }}
+        <div class="article-list">
+            {{ range where .Site.Pages.ByDate.Reverse "Section" "projects" }}
+            {{ if ne .Kind "section" }}
+            {{ partial "li.html" .}}
+            {{ end }}
+            {{ end }}
+        </div>
     </div>
 </section>
 
@@ -64,16 +66,18 @@
         <h2>Gold</h2>
         <h3>Things I'm enjoying at the moment</h3>
 
-        {{ range where .Site.Pages.ByDate.Reverse "Section" "gold" }}
-        {{ if ne .Kind "section" }}
-        <article class="list-item kind-{{ .Kind }} type-{{ .Type }}">
-            <a href="{{ .Params.link }}" target="_blank">
-                {{ partial "icon.html" .}}
-                <span class="title">{{ .Title }}</span>
-            </a>
-        </article>
-        {{ end }}
-        {{ end }}
+        <div class="article-list">
+            {{ range where .Site.Pages.ByDate.Reverse "Section" "gold" }}
+            {{ if ne .Kind "section" }}
+            <article class="list-item kind-{{ .Kind }} type-{{ .Type }}">
+                <a href="{{ .Params.link }}" target="_blank">
+                    {{ partial "icon.html" .}}
+                    <span class="title">{{ .Title }}</span>
+                </a>
+            </article>
+            {{ end }}
+            {{ end }}
+        </div>
     </div>
 </section>
 

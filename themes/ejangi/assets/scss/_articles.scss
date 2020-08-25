@@ -22,6 +22,19 @@
     }
 }
 
+
+
+.article-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: ($gutter-sm * 2);
+    row-gap: ($gutter-sm * 2);
+
+    @media (min-width: $width-sm) {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+}
+
 .list-item {
     display: block;
     text-align: center;
