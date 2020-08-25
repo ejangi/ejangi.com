@@ -38,9 +38,7 @@
 
     {{ range where .Site.Pages.ByDate.Reverse "Section" "projects" }}
     {{ if ne .Kind "section" }}
-    <div class="page">
-        <h3><a href={{ .Permalink }}>{{ .Title }}</a></h3>
-    </div>
+    {{ partial "li.html" .}}
     {{ end }}
     {{ end }}
 </section>

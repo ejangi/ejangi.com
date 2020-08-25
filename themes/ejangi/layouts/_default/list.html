@@ -1,9 +1,7 @@
 {{ define "main" }}
 
 {{ range .Data.Pages }}
-<div class="page">
-    <h3><a href={{ .Permalink }}>{{ .Title }}</a></h3>
-</div>
+{{ partial "li.html" .}}
 {{ end }}
 
 {{ end }}

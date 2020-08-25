@@ -27,3 +27,19 @@ $width-lg: 1200px;
     background: $color-secondary;
     background: linear-gradient(145deg, $color-gradient-dark 0%, $color-gradient-light 100%);
 }
+
+@mixin drop-shadow {
+    box-shadow: 0 .4rem 1rem rgba(0,0,0,0.2);
+}
+
+@mixin deep-shadow {
+    box-shadow: 0 .4rem 1rem rgba(0,0,0,0.4);
+}
+
+@mixin subtle-zoom {
+    transform: scale(1.1); 
+}
+
+@mixin transition-all-2 {
+    transition: all .2s ease-in-out;
+}
