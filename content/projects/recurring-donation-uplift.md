@@ -6,7 +6,7 @@ keywords: []
 icon: "images/recurring-uplift-icon.png"
 draft: false
 key: "
-# Key Involvement
+# Key Contributions
 
 * Requirements gathering and process mapping.
 
@@ -16,6 +16,7 @@ key: "
 
 * Campaign launch marketing setup and send.
 "
+breakdown: ["Business Analysis:15", "Project Management:10", "Development:75"]
 ---
 
 Development of system to automatically uplift recurring donations each year.

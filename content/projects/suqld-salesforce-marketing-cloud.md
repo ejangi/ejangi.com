@@ -6,7 +6,7 @@ keywords: ["marketing-cloud", "salesforce"]
 icon: "images/salesforce-marketing-cloud-icon.png"
 draft: false
 key: "
-## Key Involvement
+## Key Contributions
 
 * Requirements gathering and user story development.
 
@@ -18,6 +18,7 @@ key: "
 
 * Activation of new channels, including online advertising and SMS marketing.
 "
+breakdown: ["Business Analysis:15", "Project Management:50", "Development:35"]
 ---
 
 Project Management of SU QLD's transition from Campaign Monitor to Salesforce Marketing Cloud.

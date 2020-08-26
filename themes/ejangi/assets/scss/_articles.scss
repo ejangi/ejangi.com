@@ -1,7 +1,7 @@
 .article {
     & > header,
     & > section.content,
-    & > section.key-involvement {
+    & > section.key-contributions {
         @include padded;
     }
 
@@ -150,6 +150,53 @@ figure {
     }
 }
 
-.key-involvement {
+.key-contributions {
     background-color: $color-tertiary;
+}
+
+.breakdown-content {
+    margin-top: 3rem;
+
+    figure {
+        box-shadow: none;
+        width: 50%;
+        margin-left: auto;
+        margin-right: auto;
+
+        figcaption {
+            margin-bottom: 1rem;
+        }
+    }
+
+    ul.figure-key-list {
+        margin: 0 0 0 1rem;
+        padding: 0;
+        list-style: none;
+
+        .shape-circle {
+            display: inline-block;
+            width: 12pt;
+            height: 12pt;
+            border-radius: 100%;
+            margin-right: ($gutter-sm / 2);
+            transform: translateY(2pt);
+        }
+    }
+}
+
+@media (min-width: $width-sm) {
+    .key-contributions > .container {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .breakdown-content {
+        width: 25%;
+        margin-top: 0;
+
+        figure {
+            width: 100%;
+            padding-left: $gutter-md;
+        }
+    }
 }

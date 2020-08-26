@@ -6,7 +6,7 @@ keywords: []
 icon: "images/suqld-website-icon.png"
 draft: false
 key: "
-## Key Involvement
+## Key Contributions
 
 * Designed wireframes and worked with internal stakeholders to confirm functional requirements.
 
@@ -16,6 +16,7 @@ key: "
 
 * Trained the internal teams to manage content for their respective areas.
 "
+breakdown: ["Business Analysis:40", "Project Management:25", "Development:35"]
 ---
 
 Working with an agency to complete the design and ensure the main website for SU QLD best represented it to various stakeholders.

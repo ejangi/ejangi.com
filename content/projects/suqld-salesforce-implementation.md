@@ -6,7 +6,7 @@ keywords: ["salesforce", "business analysis", "project management", "PRINCE2"]
 icon: "images/salesforce-icon.png"
 draft: false
 key: "
-## Key Involvement
+## Key Contributions
 
 * Requirements gathering and user story development.
 
@@ -16,6 +16,7 @@ key: "
 
 * Some implementation, including custom development.
 "
+breakdown: ["Business Analysis:15", "Project Management:60", "Development:25"]
 ---
 
 Project Management of SU QLD's transition from Blackbaud Raiser's Edge to Salesforce.
