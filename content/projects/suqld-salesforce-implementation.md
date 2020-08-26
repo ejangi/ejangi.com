@@ -1,7 +1,7 @@
 ---
 title: "Salesforce Implementation"
 description: "Project Management of SU QLD's transition from Blackbaud Raiser's Edge to Salesforce."
-date: 2020-08-25T22:49:40Z
+date: 2018-12-03T22:49:40Z
 keywords: ["salesforce", "business analysis", "project management", "PRINCE2"]
 icon: "images/salesforce-icon.png"
 draft: false
