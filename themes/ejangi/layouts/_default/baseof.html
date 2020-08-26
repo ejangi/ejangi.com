@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     {{- partial "head.html" . -}}
-    <body class="kind-{{ .Kind }} type-{{ .Type }}{{ if .File.ContentBaseName }} file-{{ .File.ContentBaseName }}{{ end }}">
+    <body class="kind-{{ .Kind }} type-{{ .Type }}{{ with .File }} file-{{ .ContentBaseName }}{{ end }}">
         {{- partial "header.html" . -}}
         <main>
         {{- block "main" . }}{{- end }}

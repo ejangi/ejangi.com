@@ -67,7 +67,7 @@
         <h3>Things I'm enjoying at the moment</h3>
 
         <div class="article-list">
-            {{ range first 8 where .Site.Pages.ByDate.Reverse "Section" "gold" }}
+            {{ range first 9 (where .Site.Pages.ByDate.Reverse "Section" "gold") }}
             {{ if ne .Kind "section" }}
             <article class="list-item kind-{{ .Kind }} type-{{ .Type }}">
                 <a href="{{ .Params.link }}" target="_blank">

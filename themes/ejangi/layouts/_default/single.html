@@ -1,5 +1,5 @@
 {{ define "main" }}
-<article class="article section-{{ .Section }} page-{{ .File.ContentBaseName }}">
+<article class="article section-{{ .Section }}{{ with .File }} file-{{ .ContentBaseName }}{{ end }}">
     <header>
         {{ partial "icon.html" .}}
         <h1>{{ .Title }}</h1>
