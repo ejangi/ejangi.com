@@ -5,6 +5,17 @@ date: 2020-03-26T02:37:06Z
 keywords: []
 icon: "images/recurring-uplift-icon.png"
 draft: false
+key: "
+# Key Involvement
+
+* Requirements gathering and process mapping.
+
+* Functional build and technical development using [SFDX](https://www.salesforce.com/products/platform/products/salesforce-dx/).
+
+* Emails, landing pages and journeys built in Marketing Cloud.
+
+* Campaign launch marketing setup and send.
+"
 ---
 
 Development of system to automatically uplift recurring donations each year.
@@ -22,10 +33,3 @@ Any changes made on this page will be immediately reflected in Salesforce. Recur
 {{< figure src="/images/recurring-donation-uplift-record.png" title="Each year an uplift record is created in Salesforce." >}}
 
 This project took advantage of [SFDX](https://www.salesforce.com/products/platform/products/salesforce-dx/) so that development could be version controlled and flow through a CI/CD process for quality control at every stage.
-
-# Key Involvement
-
-* Requirements gathering and process mapping.
-* Functional build and technical development using [SFDX](https://www.salesforce.com/products/platform/products/salesforce-dx/).
-* Emails, landing pages and journeys built in Marketing Cloud.
-* Campaign launch marketing setup and send.

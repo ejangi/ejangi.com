@@ -12,5 +12,12 @@
             {{ .Content }}
         </div>
     </section>
+    {{ if .Params.key }}
+    <section class="key-involvement">
+        <div class="container">
+            {{ .Params.key | markdownify }}
+        </div>
+    </section>
+    {{ end }}
 </article>
 {{ end }} 

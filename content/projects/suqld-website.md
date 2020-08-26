@@ -5,6 +5,17 @@ date: 2018-08-26T02:36:51Z
 keywords: []
 icon: "images/suqld-website-icon.png"
 draft: false
+key: "
+## Key Involvement
+
+* Designed wireframes and worked with internal stakeholders to confirm functional requirements.
+
+* Shortlisted external providers to produce the designs and initial code.
+
+* Extended the theme to include custom integrations with internal systems.
+
+* Trained the internal teams to manage content for their respective areas.
+"
 ---
 
 Working with an agency to complete the design and ensure the main website for SU QLD best represented it to various stakeholders.
@@ -14,10 +25,3 @@ Working with an agency to complete the design and ensure the main website for SU
 Due to time-constraints we decided to outsource the initial design and build to a design agency. To that end it was vital that the agency had a comprehensive understanding of the organisation, it's stakeholders and the requirements.
 
 Once the Wordpress template was created, I took over the development to complete the more intricate integrations with internal systems and build out a CI/CD pipeline for pushing changes through staging into production.
-
-## Key Involvement
-
-* Designed wireframes and worked with internal stakeholders to confirm functional requirements.
-* Shortlisted external providers to produce the designs and initial code.
-* Extended the theme to include custom integrations with internal systems.
-* Trained the internal teams to manage content for their respective areas.

@@ -1,6 +1,7 @@
 .article {
     & > header,
-    & > section.content {
+    & > section.content,
+    & > section.key-involvement {
         @include padded;
     }
 
@@ -147,4 +148,8 @@ figure {
             font-size: 9pt;
         }
     }
+}
+
+.key-involvement {
+    background-color: $color-tertiary;
 }
