@@ -152,6 +152,10 @@ figure {
 
 .key-contributions {
     background-color: $color-tertiary;
+
+    li {
+        margin-bottom: 1rem;
+    }
 }
 
 .key-contributions .donut-hole {
@@ -177,6 +181,10 @@ figure {
         padding: 0;
         list-style: none;
         font-size: 10pt;
+
+        li {
+            margin-bottom: 0;
+        }
 
         .shape-circle {
             display: inline-block;
