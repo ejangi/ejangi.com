@@ -154,7 +154,20 @@ figure {
     background-color: $color-tertiary;
 
     li {
+        position: relative;
         margin-bottom: 1rem;
+        list-style: none;
+
+        &::before {
+            position: absolute;
+            left: -26px;
+            display: inline-block;
+            content: ' ';
+            width: 20px;
+            height: 20px;
+            background: url('../svg/check-circle.svg') no-repeat center center;
+            background-size: contain;
+        }
     }
 }
 
@@ -184,6 +197,11 @@ figure {
 
         li {
             margin-bottom: 0;
+            list-style-image: none;
+
+            &::before {
+                display: none;
+            }
         }
 
         .shape-circle {
@@ -204,12 +222,18 @@ figure {
     }
 
     .breakdown-content {
-        width: 25%;
+        width: 40%;
         margin-top: 0;
 
         figure {
             width: 100%;
             padding-left: $gutter-md;
         }
+    }
+}
+
+@media (min-width: $width-md) {
+    .breakdown-content {
+        width: 25%;
     }
 }
