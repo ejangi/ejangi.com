@@ -154,6 +154,10 @@ figure {
     background-color: $color-tertiary;
 }
 
+.key-contributions .donut-hole {
+    fill: $color-tertiary;
+}
+
 .breakdown-content {
     margin-top: 3rem;
 
@@ -172,6 +176,7 @@ figure {
         margin: 0 0 0 1rem;
         padding: 0;
         list-style: none;
+        font-size: 10pt;
 
         .shape-circle {
             display: inline-block;
@@ -179,7 +184,7 @@ figure {
             height: 12pt;
             border-radius: 100%;
             margin-right: ($gutter-sm / 2);
-            transform: translateY(2pt);
+            transform: translateY(3pt);
         }
     }
 }
