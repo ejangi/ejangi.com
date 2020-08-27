@@ -18,7 +18,7 @@ key: "
 
 * Activation of new channels, including online advertising and SMS marketing.
 "
-breakdown: ["Business Analysis:15", "Project Management:50", "Development:35"]
+breakdown: ["Business Analysis:25", "Project Management:60", "Development:15"]
 ---
 
 Project Management of SU QLD's transition from Campaign Monitor to Salesforce Marketing Cloud.

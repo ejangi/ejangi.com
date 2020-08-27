@@ -19,7 +19,7 @@ key: "
 breakdown: ["Business Analysis:15", "Project Management:10", "Development:75"]
 ---
 
-Development of system to automatically uplift recurring donations each year.
+This project required the development of a system to automatically uplift recurring donations each year.
 
 From automatic emails and landing pages to the donor in Marketing Cloud, to a configurable app in Salesforce, this system automates as much as possible, while still putting a lot of power in the hands of the administrators and the donors themselves.
 
