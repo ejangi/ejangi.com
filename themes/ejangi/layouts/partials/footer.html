@@ -1,0 +1,7 @@
+{{ if .Site.Params.CopyrightNotice }}
+<section id="content-info">
+    <div class="container">
+        <p>{{ .Site.Params.CopyrightNotice | markdownify }}</p>
+    </div>
+</section>
+{{ end }}
