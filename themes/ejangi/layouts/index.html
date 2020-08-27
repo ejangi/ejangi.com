@@ -16,18 +16,18 @@
             <div class="location"><p><img src="{{ print "svg/location.svg" | absURL }}"> <small>{{ .Site.Params.Location }}</small></p></div>
         </div>
         
-        <div class="core-philosophy">
-                {{ if .Site.Params.CorePhilosophy }}
+        <div class="core-philosophy"{{ if (fileExists "static/images/core-philosophy-bg.jpg") }} style="background-image: url('{{ print "images/core-philosophy-bg.jpg" | absURL }}');"{{ end }}>
+                {{ if .Site.Params.CorePhilosophy -}}
                 <div class="quote">
                     <p><q>{{ .Site.Params.CorePhilosophy }}</q></p>
                 </div>
-                {{ end }}
-                {{ if .Site.Params.Expertise }}
+                {{- end }}
+                {{ if .Site.Params.Expertise -}}
                 <div class="roles">
                     {{- $expertise := .Site.Params.Expertise  -}}
                     <p>{{ range $expi, $exp := $expertise }}<strong>{{ $exp }}</strong>{{ if ne $expi (sub (len $expertise) 1) }} &#x2022; {{ end }}{{ end }}</p>
                 </div>
-                {{ end }}
+                {{- end }}
         </div>
     </div>
 </section>
@@ -47,7 +47,7 @@
     </div>
 </section>
 
-<section id="about">
+<section id="about"{{ if (fileExists "static/images/about-bg.jpg") }} style="background-image: url('{{ print "images/about-bg.jpg" | absURL }}');"{{ end }}>
     <div class="container">
         {{ with .Site.GetPage "/about" }}
         <h2>{{ .Title }}</h2>

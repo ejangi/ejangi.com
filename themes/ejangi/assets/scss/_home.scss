@@ -86,13 +86,27 @@
 }
 
 .core-philosophy {
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
     color: $color-light;
     background-color: $color-secondary;
+    background-size: cover;
+    background-position: center center;
     min-height: 15rem;
+
+    &::before {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        content: ' ';
+        background: $color-secondary;
+        background: linear-gradient(180deg, rgba($color-secondary, 0) 0%, $color-secondary 100%);
+    }
 
     .quote {
         position: absolute;
@@ -158,8 +172,29 @@
 
 
 #about {
+    position: relative;
     color: $color-tertiary;
     background-color: $color-secondary;
+    background-size: cover;
+    background-position: center center;
+    z-index: 2;
+
+    &::before {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        content: ' ';
+        background: $color-secondary;
+        opacity: .8;
+        z-index: 3;
+    }
+
+    .container {
+        position: relative;
+        z-index: 4;
+    }
 
     h2, h3 {
         color: $color-tertiary;
