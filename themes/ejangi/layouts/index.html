@@ -47,19 +47,19 @@
     </div>
 </section>
 
+{{ with .Site.GetPage "/about" }}
 <section id="about"{{ if (fileExists "static/images/about-bg.jpg") }} style="background-image: url('{{ print "images/about-bg.jpg" | absURL }}');"{{ end }}>
     <div class="container">
-        {{ with .Site.GetPage "/about" }}
         <h2>{{ .Title }}</h2>
         <div class="content">
             {{ .Content }}
         </div>
-        {{ if .Params.quote }}
-        <div class="quote"><q>{{ .Params.quote }}</q></div>
-        {{ end }}
-        {{ end }}
     </div>
+    {{ if .Params.quote }}
+    <div class="quote"><q>{{ .Params.quote }}</q></div>
+    {{ end }}
 </section>
+{{ end }}
 
 <section id="gold">
     <div class="container">

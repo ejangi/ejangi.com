@@ -199,9 +199,26 @@
     h2, h3 {
         color: $color-tertiary;
     }
+
+    .quote {
+        position: absolute;
+        bottom: -20%;
+        right: 0;
+        width: 340px;
+        padding: ($gutter-md + ($gutter-sm / 2));
+        padding-right: $gutter-sm;
+        background: url('../svg/quote-bg.svg') no-repeat center center;
+        background-size: 100% 100%;
+        z-index: 5;
+
+        @media (min-width: $width-sm) {
+            bottom: -25%;
+        }
+    }
 }
 
 #gold {
+    padding-top: 6rem;
     background-color: $color-tertiary;
 
     .list-item {
