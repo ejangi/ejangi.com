@@ -74,7 +74,8 @@ a:visited {
 }
 
 a:hover,
-a:active {
+a:active,
+a:focus {
     color: white;
     background-color: $color-primary;
 }

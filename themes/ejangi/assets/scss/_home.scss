@@ -242,7 +242,8 @@
         }
 
         & > a:hover,
-        & > a:active {
+        & > a:active,
+        & > a:focus {
             color: white;
             text-decoration: none;
         }
@@ -288,7 +289,8 @@
     }
 
     a:hover,
-    a:active {
+    a:active,
+    a:focus {
         &::before {
             opacity: 0;
         }
@@ -393,7 +395,8 @@
     }
 
     & > a:hover,
-    & > a:active {
+    & > a:active,
+    & > a:focus {
         @include deep-shadow;
 
         span {
