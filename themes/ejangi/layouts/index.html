@@ -102,7 +102,7 @@
                 <div class="social trailblazer"><a href="{{ .Site.Params.Trailblazer }}" target="_blank"><img src="{{ print "images/ranger.png" | absURL }}" alt="Trailblazer"></a></div>
                 {{ end }}
             </div>
-            <p><a href="mailto:{{ .Site.Params.EmailAddress }}">{{ .Site.Params.EmailAddress }}</a></p>
+            <p class="email"><a href="mailto:{{ .Site.Params.EmailAddress }}"><span>{{ .Site.Params.EmailAddress }}</span></a></p>
             <p>For additional privacy, my <a href="{{ print .Site.Params.PGPKey | absURL }}">PGP Public Key</a>.</p>
         </div>
     </div>
