@@ -280,3 +280,25 @@ figure {
         width: 25%;
     }
 }
+
+
+
+body.kind-section {
+    section.list {
+        & > header {
+            @include padded;
+            @include gradient-bg;
+            padding-top: ($gutter-md * 3);
+            color: $color-light;
+            text-align: center;
+
+            h2 {
+                color: $color-light;
+            }
+        }
+
+        .article-list {
+            @include padded;
+        }
+    }
+}
