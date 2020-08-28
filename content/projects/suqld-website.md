@@ -1,10 +1,11 @@
 ---
 title: "SU QLD Wordpress Website"
 description: ""
-date: 2018-08-26T02:36:51Z
+date: 2018-04-26T02:36:51Z
 keywords: []
 icon: "images/suqld-website-icon.png"
 draft: false
+problem: "SU QLD's website was aging, hard to navigate and did not represent the brand adequately."
 key: "
 ## Key Contributions
 

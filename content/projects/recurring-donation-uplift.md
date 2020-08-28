@@ -5,6 +5,7 @@ date: 2020-03-26T02:37:06Z
 keywords: []
 icon: "images/recurring-uplift-icon.png"
 draft: false
+problem: "SU QLD had some very faithful long-term donors who wanted more control over their recurring donations. The fundraising team also wanted to offer these donors an easy way to automatically increase their giving each year."
 key: "
 # Key Contributions
 
@@ -18,8 +19,6 @@ key: "
 "
 breakdown: ["Business Analysis:15", "Project Management:10", "Development:75"]
 ---
-
-This project required the development of a system to automatically uplift recurring donations each year.
 
 From automatic emails and landing pages to the donor in Marketing Cloud, to a configurable app in Salesforce, this system automates as much as possible, while still putting a lot of power in the hands of the administrators and the donors themselves.
 

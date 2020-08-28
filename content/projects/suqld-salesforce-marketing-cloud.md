@@ -5,6 +5,7 @@ date: 2019-09-01
 keywords: ["marketing-cloud", "salesforce"]
 icon: "images/salesforce-marketing-cloud-icon.png"
 draft: false
+problem: "SU QLD needed a way to automate their stakeholder engagement and increase donor retention."
 key: "
 ## Key Contributions
 
@@ -21,7 +22,9 @@ key: "
 breakdown: ["Business Analysis:25", "Project Management:60", "Development:15"]
 ---
 
-Project Management of SU QLD's transition from Campaign Monitor to Salesforce Marketing Cloud.
+SU QLD had been using Campaign Monitor for email communications, but it was not connected to the CRM in any meaningful way. There was also a desire to branch into new channels like social, paid advertising and SMS messaging.
+
+The organisation had some complex data needs when it came to marketing and the product that made the most sense on all fronts was Salesforce Marketing Cloud.
 
 {{< figure src="/images/corporate-lapsing-series-journey.png" title="SU QLD's Corporate Lapsing Series Journey" >}}
 

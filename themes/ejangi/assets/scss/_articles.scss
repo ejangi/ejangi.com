@@ -131,7 +131,42 @@
     }
 }
 
+.problem {
+    display: flex;
+    flex-direction: column;
+    background-color: $color-tertiary;
+    margin-bottom: 2rem;
+    padding: $gutter-sm;
+    align-items: flex-start;
+
+    .label {
+        position: relative;
+        white-space: nowrap;
+        padding-left: 30px;
+        margin-bottom: 1rem;
+        margin-right: 1rem;
+
+        .icon {
+            position: absolute;
+            top: -2px;
+            left: 0;
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            background-image: url('../svg/info-circle.svg');
+            background-size: contain;
+            margin-right: .5rem;
+        }
+    }
+
+    @media (min-width: $width-sm) {
+        flex-direction: row;
+        padding: $gutter-md;
+    }
+}
+
 figure {
+    margin: 2rem 0 3rem 0;
     background-color: $color-tertiary;
     @include drop-shadow;
 
@@ -144,7 +179,6 @@ figure {
 
     figcaption {
         padding: .5rem 0;
-        margin: 0 0 3rem 0;
 
         @media (min-width: $width-sm) {
             padding: 1rem 0;

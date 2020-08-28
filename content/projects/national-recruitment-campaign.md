@@ -5,6 +5,7 @@ date: 2019-08-27T09:45:22Z
 keywords: ["marketing cloud", "lead generation", "marketing campaign"]
 icon: "images/startchaplaincy-icon.png"
 draft: false
+problem: "Every National School Chaplaincy Association member organisation had schools interested in chaplaincy, but far fewer applicants that necessary to fill the positions."
 key: "
 ## Key Contributions
 

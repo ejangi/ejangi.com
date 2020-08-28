@@ -5,6 +5,7 @@ date: 2020-08-27T04:49:44Z
 keywords: ["talend", "data integration", "etl", "elt", "pipeline", "data analysis"]
 icon: "images/talend-icon.svg"
 draft: false
+problem: "SU QLD wanted to consolidate several data sources into Salesforce in order to get more complete picture of each person’s involvement with the organisation."
 key: "
 ## Key Contributions
 
@@ -19,8 +20,8 @@ key: "
 breakdown: ["Business Analysis:35", "Project Management:35", "Development:30"]
 ---
 
-Using Talend, the organisation is now equipped to quickly create data integrations between systems.
+Rather than build all of this integration into Salesforce itself (and potentially cause perfomance issues and technical debt), SU QLD decided to seek out a Data Integration Middleware solution.
+
+Using Talend, the organisation is now equipped to quickly create data integrations between any of its systems.
 
 {{< figure src="/images/talend-mobile-messages.png" title="Talend Data Integration Studio" >}}
-
-SU QLD needed a Data Integration Middleware product to ensure that Salesforce had a more complete picture of each person's involvement with the organisation.
