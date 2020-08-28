@@ -111,10 +111,10 @@
     .quote {
         position: absolute;
         top: -25%;
-        right: $gutter-sm;
-        width: 280px;
-        padding: ($gutter-md + ($gutter-sm / 2));
-        padding-bottom: ($gutter-md * 2);
+        right: 0;
+        width: 240px;
+        padding: ($gutter-sm * 2);
+        padding-bottom: ($gutter-sm * 2) + ($gutter-sm);
         background: url('../svg/speech-bubble.svg') no-repeat center center;
         background-size: 100% 100%;
 
@@ -122,9 +122,13 @@
             position: relative;
             top: auto;
             right: auto;
+            width: 280px;
+            padding: ($gutter-md + ($gutter-sm / 2));
+            padding-bottom: ($gutter-md * 2);
         }
 
         p {
+            transform: translateY(-2pt);
             margin: 0;
             text-align: center;
             @media (min-width: $width-sm) {
@@ -202,7 +206,7 @@
 
     .quote {
         position: absolute;
-        bottom: -20%;
+        bottom: -25%;
         right: 0;
         width: 340px;
         padding: ($gutter-md + ($gutter-sm / 2));
@@ -212,7 +216,11 @@
         z-index: 5;
 
         @media (min-width: $width-sm) {
-            bottom: -25%;
+            bottom: -35%;
+        }
+
+        p {
+            transform: translateY(-4pt);
         }
     }
 }
