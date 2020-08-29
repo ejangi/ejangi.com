@@ -3,8 +3,8 @@ steps:
       id: Build
       dir: 'public'
       volumes: 
-        - name: '.'
-          path: '/src/'
+        - name: 'public'
+          path: '/src/public'
       args: ['hugo', '--minify']
     - name: 'gcr.io/cloud-builders/gsutil'
       id: Deploy
