@@ -15,6 +15,10 @@
             width: auto;
             height: 32px;
             margin-bottom: .5rem;
+
+            @media (min-width: $width-sm) {
+                height: 64px;
+            }
         }
 
         h1 {
@@ -167,7 +171,7 @@
 }
 
 figure {
-    margin: 2rem 0 3rem 0;
+    margin: 2rem auto 3rem auto;
     background-color: $color-tertiary;
     @include drop-shadow;
 
@@ -175,7 +179,16 @@ figure {
         display: block;
         max-width: 100%;
         height: auto;
-        
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    &.xs img {
+        max-width: $width-xs;
+    }
+
+    &.small img {
+        max-width: $width-sm;
     }
 
     figcaption {
