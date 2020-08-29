@@ -1,0 +1,14 @@
+{{ define "main" }}
+<section id="{{ .Kind }}" class="list">
+    <header>
+        <h2>{{ .Type | title }}</h2>
+    </header>
+    <div class="container">
+        <div class="article-list">
+            {{ range .Data.Pages }}
+            {{ partial "li.html" .}}
+            {{ end }}
+        </div>
+    </div>
+</section>
+{{ end }}

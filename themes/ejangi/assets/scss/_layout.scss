@@ -1,0 +1,19 @@
+main {
+    position: relative;
+    z-index: 2;
+}
+
+.container {
+    max-width: $width-md;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#content-info > .container {
+    text-align: center;
+
+    p {
+        color: $color-muted-text;
+        font-size: 8pt;
+    }
+}

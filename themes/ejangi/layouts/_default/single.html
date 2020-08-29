@@ -1,0 +1,67 @@
+{{ define "main" }}
+<article class="article section-{{ .Section }}{{ with .File }} file-{{ .ContentBaseName }}{{ end }}">
+    <header>
+        {{ partial "icon.html" .}}
+        <h1>{{ .Title }}</h1>
+        {{ if ne .Section "projects" }}
+        <p class="date">{{ .Date.Format "Monday, 2 January, 2006" }}</p>
+        {{ end }}
+    </header>
+    <section class="content">
+        <div class="container">
+            {{ if .Params.problem -}}
+            <div class="problem">
+                <strong class="label"><span class="icon"></span>The Problem:</strong> 
+                <span class="description">{{ .Params.problem | markdownify }}</span>
+            </div>
+            {{- end }}
+            {{ .Content }}
+        </div>
+    </section>
+    {{ if .Params.key }}
+    <section class="key-contributions">
+        <div class="container">
+            <div class="involvement-content">
+                {{ .Params.key | markdownify }}
+            </div>
+            {{ if .Params.breakdown }}
+            <div class="breakdown-content">
+                <figure>
+                    <svg width="100%" height="100%" viewBox="0 0 42 42" class="breakdown">
+                        <circle class="donut-hole" cx="21" cy="21" r="15.91549430918954" fill="#fff"></circle>
+                        <circle class="donut-ring" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="#d2d3d4" stroke-width="8"></circle>
+                        
+                        {{- $colors := .Site.Params.pieColors }}
+                        {{- $offset := 0 }}
+                        {{- $fix := 25 }}
+                        {{- range $idx, $bd := .Params.breakdown }}
+                        {{- $els := split $bd ":" }}
+                        <circle class="donut-segment" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="{{ (index $colors $idx) }}" stroke-width="8" stroke-dasharray="{{ index $els 1 }} {{ sub 100 (int (index $els 1)) }}" stroke-dashoffset="{{ (add $offset $fix) }}"></circle>
+                        {{- $offset = (add $offset (sub 100 (int (index $els 1)))) }}
+                        {{ end }}
+                    </svg>
+                    <figcaption>
+                        <ul class="figure-key-list" aria-hidden="true" role="presentation">
+                            {{ range $idx, $bd := .Params.breakdown }}
+                            {{ $els := split $bd ":" }}
+                            <li>
+                                <span class="shape-circle" style="background-color:{{ (index $colors $idx) }};"></span> {{ index $els 0 }}
+                            </li>
+                            {{ end }}
+                        </ul>
+                        <!--
+                            
+                        <circle class="donut-segment" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="#ce4b99" stroke-width="8" stroke-dasharray="50 50" stroke-dashoffset="0"></circle>
+                        <circle class="donut-segment" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="#b1c94e" stroke-width="8" stroke-dasharray="50 50" stroke-dashoffset="50"></circle>
+                         -->
+                        <!-- <circle class="donut-segment" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="#b1c94e" stroke-width="8" stroke-dasharray="20 80" stroke-dashoffset="85"></circle>
+                        <circle class="donut-segment" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="#377bbc" stroke-width="8" stroke-dasharray="30 70" stroke-dashoffset="65"></circle> -->
+                    </figcaption>
+                </figure>
+            </div>
+            {{ end }} 
+        </div>
+    </section>
+    {{ end }}
+</article>
+{{ end }} 

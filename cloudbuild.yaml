@@ -1,0 +1,5 @@
+steps:
+    - name: 'ejangi/hugo'
+      args: ['hugo', '--minify']
+    - name: 'ejangi/hugo'
+      args: ['hugo', 'deploy', '--maxDeletes', '-1']

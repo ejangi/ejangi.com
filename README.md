@@ -1,30 +1,59 @@
 # ejangi.com
 
-Wordpress Theme for ejangi.com
+> This [hugo](https://gohugo.io) website is my personal website.
 
-![Screenshot of the ejangi.com Wordpress theme](src/screenshot.png)
+## How this site was created
 
+1) Build and run the docker image:
 
-## Development
-
-1) Create your own *mariadb_root_password* file:
-
-```
-touch mariadb_root_password
-```
-
-2) Install [Docker](https://www.docker.com/products/docker-desktop), build the image and run the container:
-
-```
+```bash
 docker-compose build
+docker-compose run app bash
+```
+
+2) From the bash prompt, create a new hugo site in the current directory:
+
+```bash
+hugo new site . --force
+```
+
+3) Update the `config.toml` file with the settings for this website.
+
+4) Create a new theme:
+
+```bash
+hugo new theme <theme-name>
+```
+
+*Good to go!* Simply exit out of the container and bring the container up to start developing the site:
+
+```bash
 docker-compose up
 ```
 
-3) Open a browser and navigate to [http://localhost:8081](http://localhost:8081). Follow the Wordpress installation wizard to get setup.
+### Adding SASS
 
-4) To run the automated build scripts (gulp), start the gulp container:
+Gosh, the documentation on this is hopeless... So, here it is in a nutshell.
 
+1) In your theme folder, create `assets/scss/main.scss`.
+
+2) Wherever you want the uri for the compiled CSS, add the following:
+
+```html
+{{ $sass := resources.Get "scss/main.scss"  | resources.ToCSS (dict "outputStyle" "compressed") | fingerprint }}
+<link rel="stylesheet" href="{{ $sass.Permalink }}">
 ```
-docker-compose -f docker-compose.gulp.yml build
-docker-compose -f docker-compose.gulp.yml up
+
+## Updating the docker image
+
+1) Build and tag:
+
+```bash
+docker build -t ejangi/hugo:latest .
+```
+
+2) Push to docker hub:
+
+```bash
+docker push ejangi/hugo:latest
 ```

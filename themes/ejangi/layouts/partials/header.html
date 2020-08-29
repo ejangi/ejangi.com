@@ -1,0 +1,5 @@
+<header role="banner" class="global-header">
+    {{ if ne .Page.IsHome true }}
+    <a href="{{ .Site.BaseURL }}" class="site-title">{{ .Site.Title }}</a>
+    {{ end }}
+</header>

@@ -1,0 +1,322 @@
+.article {
+    & > header,
+    & > section.content,
+    & > section.key-contributions {
+        @include padded;
+    }
+
+    & > header {
+        @include gradient-bg;
+        padding-top: ($gutter-md * 3);
+        color: $color-light;
+        text-align: center;
+
+        .icon {
+            width: auto;
+            height: 32px;
+            margin-bottom: .5rem;
+
+            @media (min-width: $width-sm) {
+                height: 64px;
+            }
+        }
+
+        h1 {
+            color: $color-light;
+        }
+    }
+}
+
+
+
+.article-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: ($gutter-sm * 2);
+    row-gap: ($gutter-sm * 2);
+    grid-auto-rows: 1fr;
+
+    @media (min-width: $width-sm) {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+}
+
+.list-item {
+    display: flex;
+    text-align: center;
+    justify-content: stretch;
+    align-content: stretch;
+    align-items: stretch;
+
+    & > a:link,
+    & > a:visited {
+        position: relative;
+        z-index: 3;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-content: stretch;
+        align-items: center;
+        padding: $gutter-sm;
+        text-decoration: none;
+        color: $color-light;
+        @include gradient-bg;
+        @include drop-shadow;
+
+        &::before {
+            position: absolute;
+            content: ' ';
+            background-color: $color-secondary;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            @include transition-all-2;
+            z-index: 4;
+        }
+
+        &::after {
+            position: absolute;
+            content: ' ';
+            background-color: $color-primary;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            height: 0;
+            @include transition-all-2;
+            transition-delay: .1s;
+            z-index: 5;
+        }
+
+        @media(min-width: $width-sm) {
+            padding: $gutter-md;
+        }
+    }
+
+    & > a:hover,
+    & > a:active,
+    & > a:focus {
+        @include deep-shadow;
+
+        .icon,
+        .title {
+            @include subtle-zoom;
+        }
+
+        &::before {
+            opacity: 0;
+        }
+
+        &::after {
+            height: 4px;
+        }
+    }
+
+    .icon,
+    .title {
+        position: relative;
+        z-index: 6;
+        cursor: pointer;
+        @include transition-all-2;
+    }
+
+    .icon {
+        display: inline-block;
+        clear: both;
+        width: auto;
+        height: 32px;
+        margin-bottom: .5rem;
+    }
+
+    .title {
+        display: block;
+    }
+}
+
+.problem {
+    display: flex;
+    flex-direction: column;
+    background-color: $color-tertiary;
+    margin-bottom: 2rem;
+    padding: $gutter-sm;
+    align-items: flex-start;
+
+    .label {
+        position: relative;
+        white-space: nowrap;
+        padding-left: 30px;
+        margin-bottom: 1rem;
+        margin-right: 1rem;
+
+        .icon {
+            position: absolute;
+            top: -2px;
+            left: 0;
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            background-image: url('../svg/info-circle.svg');
+            background-size: contain;
+            margin-right: .5rem;
+        }
+    }
+
+    @media (min-width: $width-sm) {
+        flex-direction: row;
+        padding: $gutter-md;
+    }
+}
+
+figure {
+    margin: 2rem auto 3rem auto;
+    background-color: $color-tertiary;
+    @include drop-shadow;
+
+    img {
+        display: block;
+        max-width: 100%;
+        height: auto;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    &.xs img {
+        @media (min-width: $width-xs) {
+            max-width: $width-xs;
+        }
+    }
+
+    &.small img {
+        @media (min-width: $width-sm) {
+            max-width: $width-sm;
+        }
+    }
+
+    figcaption {
+        padding: .5rem 0;
+
+        @media (min-width: $width-sm) {
+            padding: 1rem 0;
+        }
+
+        h4 {
+            color: $color-muted-text;
+            font-weight: normal;
+            text-align: center;
+            font-size: 9pt;
+        }
+    }
+}
+
+.key-contributions {
+    background-color: $color-tertiary;
+
+    li {
+        position: relative;
+        margin-bottom: 1rem;
+        list-style: none;
+
+        &::before {
+            position: absolute;
+            left: -26px;
+            display: inline-block;
+            content: ' ';
+            width: 20px;
+            height: 20px;
+            background: url('../svg/check-circle.svg') no-repeat center center;
+            background-size: contain;
+        }
+    }
+}
+
+.key-contributions .donut-hole {
+    fill: $color-tertiary;
+}
+
+.breakdown-content {
+    margin-top: 3rem;
+
+    figure {
+        box-shadow: none;
+        width: 50%;
+        margin-left: auto;
+        margin-right: auto;
+
+        figcaption {
+            margin-bottom: 1rem;
+        }
+    }
+
+    ul.figure-key-list {
+        margin: 0 0 0 1rem;
+        padding: 0;
+        list-style: none;
+        font-size: 10pt;
+
+        li {
+            margin-bottom: 0;
+            list-style-image: none;
+
+            &::before {
+                display: none;
+            }
+        }
+
+        .shape-circle {
+            display: inline-block;
+            width: 12pt;
+            height: 12pt;
+            border-radius: 100%;
+            margin-right: ($gutter-sm / 2);
+            transform: translateY(3pt);
+        }
+    }
+}
+
+@media (min-width: $width-sm) {
+    .key-contributions > .container {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .breakdown-content {
+        width: 40%;
+        margin-top: 0;
+
+        figure {
+            width: 100%;
+            padding-left: $gutter-md;
+        }
+    }
+}
+
+@media (min-width: $width-md) {
+    .breakdown-content {
+        width: 25%;
+    }
+}
+
+
+
+body.kind-section {
+    section.list {
+        & > header {
+            @include padded;
+            @include gradient-bg;
+            padding-top: ($gutter-md * 3);
+            color: $color-light;
+            text-align: center;
+
+            h2 {
+                color: $color-light;
+            }
+        }
+
+        .article-list {
+            @include padded;
+        }
+    }
+}

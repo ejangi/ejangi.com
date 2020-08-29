@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+    {{- partial "head.html" . -}}
+    <body class="kind-{{ .Kind }} type-{{ .Type }}{{ with .File }} file-{{ .ContentBaseName }}{{ end }}">
+        {{- partial "header.html" . -}}
+        <main>
+        {{- block "main" . }}{{- end }}
+        </main>
+        {{- partial "footer.html" . -}}
+        {{- block "scripts" . }}{{- end }}
+    </body>
+</html>

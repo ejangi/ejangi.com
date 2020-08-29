@@ -1,0 +1,28 @@
+.global-header {
+    position: absolute;
+    width: 100%;
+    z-index: 99;
+}
+
+.site-title {
+    position: absolute;
+    @include serif;
+    color: $color-primary;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16pt;
+    top: 0;
+    left: 0;
+    padding: $gutter-sm;
+
+    @media (min-width: $width-sm) {
+        padding: $gutter-md;
+    }
+
+    &:hover,
+    &:active,
+    &:focus {
+        @include subtle-zoom;
+        @include deep-shadow;
+    }
+}
