@@ -43,3 +43,17 @@ Gosh, the documentation on this is hopeless... So, here it is in a nutshell.
 {{ $sass := resources.Get "scss/main.scss"  | resources.ToCSS (dict "outputStyle" "compressed") | fingerprint }}
 <link rel="stylesheet" href="{{ $sass.Permalink }}">
 ```
+
+## Updating the docker image
+
+1) Build and tag:
+
+```bash
+docker build -t ejangi/hugo:latest .
+```
+
+2) Push to docker hub:
+
+```bash
+docker push ejangi/hugo:latest
+```
