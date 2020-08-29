@@ -184,11 +184,15 @@ figure {
     }
 
     &.xs img {
-        max-width: $width-xs;
+        @media (min-width: $width-xs) {
+            max-width: $width-xs;
+        }
     }
 
     &.small img {
-        max-width: $width-sm;
+        @media (min-width: $width-sm) {
+            max-width: $width-sm;
+        }
     }
 
     figcaption {
