@@ -8,4 +8,5 @@ steps:
       args: ['hugo', '--minify']
     - name: 'gcr.io/cloud-builders/gsutil'
       id: Deploy
-      args: ['cp', '-r', 'public/*', 'gs://ejangi.com/']
+      dir: 'public'
+      args: ['cp', '-r', '*', 'gs://ejangi.com/']
