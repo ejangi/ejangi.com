@@ -8,6 +8,7 @@ googleAnalytics = "UA-12314225-1"
     description = "James Angus is a Brisbane (Australia) based Business Analyst and Developer."
     keywords = ["James Angus", "ejangi", "Brisbane", "Queensland", "Australia", "developer", "business analyst", "technical", "salesforce", "integration", "marketing cloud", "website", "guitarist"]
     mixPanelID = "1b559cf463eb9172e36fc351203057a4"
+    images = ["sharing.jpg"]
     EmailAddress = "james@ejangi.com"
     PGPKey = "images/publickey.james@ejangi.com.asc"
     ProfilePhoto = "images/profile-photo.png"
