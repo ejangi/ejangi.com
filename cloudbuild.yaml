@@ -1,12 +1,7 @@
 steps:
     - name: 'ejangi/hugo'
       id: Build
-      dir: 'public'
-      volumes: 
-        - name: 'public'
-          path: '/src/public'
       args: ['hugo', '--minify']
     - name: 'gcr.io/cloud-builders/gsutil'
       id: Deploy
-      dir: 'public'
-      args: ['cp', '-r', '*', 'gs://ejangi.com/']
+      args: ['cp', '-r', 'public/*', 'gs://ejangi.com/']
