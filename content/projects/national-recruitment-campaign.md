@@ -17,7 +17,7 @@ key: "
 
 * Configured Salesforce to notify each organisation of it's new leads.
 "
-breakdown: ["Business Analysis:15", "Project Management:10","Development:75"]
+breakdown: ["Business Analysis:15", "Project Management:10","Development:65", "Design:10"]
 ---
 
 This project was a collaboration between 8 School Chaplaincy service providers around Australia. The campaign was intended to fill some vacancies in schools as quickly as possible.

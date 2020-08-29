@@ -17,7 +17,7 @@ key: "
 
 * Campaign launch marketing setup and send.
 "
-breakdown: ["Business Analysis:15", "Project Management:10", "Development:75"]
+breakdown: ["Business Analysis:15", "Project Management:10", "Development:65", "Design:10"]
 ---
 
 From automatic emails and landing pages to the donor in Marketing Cloud, to a configurable app in Salesforce, this system automates as much as possible, while still putting a lot of power in the hands of the administrators and the donors themselves.

@@ -16,5 +16,5 @@ googleAnalytics = ""
     Twitter = "https://twitter.com/ejangi"
     Github = "https://github.com/ejangi"
     Trailblazer = "https://trailblazer.me/id/ejangi"
-    pieColors = [ "#4A3FC9", "#C09F66", "#3A3D46", "#F1EDE8", "#777777"]
+    pieColors = [ "#4A3FC9", "#C09F66", "#3A3D46", "#777777", "#FFFFFF"]
     CopyrightNotice = "&copy; James Angus 2020. View source on [Github](https://github.com/ejangi/ejangi.com)."
