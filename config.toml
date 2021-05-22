@@ -6,14 +6,14 @@ googleAnalytics = "UA-12314225-1"
 
 [params]
     description = "James Angus is a Brisbane (Australia) based Business Analyst and Developer."
-    keywords = ["James Angus", "ejangi", "Brisbane", "Queensland", "Australia", "developer", "business analyst", "technical", "salesforce", "integration", "marketing cloud", "website", "guitarist"]
+    keywords = ["James Angus", "ejangi", "Brisbane", "Queensland", "Australia", "developer", "programmer", "business analyst", "business analysis", "technical", "salesforce", "integration", "marketing cloud", "website", "guitarist", "group manager", "mission systems"]
     mixPanelID = "1b559cf463eb9172e36fc351203057a4"
     images = ["sharing.jpg"]
     EmailAddress = "james@ejangi.com"
     PGPKey = "images/publickey.james@ejangi.com.asc"
     ProfilePhoto = "images/profile-photo.png"
     CorePhilosophy = "Technology should work hard for people, not the other way around"
-    CurrentJobTitle = "Service Evolution Manager"
+    CurrentJobTitle = "Group Manager, Mission Systems"
     Location = "Brisbane, Australia"
     Expertise = ["Business Analysis", "Data Analysis", "Design & Programming"]
     LinkedIn = "https://au.linkedin.com/in/ejangi"
