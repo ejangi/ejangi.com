@@ -56,7 +56,7 @@ To give a nice separation between problems that have been solved and problems th
 
 {{< figure src="/images/soulution-progress.png" title="Problems that are in progress are more visible on the dashboard" class="xs" >}}
 
-For the developers out there, you can check out the source for this project on [github](https://github.com/ejangi/soulution). The build process utilises Google Cloud Build to watch for new commits to the `master` branch and then kicks off a build. The result is copied to a Google Cloud Storage bucket and finally, CloudFlare handles proxying the website at [https://soulution.cloud](https://soulution.cloud).
+For the developers out there, you can check out the source for this project on [github](https://github.com/ejangi/soulution). The build process utilises Google Cloud Build to watch for new commits to the `master` branch and then kicks off a build. The result is copied to a Google Cloud Storage bucket and finally, Cloudflare handles proxying the website at [https://soulution.cloud](https://soulution.cloud).
 
 I utilise [Integromat](https://www.integromat.com/en) to watch for build results and then pipe that detail into a slack message so I get notified when the change is live.
 
