@@ -13,6 +13,8 @@ key: "
 
 * Built the web app in React using Google's Firestore and Firebase Auth.
 
+* Configured the automated build process from git push to live.
+
 * Deployed for testing and personal use at [soulution.cloud](https://soulution.cloud)
 "
 breakdown: ["Development:70", "Design:30"]
@@ -53,3 +55,9 @@ Lastly, we have a review page that details the solution and the steps to get the
 To give a nice separation between problems that have been solved and problems that we are currently working on, we adjust the dashboard with visual queues.
 
 {{< figure src="/images/soulution-progress.png" title="Problems that are in progress are more visible on the dashboard" class="xs" >}}
+
+For the developers out there, you can check out the source for this project on [github](https://github.com/ejangi/soulution). The build process utilises Google Cloud Build to watch for new commits to the `master` branch and then kicks off a build. The result is copied to a Google Cloud Storage bucket and finally, CloudFlare handles proxying the website at [https://soulution.cloud](https://soulution.cloud).
+
+I utilise [Integromat](https://www.integromat.com/en) to watch for build results and then pipe that detail into a slack message so I get notified when the change is live.
+
+{{< figure src="/images/soulution-build-process.png" title="The build process diagram" class="sm" >}}
