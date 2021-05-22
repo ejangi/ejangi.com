@@ -2,7 +2,7 @@ FROM debian:stable-slim
 
 MAINTAINER James Angus <james@ejangi.com>
 
-ARG HUGO_VERSION=0.81.0
+ARG HUGO_VERSION=0.83.1
 
 RUN apt-get update && \
     apt-get install -y jpegoptim optipng
