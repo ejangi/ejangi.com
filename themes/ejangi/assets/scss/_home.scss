@@ -206,7 +206,7 @@
 
     .quote {
         position: absolute;
-        bottom: -25%;
+        bottom: -18%;
         right: 0;
         width: 340px;
         padding: ($gutter-md + ($gutter-sm / 2));
@@ -216,7 +216,7 @@
         z-index: 5;
 
         @media (min-width: $width-sm) {
-            bottom: -35%;
+            bottom: -25%;
         }
 
         p {
