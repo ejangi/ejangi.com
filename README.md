@@ -2,6 +2,14 @@
 
 > This [hugo](https://gohugo.io) website is my personal website.
 
+## Adding a new page
+
+1) To create a new project:
+
+```bash
+hugo new projects/<page name>.md
+```
+
 ## How this site was created
 
 1) Build and run the docker image:
