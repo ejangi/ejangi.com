@@ -26,7 +26,7 @@ SU QLD had been using Campaign Monitor for email communications, but it was not 
 
 The organisation had some complex data needs when it came to marketing and the product that made the most sense on all fronts was Salesforce Marketing Cloud.
 
-{{< figure src="/images/corporate-lapsing-series-journey.png" title="SU QLD's Corporate Lapsing Series Journey" >}}
+{{< figure src="images/corporate-lapsing-series-journey.png" title="SU QLD's Corporate Lapsing Series Journey" >}}
 
 This project required technical integration with Salesforce (Sales Cloud), Google Groups and the mailhouse.
 

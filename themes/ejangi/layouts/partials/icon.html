@@ -1,3 +1,10 @@
 {{ if .Page.Params.Icon }}
-<img src="{{ print .Page.Params.Icon | absURL }}" class="icon">
+{{ $iconUrl := "" }}
+{{ $image := .Page.Resources.GetMatch (printf "*%s" .Page.Params.Icon) }}
+{{ if $image }}
+    {{ $iconUrl = $image.RelPermalink | absURL }}
+{{ else }}
+    {{ $iconUrl = .Page.Params.Icon | absURL }}
+{{ end }}
+<img src="{{ $iconUrl }}" class="icon">
 {{ end }}

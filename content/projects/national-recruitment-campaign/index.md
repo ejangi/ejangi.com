@@ -24,4 +24,4 @@ This project was a collaboration between 8 School Chaplaincy service providers a
 
 Using search and social advertising, we drove traffic to a Marketing Cloud landing page which created leads in Salesforce and allocated the leads to the correct organisation for further triage and follow up.
 
-{{< figure src="/images/startchaplaincy-com.jpg" title="The Start Chaplaincy landing page." >}}
+{{< figure src="images/startchaplaincy-com.jpg" title="The Start Chaplaincy landing page." >}}

@@ -7,7 +7,7 @@
 1) To create a new project:
 
 ```bash
-hugo new projects/<page name>.md
+hugo new projects/<page name>
 ```
 
 ## How this site was created

@@ -24,7 +24,7 @@ This was the largest technical project that SU QLD had undertaken and comprised 
 
 I worked alongside my director to create the business case and work out a model for project payback.
 
-{{< figure src="/images/suqld-salesforce-dashboard.png" title="SU QLD's Salesforce Homepage" >}}
+{{< figure src="images/suqld-salesforce-dashboard.png" title="SU QLD's Salesforce Homepage" >}}
 
 After completing PRINCE2 training, we setup the project, selected the vendors and set about working with stakeholders to create excitement and gather in-depth requirements.
 

@@ -22,7 +22,7 @@ breakdown: ["Business Analysis:40", "Project Management:25", "Development:35"]
 
 Working with an agency to complete the design and ensure the main website for SU QLD best represented it to various stakeholders.
 
-{{< figure src="/images/suqld-website.png" title="SU QLD's Wordpress Website Homepage" >}}
+{{< figure src="images/suqld-website.png" title="SU QLD's Wordpress Website Homepage" >}}
 
 Due to time-constraints we decided to outsource the initial design and build to a design agency. To that end it was vital that the agency had a comprehensive understanding of the organisation, it's stakeholders and the requirements.
 

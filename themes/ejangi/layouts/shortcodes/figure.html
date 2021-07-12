@@ -1,19 +1,27 @@
-{{ $image := resources.Get (.Get "src") }}
-{{ if ne $image nil }}{{ $image.Resize "960x webp picture"}}{{ end }}
+{{ $image := .Page.Resources.GetMatch (printf "*%s" (.Get "src")) }}
+{{ $webpUrl := "" }}
+{{ $backupUrl := "" }}
+{{ if $image }}
+    {{ $webpUrl = ($image.Resize "1920x webp picture").RelPermalink | absURL }}
+    {{ $backupUrl = ($image.Resize "1920x").RelPermalink | absURL }}
+{{ else }}
+    {{ $backupUrl = (.Get "src") }}
+{{ end }}
+
 <figure{{ with .Get "class" }} class="{{ . }}"{{ end }}>
     {{- if .Get "link" -}}
         <a href="{{ .Get "link" }}"{{ with .Get "target" }} target="{{ . }}"{{ end }}{{ with .Get "rel" }} rel="{{ . }}"{{ end }}>
     {{- end -}}
-    <!-- <picture>
-        <source srcset="{{ $image }}" type="image/webp"> -->
-        <img src="{{ .Get "src" }}"
+    <picture>
+        {{ if $webpUrl }}<source srcset="{{ $webpUrl }}" type="image/webp">{{ end }}
+        <img src="{{ $backupUrl }}"
             {{- if or (.Get "alt") (.Get "caption") }}
             alt="{{ with .Get "alt" }}{{ . }}{{ else }}{{ .Get "caption" | markdownify| plainify }}{{ end }}"
             {{- end -}}
             {{- with .Get "width" }} width="{{ . }}"{{ end -}}
             {{- with .Get "height" }} height="{{ . }}"{{ end -}}
         /><!-- Closing img tag -->
-    <!-- </picture> -->
+    </picture>
     {{- if .Get "link" }}</a>{{ end -}}
     {{- if or (or (.Get "title") (.Get "caption")) (.Get "attr") -}}
         <figcaption>

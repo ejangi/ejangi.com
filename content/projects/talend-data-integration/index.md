@@ -24,4 +24,4 @@ Rather than build all of this integration into Salesforce itself (and potentiall
 
 Using Talend, the organisation is now equipped to quickly create data integrations between any of its systems.
 
-{{< figure src="/images/talend-mobile-messages.png" title="Talend Data Integration Studio" >}}
+{{< figure src="images/talend-mobile-messages.png" title="Talend Data Integration Studio" >}}
