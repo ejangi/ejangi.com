@@ -1,9 +1,11 @@
 {{ $image := .Page.Resources.GetMatch (printf "*%s" (.Get "src")) }}
-{{ $webpUrl := "" }}
+{{ $webpOneXUrl := "" }}
+{{ $webpTwoXUrl := "" }}
 {{ $backupUrl := "" }}
 {{ if $image }}
-    {{ $webpUrl = ($image.Resize "1920x webp picture").RelPermalink | absURL }}
-    {{ $backupUrl = ($image.Resize "1920x").RelPermalink | absURL }}
+    {{ $webpOneXUrl = ($image.Resize "960x webp picture").RelPermalink | absURL }}
+    {{ $webpTwoXUrl = ($image.Resize "1920x webp picture").RelPermalink | absURL }}
+    {{ $backupUrl = ($image.Resize "960x").RelPermalink | absURL }}
 {{ else }}
     {{ $backupUrl = (.Get "src") }}
 {{ end }}
@@ -13,7 +15,7 @@
         <a href="{{ .Get "link" }}"{{ with .Get "target" }} target="{{ . }}"{{ end }}{{ with .Get "rel" }} rel="{{ . }}"{{ end }}>
     {{- end -}}
     <picture>
-        {{ if $webpUrl }}<source srcset="{{ $webpUrl }}" type="image/webp">{{ end }}
+        {{ if $webpOneXUrl }}<source srcset="{{ $webpOneXUrl }} 1x, {{ $webpTwoXUrl }} 1.5x" type="image/webp">{{ end }}
         <img src="{{ $backupUrl }}"
             {{- if or (.Get "alt") (.Get "caption") }}
             alt="{{ with .Get "alt" }}{{ . }}{{ else }}{{ .Get "caption" | markdownify| plainify }}{{ end }}"
