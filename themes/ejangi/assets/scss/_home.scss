@@ -223,6 +223,17 @@
             transform: translateY(-4pt);
         }
     }
+
+    .content {
+        @media (min-width: $width-sm) {
+            column-count: 2;
+            column-gap: $gutter-md;
+
+            p:first-child {
+                margin-top: 0;
+            }
+        }
+    }
 }
 
 #gold {
