@@ -5,7 +5,7 @@ theme = "ejangi"
 googleAnalytics = "UA-12314225-1"
 
 [params]
-    description = "James Angus is a Brisbane (Australia) based Business Analyst and Developer."
+    description = "James Angus is a Business Analyst and Developer based in Brisbane, Australia."
     keywords = ["James Angus", "ejangi", "Brisbane", "Queensland", "Australia", "developer", "programmer", "business analyst", "business analysis", "technical", "salesforce", "integration", "marketing cloud", "website", "web design", "frontend developer", "guitarist", "group manager", "mission systems"]
     images = ["sharing.jpg"]
     EmailAddress = "james@ejangi.com"
