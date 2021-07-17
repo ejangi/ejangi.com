@@ -33,12 +33,22 @@
         <style>
             {{ if (fileExists "static/images/core-philosophy-bg.webp") }}
             .webp #intro .core-philosophy {
-                background-image: url('{{ print "images/core-philosophy-bg.webp" | absURL }}');
+                background-image: url('{{ print "images/core-philosophy-bg-1x.webp" | absURL }}');
+            }
+            @media (-webkit-min-device-pixel-ratio: 2) { 
+                .webp #intro .core-philosophy {
+                    background-image: url('{{ print "images/core-philosophy-bg.webp" | absURL }}');
+                }
             }
             {{ end }}
             {{ if (fileExists "static/images/core-philosophy-bg.jpg") }}
             .no-webp #intro .core-philosophy {
-                background-image: url('{{ print "images/core-philosophy-bg.jpg" | absURL }}');
+                background-image: url('{{ print "images/core-philosophy-bg-sm.jpg" | absURL }}');
+            }
+            @media (-webkit-min-device-pixel-ratio: 2) { 
+                .no-webp #intro .core-philosophy {
+                    background-image: url('{{ print "images/core-philosophy-bg.jpg" | absURL }}');
+                }
             }
             {{ end }}
         </style>
@@ -79,13 +89,23 @@
 <style>
     {{ if (fileExists "static/images/about-bg.webp") }}
     .webp #about {
-        background-image: url('{{ print "images/about-bg.webp" | absURL }}');
+        background-image: url('{{ print "images/about-bg-1x.webp" | absURL }}');
+    }
+    @media (-webkit-min-device-pixel-ratio: 2) { 
+        .webp #about {
+            background-image: url('{{ print "images/about-bg.webp" | absURL }}');
+        }
     }
     {{ end }}
     {{ if (fileExists "static/images/about-bg.jpg") }}
     .no-webp #about {
-        background-image: url('{{ print "images/about-bg.jpg" | absURL }}');
+        background-image: url('{{ print "images/about-bg-sm.jpg" | absURL }}');
     }
+    @media (-webkit-min-device-pixel-ratio: 2) { 
+        .no-webp #about {
+            background-image: url('{{ print "images/about-bg.jpg" | absURL }}');
+        }
+    } 
     {{ end }}
 </style>
 {{ end }}
