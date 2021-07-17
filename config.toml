@@ -6,7 +6,7 @@ googleAnalytics = "UA-12314225-1"
 
 [params]
     description = "James Angus is a Brisbane (Australia) based Business Analyst and Developer."
-    keywords = ["James Angus", "ejangi", "Brisbane", "Queensland", "Australia", "developer", "programmer", "business analyst", "business analysis", "technical", "salesforce", "integration", "marketing cloud", "website", "guitarist", "group manager", "mission systems"]
+    keywords = ["James Angus", "ejangi", "Brisbane", "Queensland", "Australia", "developer", "programmer", "business analyst", "business analysis", "technical", "salesforce", "integration", "marketing cloud", "website", "web design", "frontend developer", "guitarist", "group manager", "mission systems"]
     images = ["sharing.jpg"]
     EmailAddress = "james@ejangi.com"
     PGPKey = "images/publickey.james@ejangi.com.asc"
