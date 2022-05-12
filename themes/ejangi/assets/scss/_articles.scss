@@ -126,9 +126,16 @@
     .icon {
         display: inline-block;
         clear: both;
-        width: auto;
-        height: 32px;
         margin-bottom: .5rem;
+
+        img {
+            width: auto;
+            height: 32px;
+
+            @media (min-width: $width-sm) {
+                height: 64px;
+            }
+        }
     }
 
     .title {

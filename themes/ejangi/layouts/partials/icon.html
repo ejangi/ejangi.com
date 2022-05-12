@@ -1,10 +1,17 @@
 {{ if .Page.Params.Icon }}
-{{ $iconUrl := "" }}
 {{ $image := .Page.Resources.GetMatch (printf "*%s" .Page.Params.Icon) }}
-{{ if $image }}
-    {{ $iconUrl = $image.RelPermalink | absURL }}
+{{ $webpOneXUrl := "" }}
+{{ $webpTwoXUrl := "" }}
+{{ $backupUrl := "" }}
+{{ if in $image.RelPermalink "png" }}
+    {{ $webpOneXUrl = ($image.Resize "960x webp picture").RelPermalink | absURL }}
+    {{ $webpTwoXUrl = ($image.Resize "1920x webp picture").RelPermalink | absURL }}
+    {{ $backupUrl = ($image.Resize "960x").RelPermalink | absURL }}
 {{ else }}
-    {{ $iconUrl = .Page.Params.Icon | absURL }}
+    {{ $backupUrl = $image.RelPermalink | absURL }}
 {{ end }}
-<img src="{{ $iconUrl }}" class="icon" loading="lazy">
+<picture class="icon">
+    {{ if $webpOneXUrl }}<source srcset="{{ $webpOneXUrl }} 1x, {{ $webpTwoXUrl }} 1.5x" type="image/webp">{{ end }}
+    <img src="{{ $backupUrl }}" loading="lazy" />
+</picture>
 {{ end }}
