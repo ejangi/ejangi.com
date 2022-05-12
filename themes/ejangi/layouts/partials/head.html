@@ -12,10 +12,10 @@
     <script src="{{ print "js/modernizr-custom.js" | absURL }}"></script>
 
     {{ if (fileExists "static/images/favicon.svg") -}}
-    <link rel="icon" type="image/svg+xml" href="{{ print "images/favicon.svg" | absURL }}">
+    <link rel="icon" type="image/svg+xml" href="{{ print "images/favicon.svg" | absURL }}" fetchpriority="low">
     {{- end }}
     {{ if (fileExists "static/images/favicon-alt.png") -}}
-    <link rel="alternate icon" href="{{ print "images/favicon-alt.png" | absURL }}">
+    <link rel="alternate icon" href="{{ print "images/favicon-alt.png" | absURL }}" fetchpriority="low">
     {{- end }}
 
     {{ template "_internal/opengraph.html" . }}
