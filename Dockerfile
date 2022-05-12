@@ -2,9 +2,10 @@ FROM debian:stable-slim
 
 MAINTAINER James Angus <james@ejangi.com>
 
-ARG HUGO_VERSION=0.85.0
+ARG HUGO_VERSION=0.98.0
 
-RUN apt-get update && \
+RUN sed -i 's/stable\/updates/stable-security\/updates/' /etc/apt/sources.list && \
+    apt-get update && \
     apt-get install -y jpegoptim optipng
 
 ADD https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_Linux-64bit.tar.gz /tmp
