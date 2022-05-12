@@ -138,16 +138,16 @@
         <div class="content">
             <div class="socials">
                 {{ if .Site.Params.LinkedIn }}
-                <div class="social linkedin"><a href="{{ .Site.Params.LinkedIn }}" target="_blank"><img src="{{ print "svg/linkedin.svg" | absURL }}" alt="LinkedIn" loading="lazy"></a></div>
+                <div class="social linkedin"><a href="{{ .Site.Params.LinkedIn }}" target="_blank"><img src="{{ print "svg/linkedin.svg" | absURL }}" width="32" height="32" alt="LinkedIn" loading="lazy"></a></div>
                 {{ end }}
                 {{ if .Site.Params.Twitter }}
-                <div class="social twitter"><a href="{{ .Site.Params.Twitter }}" target="_blank"><img src="{{ print "svg/twitter.svg" | absURL }}" alt="Twitter" loading="lazy"></a></div>
+                <div class="social twitter"><a href="{{ .Site.Params.Twitter }}" target="_blank"><img src="{{ print "svg/twitter.svg" | absURL }}" width="32" height="32" alt="Twitter" loading="lazy"></a></div>
                 {{ end }}
                 {{ if .Site.Params.Github }}
-                <div class="social github"><a href="{{ .Site.Params.Github }}" target="_blank"><img src="{{ print "svg/github.svg" | absURL }}" alt="Github" loading="lazy"></a></div>
+                <div class="social github"><a href="{{ .Site.Params.Github }}" target="_blank"><img src="{{ print "svg/github.svg" | absURL }}" width="32" height="32" alt="Github" loading="lazy"></a></div>
                 {{ end }}
                 {{ if .Site.Params.Trailblazer }}
-                <div class="social trailblazer"><a href="{{ .Site.Params.Trailblazer }}" target="_blank"><img src="{{ print "images/ranger.png" | absURL }}" alt="Trailblazer" loading="lazy"></a></div>
+                <div class="social trailblazer"><a href="{{ .Site.Params.Trailblazer }}" target="_blank"><img src="{{ print "images/ranger.png" | absURL }}" width="32" height="32" alt="Trailblazer" loading="lazy"></a></div>
                 {{ end }}
             </div>
             <p class="email"><a href="mailto:{{ .Site.Params.EmailAddress }}"><span>{{ .Site.Params.EmailAddress }}</span></a></p>

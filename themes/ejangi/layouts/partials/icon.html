@@ -12,6 +12,6 @@
 {{ end }}
 <picture class="icon">
     {{ if $webpOneXUrl }}<source srcset="{{ $webpOneXUrl }} 1x, {{ $webpTwoXUrl }} 1.5x" type="image/webp">{{ end }}
-    <img src="{{ $backupUrl }}" loading="lazy" />
+    <img src="{{ $backupUrl }}" loading="lazy" width="32" height="32" />
 </picture>
 {{ end }}
