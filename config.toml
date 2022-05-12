@@ -2,7 +2,7 @@ baseURL = "https://ejangi.com/"
 languageCode = "en-au"
 title = "James Angus"
 theme = "ejangi"
-googleAnalytics = "UA-12314225-1"
+googleAnalytics = ""
 
 [params]
     description = "James Angus is a Business Analyst and Developer based in Brisbane, Australia."
