@@ -6,5 +6,5 @@
 {{ else }}
     {{ $iconUrl = .Page.Params.Icon | absURL }}
 {{ end }}
-<img src="{{ $iconUrl }}" class="icon">
+<img src="{{ $iconUrl }}" class="icon" loading="lazy">
 {{ end }}
