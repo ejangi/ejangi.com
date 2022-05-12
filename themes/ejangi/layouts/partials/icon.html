@@ -4,9 +4,9 @@
 {{ $webpTwoXUrl := "" }}
 {{ $backupUrl := "" }}
 {{ if in $image.RelPermalink "png" }}
-    {{ $webpOneXUrl = ($image.Resize "960x webp picture").RelPermalink | absURL }}
-    {{ $webpTwoXUrl = ($image.Resize "1920x webp picture").RelPermalink | absURL }}
-    {{ $backupUrl = ($image.Resize "960x").RelPermalink | absURL }}
+    {{ $webpOneXUrl = ($image.Resize "256x webp q90").RelPermalink | absURL }}
+    {{ $webpTwoXUrl = ($image.Resize "512x webp q90").RelPermalink | absURL }}
+    {{ $backupUrl = ($image.Resize "128x").RelPermalink | absURL }}
 {{ else }}
     {{ $backupUrl = $image.RelPermalink | absURL }}
 {{ end }}
