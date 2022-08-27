@@ -5,7 +5,7 @@ date: 2022-08-27T07:10:56Z
 keywords: ["bigquery", "data analysis", "business intelligence", "reporting", "sql", "data integration", "pipeline"]
 icon: "images/google-data-studio-logo.png"
 draft: false
-problem: "SU was struggling to report on the effectiveness of its reactivation marketing automation journey."
+problem: "SU QLD was struggling to report on the effectiveness of its reactivation marketing automation journey."
 key: "
 ## Key Contributions
 
@@ -21,7 +21,7 @@ breakdown: ["Development:70", "Design:30"]
 ---
 
 After deploying [Marketing Cloud]({{< ref "/projects/suqld-salesforce-marketing-cloud" >}}
-), SU QLD wanted to report on the income generated from all the donors who had successfully started on their lapsing series campaign — a reactivation marketing journey. The problem was that the reporting functionality built into Salesforce, while good, is limited in how many other data types it can join together a single view.
+), SU QLD wanted to report on the income generated from all the donors who had successfully started on their lapsing series campaign — a reactivation marketing journey. The problem was that the reporting functionality built into Salesforce, while good, is limited in how many other data types it can join together in a single view.
 
 {{< figure src="images/lapsing-series-data-diagram.png" title="Salesforce data model for connecting donations to the campaign that won them and the contacts who made each donation." >}}
 
