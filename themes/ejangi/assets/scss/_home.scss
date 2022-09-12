@@ -69,10 +69,12 @@
 .roles {
     position: absolute;
     left: $gutter-sm;
+    right: $gutter-sm;
     bottom: $gutter-sm;
 
     @media (min-width: $width-sm) {
         left: $gutter-md;
+        right: $gutter-md;
         bottom: $gutter-md;
     }
 }
@@ -199,6 +201,8 @@
     .container {
         position: relative;
         z-index: 4;
+        padding-left: $gutter-md;
+        padding-right: $gutter-md;
     }
 
     h2, h3 {
