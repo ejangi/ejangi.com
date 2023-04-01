@@ -276,6 +276,7 @@
         & > a:focus {
             color: white;
             text-decoration: none;
+            @include deep-shadow;
         }
 
         .icon {
