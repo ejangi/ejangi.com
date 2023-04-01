@@ -205,10 +205,10 @@ figure {
     }
 
     figcaption {
-        padding: .5rem 0;
+        padding: .5rem;
 
         @media (min-width: $width-sm) {
-            padding: 1rem 0;
+            padding: 1rem;
         }
 
         h4 {
