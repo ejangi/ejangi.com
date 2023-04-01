@@ -25,6 +25,11 @@ h1 {
     line-height: 36pt;
     color: $color-secondary;
     margin: 0 0 .5rem 0;
+
+    @media (min-width: $width-sm) {
+        font-size: 40pt;
+        line-height: 48pt;
+    }
 }
 
 h2 {
@@ -34,6 +39,11 @@ h2 {
     line-height: 30pt;
     color: $color-secondary;
     margin: .5rem 0 1rem 0;
+
+    @media (min-width: $width-sm) {
+        font-size: 36pt;
+        line-height: 40pt;
+    }
 
     section > & {
         text-align: center;
@@ -51,6 +61,12 @@ h3 {
         margin-top: -.5rem;
         margin-bottom: 2.5rem;
         text-align: center;
+
+        @media (min-width: $width-sm) {
+            font-size: 11pt;
+            line-height: 16pt;
+            margin-bottom: 4rem;
+        }
     }
 }
 
