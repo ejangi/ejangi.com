@@ -2,7 +2,7 @@ FROM debian:stable-slim
 
 MAINTAINER James Angus <james@ejangi.com>
 
-ARG HUGO_VERSION=0.111.3
+ARG HUGO_VERSION=0.112.7
 
 RUN sed -i 's/stable\/updates/stable-security\/updates/' /etc/apt/sources.list && \
     apt-get update && \
