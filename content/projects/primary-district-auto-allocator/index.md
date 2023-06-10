@@ -1,10 +1,10 @@
 ---
 title: "Primary District Auto Allocator"
 description: "A Salesforce app that automatically allocates contacts and accounts to SU Australia's geographic districts"
-date: 2023-06-10T00:34:34Z
+date: 2018-12-04T00:34:34Z
 keywords: ["salesforce", "apex", "sfdx", "salesforce developer"]
-icon: ""
-draft: true
+icon: "images/primary-district.svg"
+draft: false
 problem: "SU&nbsp;Australia draws it's own geographic bounds, that we call Districts, in order to evenly distribute the work across the country. In Salesforce, we wanted to ensure donors were allocated to the relevant District Manager."
 key: "
 ## Key Contributions
