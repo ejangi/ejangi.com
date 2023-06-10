@@ -62,8 +62,10 @@
         <h3>A selection of works</h3>
 
         <div class="article-list">
+            {{ $.Scratch.Set "index" 0 }}
             {{ range where .Site.Pages.ByDate.Reverse "Section" "projects" }}
             {{ if ne .Kind "section" }}
+            {{ $.Scratch.Set "index" (add ($.Scratch.Get "index") 1) }}
             {{ partial "li.html" .}}
             {{ end }}
             {{ end }}
@@ -117,10 +119,11 @@
         <h3>Things I'm enjoying at the moment</h3>
 
         <div class="article-list">
+            {{ $.Scratch.Set "index" 0 }}
             {{ range first 5 (where .Site.Pages.ByDate.Reverse "Section" "gold") }}
             {{ if ne .Kind "section" }}
             <article class="list-item kind-{{ .Kind }} type-{{ .Type }}">
-                <a href="{{ .Params.link }}" target="_blank">
+                <a href="{{ .Params.link }}" target="_blank" title="{{ .Description | htmlEscape }}">
                     {{ partial "icon.html" .}}
                     <span class="title">{{ .Title }}</span>
                 </a>

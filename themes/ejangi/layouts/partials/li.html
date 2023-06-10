@@ -1,4 +1,4 @@
-<article class="list-item kind-{{ .Kind }} type-{{ .Type }}">
+<article class="list-item kind-{{ .Kind }} type-{{ .Type }}{{ if eq ($.Scratch.Get "index") 0 }} first{{ end }}">
     <a href="{{ .Permalink }}">
         {{ partial "icon.html" .}}
         <span class="title">{{ .Title }}</span>
