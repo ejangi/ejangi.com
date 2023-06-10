@@ -45,3 +45,78 @@ $width-lg: 1200px;
 @mixin transition-all-2 {
     transition: all .2s ease-in-out;
 }
+
+@mixin button {
+    display: inline-block;
+
+    & > a:link,
+    & > a:visited {
+        position: relative;
+        z-index: 3;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-content: center;
+        align-items: center;
+        padding: $gutter-sm;
+        text-decoration: none;
+        color: $color-light;
+        @include gradient-bg;
+        @include drop-shadow;
+
+        &::before {
+            position: absolute;
+            content: ' ';
+            background-color: $color-secondary;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            @include transition-all-2;
+            z-index: 4;
+        }
+
+        &::after {
+            position: absolute;
+            content: ' ';
+            background-color: $color-primary;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            height: 0;
+            @include transition-all-2;
+            transition-delay: .1s;
+            z-index: 5;
+        }
+
+        span {
+            position: relative;
+            z-index: 6;
+            @include transition-all-2;
+        }
+
+        @media(min-width: $width-sm) {
+            padding: $gutter-md;
+        }
+    }
+
+    & > a:hover,
+    & > a:active,
+    & > a:focus {
+        @include deep-shadow;
+
+        span {
+            @include subtle-zoom;
+        }
+
+        &::before {
+            opacity: 0;
+        }
+
+        &::after {
+            height: 4px;
+        }
+    }
+}

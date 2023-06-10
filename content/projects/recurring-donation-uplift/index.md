@@ -7,7 +7,7 @@ icon: "images/recurring-uplift-icon.png"
 draft: false
 problem: "SU QLD had some very faithful long-term donors who wanted more control over their recurring donations. The fundraising team also wanted to offer these donors an easy way to automatically increase their giving each year."
 key: "
-# Key Contributions
+## Key Contributions
 
 * Requirements gathering and process mapping.
 

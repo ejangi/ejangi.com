@@ -31,24 +31,72 @@
 
 
 
-.article-list {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    column-gap: ($gutter-sm * 2);
-    row-gap: ($gutter-sm * 2);
-    grid-auto-rows: 1fr;
-
-    @media (min-width: $width-sm) {
-        grid-template-columns: 1fr 1fr 1fr 1fr;
-    }
-}
-
 .list-item {
-    display: flex;
-    text-align: center;
-    justify-content: stretch;
-    align-content: stretch;
-    align-items: stretch;
+    margin-left: -$gutter-sm;
+    margin-right: -$gutter-sm;
+    padding: ($gutter-md * 2) $gutter-md;
+    border-bottom: 10px solid $color-tertiary;
+
+    &:last-child {
+        border-bottom-width: 0;
+    }
+
+    & > header {
+        display: flex;
+        align-content: center;
+        margin: 0 0 $gutter-md 0;
+
+        .icon {
+            margin: 0 $gutter-sm 0 0;
+        }
+
+        h1 {
+            font-size: 20pt;
+            line-height: 26pt;
+            margin-bottom: 0;
+
+            @media (min-width: $width-sm) {
+                font-size: 26pt;
+                line-height: 32pt;
+            }
+        }
+    }
+
+    & .key-contributions {
+        width: 100%;
+        padding: 0;
+        padding-bottom: 0;
+        background-color: transparent;
+
+        h2 {
+            font-size: 16pt;
+            line-height: 20pt;
+        }
+
+        .breakdown-content > figure {
+            margin-bottom: 0;
+            background-color: transparent;
+        }
+
+        @media (min-width: $width-sm) {
+            .breakdown-content {
+                width: 20rem;
+
+                figure {
+                    width: 20rem;
+                }
+            }
+        }
+    }
+
+    & .problem {
+        padding: 0;
+        background-color: transparent;
+
+        .label {
+            display: none;
+        }
+    }
 
     & > a:link,
     & > a:visited {
@@ -135,13 +183,19 @@
             height: 32px;
 
             @media (min-width: $width-sm) {
-                height: 64px;
+                height: 48px;
             }
         }
     }
 
     .title {
         display: block;
+    }
+
+    .actions {
+        .more {
+            @include button;
+        }
     }
 }
 

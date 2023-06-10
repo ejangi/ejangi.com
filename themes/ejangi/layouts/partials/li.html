@@ -1,6 +1,24 @@
-<article class="list-item kind-{{ .Kind }} type-{{ .Type }}{{ if eq ($.Scratch.Get "index") 0 }} first{{ end }}">
-    <a href="{{ .Permalink }}">
+<article class="list-item kind-{{ .Kind }} type-{{ .Type }}">
+    <header>
         {{ partial "icon.html" .}}
-        <span class="title">{{ .Title }}</span>
-    </a>
+        <h1>{{ .Title }}</h1>
+        {{ if ne .Section "projects" }}
+        <p class="date">{{ .Date.Format "Monday, 2 January, 2006" }}</p>
+        {{ end }}
+    </header>
+    <section class="content">
+        <div class="container">
+            {{ if .Params.problem -}}
+                {{ partial "problem.html" .}}
+            {{- end }}
+        </div>
+    </section>
+    {{ if .Params.key }}
+        {{ partial "key-contributions.html" .}}
+    {{ end }}
+    <section class="actions">
+        <div class="container">
+            <p class="more"><a href="{{ .Permalink }}"><span>Read More</span></a></p>
+        </div>
+    </section>
 </article>

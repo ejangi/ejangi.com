@@ -62,10 +62,8 @@
         <h3>A selection of works</h3>
 
         <div class="article-list">
-            {{ $.Scratch.Set "index" 0 }}
             {{ range where .Site.Pages.ByDate.Reverse "Section" "projects" }}
             {{ if ne .Kind "section" }}
-            {{ $.Scratch.Set "index" (add ($.Scratch.Get "index") 1) }}
             {{ partial "li.html" .}}
             {{ end }}
             {{ end }}
