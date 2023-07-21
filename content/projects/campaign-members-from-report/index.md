@@ -4,7 +4,7 @@ description: "A custom Flow and Apex class that adds campaign members to a campa
 date: 2020-04-10T01:31:16Z
 keywords: ["salesfoce", "apex", "sfdx", "custom development"]
 icon: "images/campaign-member-from-report.svg"
-draft: false
+draft: true
 problem: "The fundraising team wanted a more sophisticated means of segmenting their campaigns and we were finding that adding people to a campaign in Salesforce with custom segment fields was taking a long time."
 key: "
 ## Key Contributions
