@@ -9,7 +9,6 @@ googleAnalytics = ""
     keywords = ["James Angus", "ejangi", "Brisbane", "Queensland", "Australia", "developer", "programmer", "business analyst", "business analysis", "technical", "salesforce", "integration", "marketing cloud", "website", "web design", "frontend developer", "guitarist", "group manager", "mission systems"]
     images = ["sharing.jpg"]
     EmailAddress = "james@ejangi.com"
-    PGPKey = "images/publickey.james@ejangi.com.asc"
     ProfilePhoto = "images/profile-photo.png"
     CorePhilosophy = "Technology should work hard for people, not the other way around"
     CurrentJobTitle = "Group Manager, Mission Systems"
