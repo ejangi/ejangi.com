@@ -1,11 +1,10 @@
 FROM debian:stable-slim
 
-MAINTAINER James Angus <james@ejangi.com>
+LABEL org.opencontainers.image.authors="james@ejangi.com"
 
-ARG HUGO_VERSION=0.112.7
+ARG HUGO_VERSION=0.128.1
 
-RUN sed -i 's/stable\/updates/stable-security\/updates/' /etc/apt/sources.list && \
-    apt-get update && \
+RUN apt-get update && \
     apt-get install -y jpegoptim optipng
 
 ADD https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_Linux-64bit.tar.gz /tmp
