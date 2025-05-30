@@ -62,7 +62,7 @@
         <h3>A selection of works</h3>
 
         <div class="article-list">
-            {{ range where .Site.Pages.ByDate.Reverse "Section" "projects" }}
+            {{ range first 6 (where .Site.Pages.ByDate.Reverse "Section" "projects") }}
             {{ if ne .Kind "section" }}
             {{ partial "li.html" .}}
             {{ end }}

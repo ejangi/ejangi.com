@@ -189,6 +189,16 @@
 }
 
 
+#projects {
+    .involvement-content .actions {
+        p.more {
+            margin-top: 3rem;
+            margin-bottom: 0;
+        }
+    }
+}
+
+
 #about {
     position: relative;
     color: $color-tertiary;
