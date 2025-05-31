@@ -25,14 +25,14 @@
     {{ $sass := resources.Get "scss/main.scss"  | resources.ToCSS (dict "outputStyle" "compressed") | fingerprint }}
     <link rel="stylesheet" href="{{ $sass.Permalink }}">
 
-    {{ if .Site.GoogleAnalytics }}
-    <script async src="https://www.googletagmanager.com/gtag/js?id={{ .Site.GoogleAnalytics }}"></script>
+    {{ if .Site.Config.Services.GoogleAnalytics.ID }}
+    <script async src="https://www.googletagmanager.com/gtag/js?id={{ .Site.Config.Services.GoogleAnalytics.ID }}"></script>
     <script>
         if (navigator.doNotTrack == undefined && window.doNotTrack == undefined && location.hostname != "localhost") {
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', '{{ .Site.GoogleAnalytics }}');
+            gtag('config', '{{ .Site.Config.Services.GoogleAnalytics.ID }}');
         }
     </script>
     {{ end }}

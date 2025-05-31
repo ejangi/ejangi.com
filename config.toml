@@ -2,21 +2,44 @@ baseURL = "https://ejangi.com/"
 languageCode = "en-au"
 title = "James Angus"
 theme = "ejangi"
-googleAnalytics = ""
+
+[services]
+[services.googleAnalytics]
+id = ""
 
 [params]
-    description = "James Angus is a Business Analyst and Developer based in Brisbane, Australia."
-    keywords = ["James Angus", "ejangi", "Brisbane", "Queensland", "Australia", "developer", "programmer", "business analyst", "business analysis", "technical", "salesforce", "integration", "marketing cloud", "website", "web design", "frontend developer", "guitarist", "group manager", "mission systems"]
-    images = ["sharing.jpg"]
-    EmailAddress = "james@ejangi.com"
-    ProfilePhoto = "images/profile-photo.png"
-    CorePhilosophy = "Technology should work hard for people, not the other way around"
-    CurrentJobTitle = "Group Manager, Mission Systems"
-    Location = "Brisbane, Australia"
-    Expertise = ["Business Analysis", "Data Analysis", "Design & Programming"]
-    LinkedIn = "https://au.linkedin.com/in/ejangi"
-    Twitter = "https://twitter.com/ejangi"
-    Github = "https://github.com/ejangi"
-    Trailblazer = "https://trailblazer.me/id/ejangi"
-    pieColors = [ "#4A3FC9", "#C09F66", "#3A3D46", "#777777", "#FFFFFF"]
-    CopyrightNotice = "&copy; James Angus 2020. View source on [Github](https://github.com/ejangi/ejangi.com)."
+description = "James Angus is a Business Analyst and Developer based in Brisbane, Australia."
+keywords = [
+    "James Angus",
+    "ejangi",
+    "Brisbane",
+    "Queensland",
+    "Australia",
+    "developer",
+    "programmer",
+    "business analyst",
+    "business analysis",
+    "technical",
+    "salesforce",
+    "integration",
+    "marketing cloud",
+    "website",
+    "web design",
+    "frontend developer",
+    "guitarist",
+    "group manager",
+    "mission systems",
+]
+images = ["sharing.jpg"]
+EmailAddress = "james@ejangi.com"
+ProfilePhoto = "images/profile-photo.png"
+CorePhilosophy = "Technology should work hard for people, not the other way around"
+CurrentJobTitle = "Group Manager, Mission Systems"
+Location = "Brisbane, Australia"
+Expertise = ["Business Analysis", "Data Analysis", "Design & Programming"]
+LinkedIn = "https://au.linkedin.com/in/ejangi"
+Twitter = "https://twitter.com/ejangi"
+Github = "https://github.com/ejangi"
+Trailblazer = "https://trailblazer.me/id/ejangi"
+pieColors = ["#4A3FC9", "#C09F66", "#3A3D46", "#777777", "#FFFFFF"]
+CopyrightNotice = "&copy; James Angus 2020. View source on [Github](https://github.com/ejangi/ejangi.com)."
