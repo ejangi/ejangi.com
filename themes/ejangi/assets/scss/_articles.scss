@@ -350,6 +350,7 @@ figure {
         margin-top: 0;
 
         figure {
+            min-width: 260px;
             width: 100%;
             padding-left: $gutter-md;
         }
