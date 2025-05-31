@@ -1,17 +1,17 @@
 ---
 title: " Unifying SU Australia: Merging Nine Entities' Systems into One"
-description: "A custom Flow and Apex class that adds campaign members to a campaign while also filling in custom fields on the campaign member record."
+description: "Discover how a complex program of systems integration and data unification successfully merged nine separate entities, establishing a cohesive national digital foundation for SU Australia."
 date: 2025-01-18T12:15:16Z
-keywords: ["salesfoce", "apex", "sfdx", "custom development"]
+keywords: ["SU Australia", "merger", "program management", "digital transformation", "nonprofit", "systems integration", "data migration", "project management", "team leadership", "australia"]
 icon: "images/su-australia.svg"
 draft: false
 problem: "Prior to May 2021, Scripture Union in Australia operated as a federated network of separate state and territory organisations. This decentralised structure led to significant inefficiencies and limited national strategic capabilities, hindering our ability to engage on a national level and establish a broader presence for communications, marketing, and fundraising."
 key: "
 ## Key Contributions
 
-* **Program Managed Mission Systems Integration:** Led the strategic planning and execution of numerous complex projects to consolidate nine separate entities' systems and data into a single, national platform for SU Australia over a three-year period.
+* **Program Managed Mission Systems Integration:** Led the strategic planning and execution of numerous complex projects to consolidate nine separate entities' systems and data into a single, national platform for SU&nbsp;Australia over a three-year period.
 
-* **Cultivated High-Performing Team:** Built and fostered a cohesive and productive Mission Systems team from diverse backgrounds, providing professional growth, training in key methodologies (including business analysis and PRINCE2 Lite), and fostering strong stakeholder communication.
+* **Cultivated High-Performing Team:** Built and fostered a cohesive and productive Mission Systems team from diverse backgrounds, providing professional growth, training in key methodologies (including business analysis and PRINCE2 project management), and fostering strong stakeholder communication.
 
 * **Drove Strategic Systems Development:** Oversaw the successful implementation of critical mission-enabling systems, including national CRM unification, event management, volunteer management, and corporate risk solutions.
 
