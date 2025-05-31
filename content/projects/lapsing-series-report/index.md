@@ -25,7 +25,7 @@ After deploying [Marketing Cloud]({{< ref "/projects/suqld-salesforce-marketing-
 
 {{< figure src="images/lapsing-series-data-diagram.png" title="Salesforce data model for connecting donations to the campaign that won them and the contacts who made each donation." >}}
 
-In order to acheive this kind of reporting we would need the power of SQL. We chose to use Talend Data Integration to copy data from Salesforce to Google BigQuery each night. For visualisation of the data we chose Google Data Studio.
+In order to achieve this kind of reporting we would need the power of SQL. We chose to use Talend Data Integration to copy data from Salesforce to Google BigQuery each night. For visualisation of the data we chose Google Data Studio.
 
 {{< figure src="images/lapsing-series-report-diagram.png" title="Data flow diagram along with the development workflow for the integration." >}}
 
