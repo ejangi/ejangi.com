@@ -48,7 +48,7 @@ Gosh, the documentation on this is hopeless... So, here it is in a nutshell.
 2) Wherever you want the uri for the compiled CSS, add the following:
 
 ```html
-{{ $sass := resources.Get "scss/main.scss"  | resources.ToCSS (dict "outputStyle" "compressed") | fingerprint }}
+{{ $sass := resources.Get "scss/main.scss"  | css.Sass (dict "outputStyle" "compressed") | fingerprint }}
 <link rel="stylesheet" href="{{ $sass.Permalink }}">
 ```
 

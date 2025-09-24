@@ -15,7 +15,7 @@
 
             <div class="location"><p><img src="{{ print "svg/location.svg" | absURL }}" width="9" height="12"> <small>{{ .Site.Params.Location }}</small></p></div>
         </div>
-        
+
         <div class="core-philosophy">
                 {{ if .Site.Params.CorePhilosophy -}}
                 <div class="quote">
@@ -35,7 +35,7 @@
             .webp #intro .core-philosophy {
                 background-image: url('{{ print "images/core-philosophy-bg-1x.webp" | absURL }}');
             }
-            @media (-webkit-min-device-pixel-ratio: 2) { 
+            @media (-webkit-min-device-pixel-ratio: 2) {
                 .webp #intro .core-philosophy {
                     background-image: url('{{ print "images/core-philosophy-bg.webp" | absURL }}');
                 }
@@ -45,7 +45,7 @@
             .no-webp #intro .core-philosophy {
                 background-image: url('{{ print "images/core-philosophy-bg-sm.jpg" | absURL }}');
             }
-            @media (-webkit-min-device-pixel-ratio: 2) { 
+            @media (-webkit-min-device-pixel-ratio: 2) {
                 .no-webp #intro .core-philosophy {
                     background-image: url('{{ print "images/core-philosophy-bg.jpg" | absURL }}');
                 }
@@ -91,7 +91,7 @@
     .webp #about {
         background-image: url('{{ print "images/about-bg-1x.webp" | absURL }}');
     }
-    @media (-webkit-min-device-pixel-ratio: 2) { 
+    @media (-webkit-min-device-pixel-ratio: 2) {
         .webp #about {
             background-image: url('{{ print "images/about-bg.webp" | absURL }}');
         }
@@ -101,11 +101,11 @@
     .no-webp #about {
         background-image: url('{{ print "images/about-bg-sm.jpg" | absURL }}');
     }
-    @media (-webkit-min-device-pixel-ratio: 2) { 
+    @media (-webkit-min-device-pixel-ratio: 2) {
         .no-webp #about {
             background-image: url('{{ print "images/about-bg.jpg" | absURL }}');
         }
-    } 
+    }
     {{ end }}
 </style>
 {{ end }}
@@ -128,6 +128,16 @@
             </article>
             {{ end }}
             {{ end }}
+        </div>
+    </div>
+</section>
+
+<section id="credly">
+    <div class="container">
+        <h2>Recent Credentials</h2>
+        <h3>Things I learned recently</h3>
+        <div class="content">
+            {{ partial "credly.html" .}}
         </div>
     </div>
 </section>

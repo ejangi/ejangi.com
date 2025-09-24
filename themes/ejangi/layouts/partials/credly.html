@@ -1,0 +1,18 @@
+{{ $credlyUrl := printf "https://www.credly.com/users/%s/badges.json" .Site.Params.CredlyId }}
+{{ $data := dict }}
+{{ $credlyUrl := printf "https://www.credly.com/users/%s/badges.json" .Site.Params.CredlyId }}
+{{ with try (resources.GetRemote $credlyUrl) }}
+  {{ with .Err }}
+    {{ errorf "%s" . }}
+  {{ else with .Value }}
+    {{ $credlyData := . | transform.Unmarshal }}
+    {{ $badges := $credlyData.data }}
+    {{ range $badges }}
+        <div class="badge">
+            <div data-iframe-width="200" data-iframe-height="240" data-share-badge-id="{{ .id }}" data-share-badge-host="https://www.credly.com"></div>
+        </div>
+    {{ end }}
+  {{ else }}
+    {{ errorf "Unable to get remote resource %q" $credlyUrl }}
+  {{ end }}
+{{ end }}
