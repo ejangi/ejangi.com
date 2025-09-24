@@ -321,7 +321,7 @@
 
     .content {
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr;
         column-gap: 30px;
         row-gap: 30px;
         grid-auto-rows: 1fr;
@@ -329,6 +329,7 @@
 
         @media (min-width: $width-sm) {
             margin-top: 3rem;
+            grid-template-columns: 1fr 1fr;
         }
 
         @media (min-width: $width-md) {
