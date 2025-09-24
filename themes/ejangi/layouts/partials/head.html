@@ -11,6 +11,9 @@
     <!-- Check browser for Webp support: -->
     <script src="{{ print "js/modernizr-custom.js" | absURL }}"></script>
     <script src="{{ print "js/ejangi.js" | absURL }}"></script>
+    {{ if .Site.Params.CredlyId }}
+    <script src="//cdn.credly.com/assets/utilities/embed.js" defer async></script>
+    {{ end }}
 
     {{ if (fileExists "static/images/favicon.svg") -}}
     <link rel="icon" type="image/svg+xml" href="{{ print "images/favicon.svg" | absURL }}" fetchpriority="low">
@@ -22,7 +25,7 @@
     {{ template "_internal/opengraph.html" . }}
     {{ template "_internal/twitter_cards.html" . }}
 
-    {{ $sass := resources.Get "scss/main.scss"  | resources.ToCSS (dict "outputStyle" "compressed") | fingerprint }}
+    {{ $sass := resources.Get "scss/main.scss"  | css.Sass (dict "outputStyle" "compressed") | fingerprint }}
     <link rel="stylesheet" href="{{ $sass.Permalink }}">
 
     {{ if .Site.Config.Services.GoogleAnalytics.ID }}
