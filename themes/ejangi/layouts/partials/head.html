@@ -2,7 +2,7 @@
     <title>{{ .Title }}</title>
 
     <meta charset="UTF-8">
-    <meta name="language" content="{{ .Site.LanguageCode }}">
+    <meta name="language" content="{{ .Site.Language.Locale }}">
     <meta name="description" content="{{ if .IsHome }}{{ .Site.Params.Description }}{{ else }}{{ .Page.Params.Description }}{{ end }}">
     <meta name="keywords" content="{{ if .Keywords }}{{ delimit .Keywords ", " }}{{ else }}{{ delimit $.Site.Params.Keywords ", " }}{{ end }}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">

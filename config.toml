@@ -1,5 +1,5 @@
 baseURL = "https://ejangi.com/"
-languageCode = "en-au"
+locale = "en-AU"
 title = "James Angus"
 theme = "ejangi"
 

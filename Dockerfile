@@ -2,7 +2,7 @@ FROM debian:bookworm-slim
 
 LABEL org.opencontainers.image.authors="james@ejangi.com"
 
-ARG HUGO_VERSION=0.150.0
+ARG HUGO_VERSION=0.162.0
 
 RUN apt-get update && \
     apt-get install -y jpegoptim optipng ca-certificates

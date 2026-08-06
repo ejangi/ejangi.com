@@ -5,7 +5,7 @@ Use the Docker Compose environment for all development, builds, checks, and test
 - Start the development server with `docker compose up --build`.
 - Run one-off commands with `docker compose run --rm app <command>`.
 - Create content with `docker compose run --rm app hugo new <path>`.
-- Validate changes with `docker compose run --rm app hugo --verbose --minify`.
+- Validate changes with `docker compose run --rm app hugo --minify`.
 - If dependencies or the Docker image change, rebuild with `docker compose build` before validating.
 
 The site is mounted at `/src` inside the `app` service, so edits made in the working tree are immediately available in the container.
