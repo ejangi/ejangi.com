@@ -51,6 +51,8 @@
 .profile-photo img {
     width: 96px;
     height: 96px;
+    border-radius: 100%;
+    border: 6px solid $color-tertiary;
 }
 
 
@@ -58,6 +60,14 @@
 .business-card {
     position: relative;
     background-color: $color-tertiary;
+    background-size: cover;
+    background-position: center center;
+
+    h1,
+    p {
+        -webkit-text-stroke: 6px $color-tertiary;
+        paint-order: stroke fill;
+    }
 
     p {
         color: $color-muted-text;
