@@ -3,6 +3,24 @@ services:
         build: .
         ports: 
             - 1313:1313
-        command: hugo server --bind 0.0.0.0 --watch 
+        command: hugo server --bind 0.0.0.0 --baseURL / --appendPort=false --renderToMemory --watch
         volumes:
             - .:/src/
+        networks:
+            default:
+                aliases: [hugo.test]
+    playwright:
+        profiles: [visual]
+        build:
+            context: .
+            dockerfile: tests/visual/Dockerfile
+        init: true
+        ipc: host
+        working_dir: /src
+        volumes:
+            - .:/src
+        depends_on:
+            - app
+        environment:
+            SITE_URL: http://hugo.test:1313
+        command: node tests/visual/check.cjs

@@ -1,0 +1,50 @@
+{{ $stops := slice }}
+{{ $total := 0 }}
+{{ range $i, $part := .Params.breakdown }}
+    {{ $value := int (index (split $part ":") 1) }}
+    {{ $color := index $.Site.Params.pieColors (mod $i (len $.Site.Params.pieColors)) }}
+    {{ $stops = $stops | append (printf "%s %d%% %d%%" $color $total (add $total $value)) }}
+    {{ $total = add $total $value }}
+{{ end }}
+<article class="project-card" style="--project-spectrum: conic-gradient(from 35deg, {{ delimit $stops ", " }});" aria-label="{{ .Title }}" aria-roledescription="slide">
+    <h4>{{ .Title }}</h4>
+    {{ $icon := .Resources.GetMatch (.Params.icon | default "__no_icon__") }}
+    {{ $image := $icon }}
+    {{/* Prefer a content image; cardImage can select a specific bundle resource. */}}
+    {{ range first 1 (where (.Resources.ByType "image") "Name" "ne" (.Params.icon | default "")) }}
+        {{ $image = . }}
+    {{ end }}
+    {{ with .Params.cardImage }}
+        {{ with $.Resources.GetMatch . }}{{ $image = . }}{{ end }}
+    {{ end }}
+    {{ with $image }}
+    <div class="project-card__artwork">
+        {{ $width := 160.0 }}
+        {{ if ne .MediaType.SubType "svg" }}{{ $width = mul 160.0 (div (float .Width) (float .Height)) }}{{ end }}
+        <div class="project-card__image-frame" style="--artwork-width: {{ $width }}px;">
+        {{ $src := .RelPermalink }}
+        {{ if ne .MediaType.SubType "svg" }}{{ $src = (.Fit "640x400 webp q85").RelPermalink }}{{ end }}
+        <img class="project-card__image" src="{{ $src }}" alt="{{ $.Title }} — project preview" loading="lazy" decoding="async">
+        {{ if and $icon (ne .Name $icon.Name) }}
+        <img class="project-card__badge" src="{{ $icon.RelPermalink }}" alt="" loading="lazy" decoding="async">
+        {{ end }}
+        </div>
+    </div>
+    {{ end }}
+    <div class="project-card__chart" aria-hidden="true">
+        {{ with .Params.breakdown }}
+        <svg viewBox="0 0 42 42" focusable="false">
+            <circle cx="21" cy="21" r="15.91549430918954" fill="none" stroke="#d2d3d4" stroke-width="7" />
+            {{ $offset := 25 }}
+            {{ range $i, $part := . }}
+                {{ $parts := split $part ":" }}
+                {{ $value := int (index $parts 1) }}
+                <circle cx="21" cy="21" r="15.91549430918954" fill="none" stroke="{{ index $.Site.Params.pieColors (mod $i (len $.Site.Params.pieColors)) }}" stroke-width="7" stroke-dasharray="{{ $value }} {{ sub 100 $value }}" stroke-dashoffset="{{ $offset }}" />
+                {{ $offset = sub $offset $value }}
+            {{ end }}
+        </svg>
+        {{ end }}
+    </div>
+    <p class="project-card__summary">{{ .Description | default (.Params.problem | default .Summary | plainify | htmlUnescape | truncate 190) }}</p>
+    <p class="project-card__action"><a href="{{ .RelPermalink }}" aria-label="Read full article: {{ .Title }}"><span>View project</span></a></p>
+</article>

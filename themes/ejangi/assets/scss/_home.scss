@@ -444,3 +444,222 @@
 .email {
     @include button;
 }
+
+// A readable grid without JavaScript; a looping deck once enhanced.
+.project-deck {
+    margin-top: 3rem;
+    &:focus-visible { outline: 2px solid $color-primary; outline-offset: 8px; }
+}
+
+.project-deck__stage {
+    display: grid;
+    gap: 2rem;
+    @media (min-width: $width-sm) { grid-template-columns: repeat(3, 1fr); }
+}
+
+.project-card {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1.5rem 1.25rem;
+    border: 10px solid $color-light;
+    background: #f8f5ef;
+    box-shadow: 0 12px 28px rgba($color-secondary, .15);
+    text-align: center;
+    h4 { margin: 0; width: 100%; font-size: 1.1rem; font-weight: 800; line-height: 1.4; color: $color-secondary; overflow-wrap: anywhere; }
+    &::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        z-index: -2;
+        background: var(--project-spectrum, linear-gradient(135deg, #4A3FC9, #C09F66));
+        filter: blur(30px);
+        clip-path: inset(0);
+        opacity: .4;
+    }
+    &::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+        background: linear-gradient(120deg, rgba(255,255,255,.8), transparent 30%, rgba(255,255,255,.65) 47%, transparent 65%), repeating-linear-gradient(125deg, rgba(255,255,255,.15) 0 1px, transparent 1px 5px);
+        pointer-events: none;
+    }
+}
+
+.project-card__chart {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    z-index: -1;
+    opacity: .4;
+    pointer-events: none;
+    -webkit-mask-image: linear-gradient(145deg, #000 15%, transparent 80%);
+    mask-image: linear-gradient(145deg, #000 15%, transparent 80%);
+    svg {
+        display: block;
+        position: absolute;
+        width: 155%;
+        right: -65%;
+        top: 12%;
+        height: auto;
+    }
+}
+
+.project-card:nth-child(4n + 2) .project-card__chart svg {
+    right: 5%;
+    top: -25%;
+    transform: rotate(110deg);
+}
+.project-card:nth-child(4n + 3) .project-card__chart svg {
+    right: -45%;
+    top: 50%;
+    transform: rotate(220deg);
+}
+.project-card:nth-child(4n) .project-card__chart svg {
+    right: 10%;
+    top: 25%;
+    transform: rotate(300deg);
+}
+
+.project-card__artwork {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 160px;
+    flex-shrink: 0;
+}
+.project-card__image-frame {
+    position: relative;
+    width: var(--artwork-width, 160px);
+    max-width: 100%;
+}
+.project-card__image {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 160px;
+    object-fit: contain;
+    filter: drop-shadow(0 3px 5px rgba($color-secondary, .18));
+}
+.project-card__badge {
+    position: absolute;
+    right: -.35rem;
+    bottom: -.35rem;
+    width: 44px;
+    height: 44px;
+    padding: 5px;
+    background: $color-light;
+    object-fit: contain;
+    box-shadow: 0 2px 6px rgba($color-secondary, .2);
+}
+
+.project-card__summary {
+    margin: 0;
+    color: $color-secondary;
+    font-size: .85rem;
+    line-height: 1.55;
+    text-align: left;
+    overflow-wrap: anywhere;
+}
+
+.project-card__action {
+    @include button;
+    margin: 0;
+    flex-shrink: 0;
+    font-size: .85rem;
+    a:focus-visible { outline: 3px solid $color-gradient-light; outline-offset: 4px; }
+}
+
+.project-deck.is-enhanced {
+    .project-deck__stage {
+        display: grid;
+        grid-template-columns: 100%;
+        gap: 0;
+        position: relative;
+        padding-bottom: 45px;
+        touch-action: pan-y pinch-zoom;
+        isolation: isolate;
+    }
+    .project-card {
+        // Sharing a grid cell lets the tallest card size the entire deck.
+        position: relative;
+        grid-area: 1 / 1;
+        left: 50%;
+        top: 0;
+        width: 82%;
+        max-width: 340px;
+        min-height: 440px;
+        box-sizing: border-box;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateX(-50%) scale(.88);
+        transition: transform 220ms ease-out, opacity 180ms ease-out;
+        pointer-events: none;
+    }
+    .project-card[data-position='0'] {
+        opacity: 1;
+        visibility: visible;
+        transform: translateX(-50%);
+        z-index: 3;
+        pointer-events: auto;
+    }
+    .project-card[data-position='1'] {
+        opacity: 1;
+        visibility: visible;
+        transform: translateX(-45%) translateY(12px) rotate(4deg) scale(.96);
+        z-index: 2;
+    }
+    .project-card[data-position='-1'] {
+        opacity: 1;
+        visibility: visible;
+        transform: translateX(-55%) translateY(22px) rotate(-5deg) scale(.92);
+        z-index: 1;
+    }
+    @media (min-width: $width-sm) {
+        .project-card { width: 34%; max-width: 340px; }
+        .project-card[data-position='1'] {
+            transform: translateX(42%) translateY(24px) rotate(6deg) scale(.86);
+            opacity: .75;
+        }
+        .project-card[data-position='-1'] {
+            transform: translateX(-142%) translateY(24px) rotate(-6deg) scale(.86);
+            opacity: .75;
+        }
+    }
+}
+
+.project-deck__controls:not([hidden]) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    button {
+        display: grid;
+        place-items: center;
+        padding: 0;
+        line-height: 1;
+        width: 48px;
+        height: 48px;
+        border: 1px solid $color-primary;
+        background: $color-tertiary;
+        color: $color-secondary;
+        font: inherit;
+        font-size: 1.4rem;
+        cursor: pointer;
+        &:hover { background: $color-primary; }
+        &:focus-visible { outline: 3px solid $color-gradient-light; outline-offset: 3px; }
+    }
+}
+.project-deck__count { min-width: 4rem; text-align: center; font-size: .85rem; font-variant-numeric: tabular-nums; }
+.project-deck__hint { text-align: center; color: $color-muted-text; font-size: .75rem; margin-top: 1rem; }
+
+@media (prefers-reduced-motion: reduce) {
+    .project-deck.is-enhanced .project-card { transition: none; }
+}
