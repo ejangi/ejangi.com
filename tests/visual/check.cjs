@@ -19,6 +19,14 @@ const fs = require('node:fs/promises');
             await deck.scrollIntoViewIfNeeded();
             const cards = page.locator('.project-card');
             const total = await cards.count();
+            if (width >= 720) {
+                const side = position => page.locator(`.project-card[data-position="${position}"] .project-card__select`);
+                await side(1).click();
+                await page.waitForFunction(() => document.querySelector('.project-deck__count').textContent.startsWith('2 /'));
+                await side(-1).click();
+                await page.waitForFunction(() => document.querySelector('.project-deck__count').textContent.startsWith('1 /'));
+                assert.ok(page.url().endsWith('/'), 'Side card selects rather than opens the article');
+            }
             for (let i = 0; i < total; i++) {
                 const active = page.locator('.project-card[data-position="0"]');
                 assert.equal(await active.locator('.project-card__summary').count(), 1);

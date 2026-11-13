@@ -6,6 +6,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const stage = deck.querySelector('.project-deck__stage');
     const count = deck.querySelector('.project-deck__count');
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const desktop = window.matchMedia('(min-width: 720px)');
+    const selectors = cards.map(card => {
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.className = 'project-card__select';
+        button.setAttribute('aria-label', `Show project: ${card.querySelector('h4').textContent.trim()}`);
+        button.addEventListener('click', () => move(Number(card.dataset.position)));
+        card.appendChild(button);
+        return button;
+    });
     let current = 0;
     let busy = false;
     let gesture = null;
@@ -13,9 +23,15 @@ document.addEventListener('DOMContentLoaded', () => {
     function render() {
         cards.forEach((card, i) => {
             const distance = (i - current + cards.length) % cards.length;
-            card.dataset.position = distance === cards.length - 1 ? -1 : distance;
-            card.inert = distance !== 0;
-            card.setAttribute('aria-hidden', String(distance !== 0));
+            const position = distance === cards.length - 1 ? -1 : distance;
+            const selectable = desktop.matches && Math.abs(position) === 1;
+            card.dataset.position = position;
+            card.inert = distance !== 0 && !selectable;
+            card.setAttribute('aria-hidden', String(distance !== 0 && !selectable));
+            Array.from(card.children).forEach(child => {
+                if (child !== selectors[i]) child.inert = distance !== 0;
+            });
+            selectors[i].hidden = !selectable;
         });
         count.textContent = `${current + 1} / ${cards.length}`;
     }
@@ -24,7 +40,9 @@ document.addEventListener('DOMContentLoaded', () => {
         if (busy) return;
         busy = true;
         const outgoing = cards[current];
-        if (outgoing.contains(document.activeElement)) deck.focus({ preventScroll: true });
+        if (outgoing.contains(document.activeElement) || selectors.includes(document.activeElement)) {
+            deck.focus({ preventScroll: true });
+        }
         const animation = reducedMotion.matches ? null : outgoing.animate([
             { transform: 'translateX(-50%) rotate(0deg)', opacity: 1 },
             { transform: `translateX(${step > 0 ? '-135%' : '35%'}) rotate(${step > 0 ? -16 : 16}deg)`, opacity: 0 }
@@ -41,6 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     deck.classList.add('is-enhanced');
     render();
+    desktop.addEventListener('change', render);
     deck.querySelector('.project-deck__controls').hidden = false;
     deck.querySelector('.project-deck__hint').hidden = false;
     deck.querySelectorAll('[data-step]').forEach(button => {
@@ -52,7 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
         move(event.key === 'ArrowRight' ? 1 : -1);
     });
     stage.addEventListener('pointerdown', event => {
-        if (!event.isPrimary || event.button !== 0 || event.target.closest('a')) return;
+        if (!event.isPrimary || event.button !== 0 || event.target.closest('a, button')) return;
         gesture = { id: event.pointerId, x: event.clientX, y: event.clientY };
         stage.setPointerCapture(event.pointerId);
     });
