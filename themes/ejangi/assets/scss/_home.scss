@@ -647,6 +647,17 @@
             transform: translateX(-142%) translateY(24px) rotate(-6deg) scale(.86);
             opacity: .75;
         }
+        @media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+            .project-card[data-position='0']:hover {
+                transform: translateX(-50%) scale(1.035);
+            }
+            .project-card[data-position='1']:hover {
+                transform: translateX(42%) translateY(24px) rotate(6deg) scale(.895);
+            }
+            .project-card[data-position='-1']:hover {
+                transform: translateX(-142%) translateY(24px) rotate(-6deg) scale(.895);
+            }
+        }
     }
 }
 
