@@ -10,7 +10,7 @@
 
     <!-- Check browser for Webp support: -->
     <script src="{{ print "js/modernizr-custom.js" | absURL }}"></script>
-    <script src="{{ print "js/ejangi.js" | absURL }}"></script>
+    <script data-cfasync="false" src="{{ print "js/ejangi.js" | absURL }}" defer></script>
     {{ if .Site.Params.CredlyId }}
     <script src="//cdn.credly.com/assets/utilities/embed.js" defer async></script>
     {{ end }}

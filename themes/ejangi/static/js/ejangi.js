@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', () => {
+function initialiseProjectDeck() {
     const deck = document.querySelector('.project-deck');
     if (!deck) return;
     const cards = Array.from(deck.querySelectorAll('.project-card'));
@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
             selectors[i].hidden = !selectable;
         });
-        count.textContent = `${current + 1} / ${cards.length}`;
+        if (!busy) count.textContent = `${current + 1} / ${cards.length}`;
     }
 
     function move(step) {
@@ -44,14 +44,16 @@ document.addEventListener('DOMContentLoaded', () => {
             deck.focus({ preventScroll: true });
         }
         const animation = reducedMotion.matches ? null : outgoing.animate([
-            { transform: 'translateX(-50%) rotate(0deg)', opacity: 1 },
-            { transform: `translateX(${step > 0 ? '-135%' : '35%'}) rotate(${step > 0 ? -16 : 16}deg)`, opacity: 0 }
-        ], { duration: 170, easing: 'ease-in', fill: 'forwards' });
+            { transform: getComputedStyle(outgoing).transform, opacity: 1, zIndex: 4, visibility: 'visible' },
+            { transform: `translateX(${step > 0 ? '-135%' : '35%'}) rotate(${step > 0 ? -16 : 16}deg)`, opacity: 0, zIndex: 4, visibility: 'visible' }
+        ], { duration: 220, easing: 'ease-in', fill: 'forwards' });
+        // Advance the stack now so the incoming card rises during the exit.
+        current = (current + step + cards.length) % cards.length;
+        render();
         const finish = () => {
-            current = (current + step + cards.length) % cards.length;
-            render();
             if (animation) animation.cancel();
             busy = false;
+            count.textContent = `${current + 1} / ${cards.length}`;
         };
         if (animation) animation.finished.then(finish, finish);
         else finish();
@@ -83,4 +85,11 @@ document.addEventListener('DOMContentLoaded', () => {
         if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy) * 1.3) move(dx < 0 ? 1 : -1);
     });
     stage.addEventListener('pointercancel', () => { gesture = null; });
-});
+}
+
+// Optimisers can load this script after DOMContentLoaded has already fired.
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initialiseProjectDeck, { once: true });
+} else {
+    initialiseProjectDeck();
+}
