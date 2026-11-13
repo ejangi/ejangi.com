@@ -128,7 +128,7 @@
 
         <div class="article-list">
             {{ $.Scratch.Set "index" 0 }}
-            {{ range first 5 (where .Site.Pages.ByDate.Reverse "Section" "gold") }}
+            {{ range first 4 (where .Site.RegularPages.ByDate.Reverse "Section" "gold") }}
             {{ if ne .Kind "section" }}
             <article class="list-item kind-{{ .Kind }} type-{{ .Type }}">
                 <a href="{{ .Params.link }}" target="_blank" title="{{ .Description | htmlEscape }}">
